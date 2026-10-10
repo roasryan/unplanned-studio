@@ -337,15 +337,26 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',
 if(PIXEL_ID){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init',PIXEL_ID);fbq('track','PageView')}
 
 // multi-step form: easy questions first
-const D={trade:'',want:'',size:'',goal:'',site:'',name:'',mobile:'',email:'',best:'Text',time:'Anytime',sms:false};
+const D={trade:'',want:'',size:'',capacity:'',bottleneck:'',answers:'',tracking:'',decider:'',timeline:'',avgJob:'',goal:'',site:'',name:'',mobile:'',email:'',best:'Text',time:'Anytime',sms:false};
 const TRADES=['Roofing','HVAC','Remodeling','Pools','Fencing / concrete','Foundation','Plumbing','Electrical / generators','Landscaping','Med spa','Something else'];
-const WANTS=['Under $500k a year','$500k–$1M','$1M–$3M','$3M–$10M','$10M+'];
-const SIZES=['Not running ads yet','Under $2,000 a month','$2,000–$5,000 a month','$5,000+ a month'];
+const Q={
+ want:['Under $150k a year','$150k–$500k','$500k–$1M','$1M–$3M','$3M+'],
+ size:['Not running ads yet','Under $2,000 a month','$2,000–$5,000 a month','$5,000+ a month'],
+ capacity:['Yes, easily','Yes, if we hire','No, we’re maxed out'],
+ bottleneck:['Not enough leads','Leads don’t turn into jobs','Too busy to keep up','Admin and getting paid'],
+ answers:['I do','Office staff','Answering service','Often missed'],
+ tracking:['Paper, texts or my head','Spreadsheet','Job software (Jobber, ServiceTitan…)','A CRM'],
+ avgJob:['Under $500','$500–$1,500','$1,500–$5,000','$5,000–$10,000','$10,000+'],
+ decider:['Yes, I decide','With a partner','Someone else'],
+ timeline:['This month','In 1–3 months','Just looking']};
+const opts=(k,q,small)=>`<p class="stepq"${small?' style="margin-top:8px;font-size:19px"':''}>${q}</p><div class="opts">${Q[k].map(t=>`<button type="button" class="opt" data-k="${k}" data-v="${esc(t)}" aria-pressed="${D[k]===t}">${esc(t)}</button>`).join('')}</div>`;
 let step=0;
 const S=[
  ()=>`<p class="stepq">What kind of business do you run?</p><div class="opts">${TRADES.map(t=>`<button type="button" class="opt" data-k="trade" data-v="${esc(t)}" aria-pressed="${D.trade===t}">${esc(t)}</button>`).join('')}</div>`,
- ()=>`<p class="stepq">About how much does your company do in a year?</p><div class="opts">${WANTS.map(t=>`<button type="button" class="opt" data-k="want" data-v="${esc(t)}" aria-pressed="${D.want===t}">${esc(t)}</button>`).join('')}</div>
-      <p class="stepq" style="margin-top:8px;font-size:19px">Monthly ad budget you're comfortable with?</p><div class="opts">${SIZES.map(t=>`<button type="button" class="opt" data-k="size" data-v="${esc(t)}" aria-pressed="${D.size===t}">${esc(t)}</button>`).join('')}</div>`,
+ ()=>opts('want','About how much does your company do in a year?')+opts('size','Monthly ad budget you’re comfortable with?',1),
+ ()=>opts('capacity','If we sent you 20 more booked jobs next month, could your team handle them?')+opts('bottleneck','What holds you back most right now?',1),
+ ()=>opts('answers','Who answers new calls and web leads?')+opts('tracking','How do you keep track of jobs and customers?',1),
+ ()=>opts('avgJob','What’s your average job worth?')+opts('decider','Are you the one who decides on marketing?',1)+opts('timeline','When would you want to start?',1),
  ()=>`<p class="stepq">Your website and your biggest goal</p><div class="field"><label for="fSite">Website address</label><input id="fSite" inputmode="url" autocomplete="url" placeholder="yourbusiness.com" value="${esc(D.site)}"></div>
    <div class="field"><label for="fGoal">What would make the next 12 months a win?</label><input id="fGoal" placeholder="10 more roof replacements a month" value="${esc(D.goal)}"></div>`,
  ()=>`<p class="stepq">Where should we reach you?</p>
@@ -358,21 +369,21 @@ const S=[
 ];
 function paint(){$('#lfSteps').innerHTML=S[step]();$('#lfBar').style.width=((step+1)/S.length*100)+'%';$('#lfBack').hidden=step===0;$('#lfNext').textContent=step===S.length-1?'Apply for my audit':'Next';$('#lfErr').hidden=true}
 function err(m){const e=$('#lfErr');e.textContent=m;e.hidden=false}
-function read(){if(step===2){D.site=$('#fSite').value.trim();D.goal=$('#fGoal').value.trim()}if(step===3){D.name=$('#fName').value.trim();D.mobile=$('#fMobile').value.trim();D.email=$('#fEmail').value.trim();D.best=$('#fBest').value;D.time=$('#fTime').value;D.sms=$('#fSms').checked}}
-function ok(){if(step===0&&!D.trade)return 'Pick your type of business.';if(step===1&&(!D.want||!D.size))return 'Pick one answer for each question.';if(step===2&&!D.site)return 'Add your website so we can audit it.';
-  if(step===3){if(!D.name)return 'Add your name.';if(D.mobile.replace(/\D/g,'').length<10)return 'Add a 10-digit mobile number.';if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(D.email))return 'Add an email like you@business.com.'}return ''}
+function read(){if(step===5){D.site=$('#fSite').value.trim();D.goal=$('#fGoal').value.trim()}if(step===6){D.name=$('#fName').value.trim();D.mobile=$('#fMobile').value.trim();D.email=$('#fEmail').value.trim();D.best=$('#fBest').value;D.time=$('#fTime').value;D.sms=$('#fSms').checked}}
+function ok(){if(step===0&&!D.trade)return 'Pick your type of business.';const need={1:['want','size'],2:['capacity','bottleneck'],3:['answers','tracking'],4:['avgJob','decider','timeline']}[step];if(need&&need.some(k=>!D[k]))return 'Pick one answer for each question.';if(step===5&&!D.site)return 'Add your website so we can audit it.';
+  if(step===6){if(!D.name)return 'Add your name.';if(D.mobile.replace(/\D/g,'').length<10)return 'Add a 10-digit mobile number.';if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(D.email))return 'Add an email like you@business.com.'}return ''}
 $('#lfSteps').addEventListener('click',e=>{const b=e.target.closest('.opt');if(!b)return;D[b.dataset.k]=b.dataset.v;paint();
   if(step===0)setTimeout(()=>{step=1;paint()},180)});
 $('#lfBack').addEventListener('click',()=>{read();step=Math.max(0,step-1);paint()});
 $('#lf').addEventListener('submit',async e=>{e.preventDefault();read();const m=ok();if(m)return err(m);
   if(step<S.length-1){step++;paint();return}
   const btn=$('#lfNext');btn.disabled=true;btn.textContent='Sending…';
-  const lead={action:'studio_lead',...D,revenue:D.want,adBudget:D.size,page:location.href.split('#')[0],ref:document.referrer||'',utm:location.search||'',at:new Date().toISOString()};
+  const lead={action:'studio_lead',...D,revenue:D.want,adBudget:D.size,source:'Landing page',page:location.href.split('#')[0],ref:document.referrer||'',utm:location.search||'',at:new Date().toISOString()};
   let sent=false;
   if(LEAD_ENDPOINT){try{await fetch(LEAD_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(lead)});sent=true}catch(x){sent=false}}
   if(window.fbq)try{fbq('track','Lead',{content_name:D.trade})}catch(x){}
   if(!sent){btn.disabled=false;btn.textContent='Apply for my audit';return err(LEAD_ENDPOINT?'That didn’t go through. Check your connection and try again.':'Preview only: the form sends once the live page is connected.')}
-  $('#lf').innerHTML=`<div class="done"><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="#7FD1A8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span><h3>You're in, ${esc(D.name.split(' ')[0])}.</h3><p class="lede">${D.want==='Under $500k a year'?'Thanks for applying. We\'ll look at your site and reply within 1 business day about whether we\'re the right fit right now.':`We'll ${D.best==='Call'?'call':D.best==='Email'?'email':'text'} you within 1 business hour to book your 15-minute audit.`}</p></div>`});
+  $('#lf').innerHTML=`<div class="done"><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="#7FD1A8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span><h3>You're in, ${esc(D.name.split(' ')[0])}.</h3><p class="lede">${D.want==='Under $150k a year'?'Thanks for applying. Right now we work with companies doing $150k+ a year, so we may not be the right fit yet. We\'ll reply within 1 business day either way.':D.capacity.startsWith('No')?'Thanks! Since your team is already full, we\'ll start with systems that free up your time, not more leads. We\'ll be in touch within 1 business hour, and we\'ll send you a free plan based on your answers.':`We'll ${D.best==='Call'?'call':D.best==='Email'?'email':'text'} you within 1 business hour to book your 15-minute audit. We\'ll also send you a free plan based on your answers.`}</p></div>`});
 paint();
 })();
 </script>
