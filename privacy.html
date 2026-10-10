@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0F141A">
+<title>Privacy · Unplanned Studio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one narrow column (Hormozi page: call-out → headline → video → button), then offer, guarantees, steps, FAQ, form. Single dark look by choice. */
+:root{
+  --ink:#0F141A;        /* page */
+  --slab:#161D25;       /* raised sections */
+  --line:#27313C;
+  --text:#EEF1F4;
+  --soft:#A9B4BF;
+  --brass:#D4AF5A;      /* the one accent: Signature / Concierge */
+  --onbrass:#17130A;
+  --ok:#7FD1A8;
+  --display:'Archivo',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --body:'Public Sans',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--text);font:400 18px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:var(--brass)}
+:focus-visible{outline:3px solid var(--brass);outline-offset:3px;border-radius:6px}
+.wrap{width:100%;max-width:1040px;margin:0 auto;padding-inline:max(18px,env(safe-area-inset-left))}
+.narrow{max-width:820px}
+h1,h2,h3{font-family:var(--display);font-variation-settings:'wdth' 108;line-height:1.04;letter-spacing:-.01em;margin:0;text-wrap:balance}
+h1{font-size:clamp(36px,6.4vw,64px);font-weight:880}
+h2{font-size:clamp(30px,4.4vw,46px);font-weight:850}
+h3{font-size:22px;font-weight:800}
+p{margin:0}
+.eyebrow{font:700 13px/1.2 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--brass)}
+.lede{color:var(--soft);max-width:62ch}
+section{padding-block:72px}
+.slab{background:var(--slab);border-block:1px solid var(--line)}
+
+/* top bar */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--ink) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px}
+.logo{display:flex;align-items:center;gap:10px;color:var(--text);text-decoration:none;font:850 20px/1 var(--display);font-variation-settings:'wdth' 118;letter-spacing:.01em}
+.logo svg{width:30px;height:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;border-radius:12px;border:0;font:800 17px/1 var(--body);text-decoration:none;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn-main{background:var(--brass);color:var(--onbrass);box-shadow:0 10px 30px -12px color-mix(in srgb,var(--brass) 70%,transparent)}
+.btn-main:hover{transform:translateY(-2px)}
+.btn-line{background:transparent;color:var(--text);border:1.5px solid var(--line)}
+.top .btn{min-height:42px;padding:0 16px;font-size:15px}
+
+/* hero */
+.hero{padding-block:44px 64px;text-align:center}
+.hero .wrap{display:grid;gap:22px;justify-items:center}
+.callout{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:8px 16px;font:700 14px/1.3 var(--body);color:var(--soft)}
+.callout b{color:var(--text)}
+.hero h1 em{font-style:normal;color:var(--brass)}
+.hero .sub{font-size:20px;color:var(--soft);max-width:44ch}
+.vsl{position:relative;width:100%;max-width:880px;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:radial-gradient(120% 90% at 30% 20%,#223042 0%,#121922 60%);border:1px solid var(--line);box-shadow:0 30px 80px -40px #000}
+.vsl video,.vsl iframe{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}
+.vsl .ph{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:14px;color:var(--soft);padding:20px}
+.vsl .play{width:84px;height:84px;border-radius:50%;background:var(--brass);display:grid;place-items:center;box-shadow:0 0 0 12px color-mix(in srgb,var(--brass) 18%,transparent)}
+.vsl .play svg{width:30px;height:30px;margin-left:5px}
+.vsl .ph b{font:800 20px/1.2 var(--display);color:var(--text)}
+.under{display:grid;gap:10px;justify-items:center}
+.under small{color:var(--soft);font-size:15px}
+.ticks{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;list-style:none;padding:0;margin:4px 0 0;color:var(--soft);font-size:15px}
+.ticks li::before{content:'✓';color:var(--ok);font-weight:800;margin-right:7px}
+
+/* proof */
+.proof .wrap{display:grid;gap:22px}
+.demos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;list-style:none;padding:0;margin:0}
+.demos a{display:flex;flex-direction:column;gap:4px;padding:16px 18px;border:1px solid var(--line);border-radius:14px;color:var(--text);text-decoration:none;background:var(--ink);min-height:100%}
+.demos a:hover{border-color:var(--brass)}
+.demos b{font:800 17px/1.2 var(--display)}
+.demos span{color:var(--soft);font-size:14px}
+
+/* problem */
+.leaks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;list-style:none;padding:0;margin:28px 0 0}
+.leaks li{padding:20px;border-left:3px solid var(--brass);background:var(--slab);border-radius:0 12px 12px 0}
+.leaks b{display:block;font:800 19px/1.25 var(--display);margin-bottom:6px}
+.leaks span{color:var(--soft);font-size:16px}
+
+/* packages */
+.tiers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:30px}
+.tier{border:1px solid var(--line);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:14px;background:var(--ink)}
+.tier.pro{border-color:var(--brass);background:linear-gradient(180deg,color-mix(in srgb,var(--brass) 9%,var(--ink)),var(--ink) 40%)}
+.tier .name{font:900 34px/1 var(--display);font-variation-settings:'wdth' 118;letter-spacing:.01em}
+.tier .for{color:var(--soft)}
+.tier ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
+.tier li{padding-left:26px;position:relative;font-size:16.5px;line-height:1.45}
+.tier li::before{content:'';position:absolute;left:2px;top:.45em;width:12px;height:7px;border-left:2.5px solid var(--ok);border-bottom:2.5px solid var(--ok);transform:rotate(-45deg)}
+.tier .plus{font-weight:700;color:var(--brass)}
+.tier .btn{margin-top:auto}
+.badge{align-self:flex-start;background:var(--brass);color:var(--onbrass);font:800 12px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;padding:7px 10px;border-radius:999px}
+.price-note{margin-top:18px;color:var(--soft);font-size:16px}
+
+/* guarantees */
+.guars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:28px}
+.guar{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--ink)}
+.guar svg{width:40px;height:40px}
+.guar b{display:block;font:800 19px/1.25 var(--display);margin-bottom:4px}
+.guar span{color:var(--soft);font-size:16px}
+
+/* steps */
+.steps{list-style:none;padding:0;margin:28px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;counter-reset:s}
+.steps li{counter-increment:s;padding:22px;border:1px solid var(--line);border-radius:16px}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--brass);color:var(--onbrass);font:900 18px/1 var(--display);margin-bottom:12px}
+.steps b{display:block;font:800 20px/1.2 var(--display);margin-bottom:6px}
+.steps span{color:var(--soft);font-size:16px}
+.steps em{font-style:normal;color:var(--text);font-weight:700}
+
+/* faq */
+.qs{margin-top:24px;display:grid;gap:10px}
+.qs details{border:1px solid var(--line);border-radius:14px;background:var(--ink)}
+.qs summary{cursor:pointer;list-style:none;padding:18px 20px;font:700 18px/1.35 var(--body);display:flex;justify-content:space-between;gap:16px}
+.qs summary::-webkit-details-marker{display:none}
+.qs summary::after{content:'+';color:var(--brass);font-weight:800;font-size:22px;line-height:1}
+.qs details[open] summary::after{content:'–'}
+.qs details p{padding:0 20px 18px;color:var(--soft)}
+
+/* form */
+.formsec .wrap{display:grid;gap:26px;justify-items:center;text-align:center}
+.card{width:100%;max-width:620px;text-align:left;background:var(--slab);border:1px solid var(--line);border-radius:20px;padding:26px;display:grid;gap:18px}
+.bar{height:6px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:25%;background:var(--brass);transition:width .3s}
+.stepq{font:800 22px/1.25 var(--display)}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.opt{min-height:54px;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--ink);color:var(--text);font:600 16px/1.25 var(--body);text-align:left;cursor:pointer}
+.opt:hover,.opt[aria-pressed="true"]{border-color:var(--brass);background:color-mix(in srgb,var(--brass) 12%,var(--ink))}
+.field{display:grid;gap:6px}
+.field label{font-weight:700;font-size:15px}
+.field input,.field select{min-height:52px;border-radius:12px;border:1.5px solid var(--line);background:var(--ink);color:var(--text);font:500 17px var(--body);padding:0 14px;width:100%}
+.field input:focus,.field select:focus{border-color:var(--brass);outline:none}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.consent{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;font-size:13.5px;line-height:1.45;color:var(--soft)}
+.consent input{width:20px;height:20px;margin-top:2px;accent-color:var(--brass)}
+.nav{display:flex;gap:10px;justify-content:space-between;align-items:center}
+.back{background:none;border:0;color:var(--soft);font:600 16px var(--body);cursor:pointer;padding:8px 0}
+.err{color:#FFB4A8;font-size:15px;font-weight:600}
+.done{text-align:center;display:grid;gap:12px;justify-items:center}
+.done .ok{width:64px;height:64px;border-radius:50%;background:color-mix(in srgb,var(--ok) 18%,transparent);display:grid;place-items:center}
+.done .ok svg{width:30px;height:30px}
+
+footer{padding-block:34px 44px;border-top:1px solid var(--line);color:var(--soft);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center}
+footer nav{display:flex;gap:18px}
+footer a{color:var(--soft)}
+
+@media (max-width:760px){
+  section{padding-block:56px}
+  .demos,.leaks,.tiers,.guars,.steps{grid-template-columns:1fr}
+  .opts,.two{grid-template-columns:1fr}
+  .hero .sub{font-size:18px}
+  .top .btn span{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style><style>.legal h2{font-size:24px;margin:28px 0 8px}.legal p,.legal li{color:var(--soft);max-width:68ch}.legal ul{padding-left:20px;display:grid;gap:6px}</style>
+</head><body>
+<header class="top"><div class="wrap"><a class="logo" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="3" width="26" height="26" rx="7" fill="none" stroke="#D4AF5A" stroke-width="2.6"/><path d="M10 11v7a6 6 0 0 0 12 0v-7" fill="none" stroke="#EEF1F4" stroke-width="2.8" stroke-linecap="round"/></svg>Unplanned Studio</a><a class="btn btn-main" href="index.html#demo">Free demo<span>&nbsp;site</span></a></div></header>
+<main><section><div class="wrap narrow legal">
+<p class="eyebrow">Last updated October 10, 2026</p>
+<h1 style="font-size:clamp(34px,5vw,48px);margin:10px 0 24px">Privacy policy</h1>
+<h2>Who we are</h2><p>Unplanned Studio, Houston, Texas ("we"). We build websites, booking and business apps for local businesses. Questions about your information: use the form on our home page and say "privacy".</p>
+<h2>What we collect</h2><p>Only what you type into our forms or Meta lead forms: your name, mobile number, email, business type, your current website, what you need, the best way and time to reach you, and whether you agreed to texts. We also record the page you came from and ad campaign tags. If our Meta Pixel is on, Meta may record that you visited and submitted a form.</p>
+<h2>How we use it</h2><ul><li>To build and send your free demo and contact you about it.</li><li>To answer your questions and set up a call.</li><li>To measure which ads work, in total, not to sell your data.</li></ul>
+<h2>Text messages</h2><p>We text you only if you check the text box. Texts are about your request: your demo, call times and replies. No marketing blasts. Usually 1–4 messages per request. Message and data rates may apply. Reply STOP to stop, HELP for help.</p><p><b>We do not share, sell, rent or transfer your mobile number, SMS opt-in or consent to third parties or affiliates for marketing or promotional purposes.</b></p>
+<h2>Who helps us run this</h2><p>Google (form storage and email), Meta (ads and lead forms), our text-message provider, and GitHub (website hosting). They process your information only to provide those services to us.</p>
+<h2>How long we keep it</h2><p>As long as we're talking about a project, plus any records the law requires. Ask us to delete your information at any time through the form.</p>
+<h2>Your choices</h2><ul><li>Stop texts: reply STOP.</li><li>See, correct or delete your information: contact us through the form.</li><li>Our forms are for business owners 18 and older.</li></ul>
+<h2>Changes</h2><p>If we change this policy we update the date at the top.</p>
+</div></section></main>
+<footer><div class="wrap"><span>© 2026 Unplanned Studio · Houston, TX</span><nav aria-label="Legal"><a href="index.html">Home</a></nav></div></footer>
+</body></html>
