@@ -158,6 +158,7 @@ footer a{color:var(--soft)}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 .steph{margin:0 0 4px;font:800 13px/1 var(--body,inherit);letter-spacing:.08em;text-transform:uppercase;color:#D4AF5A}
+.catnote{margin:14px 0 0;padding:10px 14px;border-left:3px solid var(--brass);background:rgba(255,255,255,.04);border-radius:10px;color:var(--soft);font-size:15px}.done .conf{margin:6px 0 0;color:var(--soft);font-size:15px}
 
 .spots{display:grid;gap:14px;margin-top:22px}@media(min-width:860px){.spots{grid-template-columns:repeat(3,1fr)}}
 .spot{border:1px solid var(--line);border-radius:18px;padding:20px;background:rgba(255,255,255,.03);display:grid;gap:8px;align-content:start}
@@ -236,15 +237,16 @@ footer a{color:var(--soft)}
   <section class="slab proof" aria-labelledby="proofH">
     <div class="wrap">
       <p class="eyebrow">Proof you can click</p>
-      <h2 id="proofH">25 working demo sites. Try one on your phone.</h2>
+      <h2 id="proofH">Our catalog: 25 working demo sites. Try one on your phone.</h2>
       <p class="lede">Book a visit, send a question, then open the owner app and see the lead land in seconds. These are demo businesses; yours is built around your services, crews, photos and prices.</p>
+      <p class="catnote">In the catalog, confirmation texts and emails, reminders and the owner CRM are switched off, so nothing is sent to you. We turn them on for your business during your discovery call.</p>
       <ul class="demos">
         <li><a href="https://roasryan.github.io/ridgeline-demo/" target="_blank" rel="noopener"><b>Roofing</b><span>Instant quote, booking, customer portal, crew app</span></a></li>
         <li><a href="https://roasryan.github.io/houston-templates/hvac/" target="_blank" rel="noopener"><b>HVAC</b><span>Book a tune-up, maintenance plan, owner app</span></a></li>
         <li><a href="https://roasryan.github.io/houston-templates/plumbing/" target="_blank" rel="noopener"><b>Plumbing</b><span>Leak and drain booking, city pages, alerts</span></a></li>
         <li><a href="https://roasryan.github.io/houston-templates/hair-salon/" target="_blank" rel="noopener"><b>Hair salon</b><span>Appointments by service and stylist</span></a></li>
         <li><a href="https://roasryan.github.io/houston-templates/landscaping/" target="_blank" rel="noopener"><b>Landscaping</b><span>Lawn plans, estimates, crew schedule</span></a></li>
-        <li><a href="https://roasryan.github.io/houston-templates/" target="_blank" rel="noopener"><b>All 24 trades</b><span>Auto, cleaning, med spa, towing and more</span></a></li>
+        <li><a href="https://roasryan.github.io/houston-templates/" target="_blank" rel="noopener"><b>Full catalog</b><span>All 24 trades: auto, cleaning, med spa, towing and more</span></a></li>
       </ul>
     </div>
   </section>
@@ -434,7 +436,7 @@ $('#lf').addEventListener('submit',async e=>{e.preventDefault();read();const m=o
   if(LEAD_ENDPOINT){try{await fetch(LEAD_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(lead)});sent=true}catch(x){sent=false}}
   if(window.fbq)try{fbq('track','Lead',{content_name:D.trade})}catch(x){}
   if(!sent){btn.disabled=false;btn.textContent='Apply for my audit';return err(LEAD_ENDPOINT?'That didn’t go through. Check your connection and try again.':'Preview only: the form sends once the live page is connected.')}
-  $('#lf').innerHTML=`<div class="done"><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="#7FD1A8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span><h3>You're in, ${esc(D.name.split(' ')[0])}.</h3><p class="lede">${D.want==='Under $150k a year'?'Thanks for applying. Right now we work with companies doing $150k+ a year, so we may not be the right fit yet. We\'ll reply within 1 business day either way.':D.capacity.startsWith('No')?'Thanks! Since your team is already full, we\'ll start with systems that free up your time, not more leads. We\'ll be in touch within 1 business hour, and we\'ll send you a free plan based on your answers.':`We'll ${D.best==='Call'?'call':D.best==='Email'?'email':'text'} you within 1 business hour to book your 15-minute audit. We\'ll also send you a free plan based on your answers.`}</p></div>`});
+  $('#lf').innerHTML=`<div class="done"><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="#7FD1A8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span><h3>You're in, ${esc(D.name.split(' ')[0])}.</h3><p class="conf">Confirmation sent to ${esc(D.email)}${D.sms&&D.mobile?' and '+esc(D.mobile):''}.</p><p class="lede">${D.want==='Under $150k a year'?'Thanks for applying. Right now we work with companies doing $150k+ a year, so we may not be the right fit yet. We\'ll reply within 1 business day either way.':D.capacity.startsWith('No')?'Thanks! Since your team is already full, we\'ll start with systems that free up your time, not more leads. We\'ll be in touch within 1 business hour, and we\'ll send you a free plan based on your answers.':`We'll ${D.best==='Call'?'call':D.best==='Email'?'email':'text'} you within 1 business hour to book your 15-minute audit. We\'ll also send you a free plan based on your answers.`}</p></div>`});
 paint();
 })();
 </script>
