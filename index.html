@@ -3,8 +3,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0F141A">
 <title>Unplanned Studio</title>
-<meta name="description" content="For Houston home service companies doing $1M+ a year: booking system, ads and 60-second lead response, with a booked-appointment guarantee. Apply for a free Growth Audit.">
-<meta property="og:title" content="Unplanned Studio: more booked jobs in 90 days"><meta property="og:description" content="Free 15-minute Growth Audit for Houston home service companies doing $1M+ a year."><meta property="og:type" content="website">
+<meta name="description" content="For Houston home service companies doing $150k+ a year: booking system, ads and 60-second lead response, with a booked-appointment guarantee. Apply for a free Growth Audit.">
+<meta property="og:title" content="Unplanned Studio: more booked jobs in 90 days"><meta property="og:description" content="Free 15-minute Growth Audit for Houston home service companies doing $150k+ a year."><meta property="og:type" content="website">
 
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Public+Sans:wght@400;500;600;700&display=swap">
@@ -157,6 +157,7 @@ footer a{color:var(--soft)}
   .top .btn span{display:none}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.steph{margin:0 0 4px;font:800 13px/1 var(--body,inherit);letter-spacing:.08em;text-transform:uppercase;color:#D4AF5A}
 </style>
 
 </head><body>
@@ -170,7 +171,7 @@ footer a{color:var(--soft)}
 <main id="top">
   <section class="hero">
     <div class="wrap">
-      <p class="callout"><b>For Houston home service companies doing $1M+ a year</b></p>
+      <p class="callout"><b>For Houston home service companies doing $150k+ a year</b></p>
       <h1>More booked jobs in 90 days, <em>without adding office staff.</em></h1>
       <p class="sub">We build your booking system, run your ads and answer every lead in 60 seconds. We set a booked-appointment target together. Miss it, and our fee stops until we hit it.</p>
       <div class="vsl" id="vsl" data-src="">
@@ -337,28 +338,26 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',
 if(PIXEL_ID){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init',PIXEL_ID);fbq('track','PageView')}
 
 // multi-step form: easy questions first
-const D={trade:'',want:'',size:'',capacity:'',bottleneck:'',answers:'',tracking:'',decider:'',timeline:'',avgJob:'',goal:'',site:'',name:'',mobile:'',email:'',best:'Text',time:'Anytime',sms:false};
+const D={trade:'',want:'',size:'',capacity:'',bottleneck:'',avgJob:'',timeline:'',sources:[],site:'',noSite:false,name:'',mobile:'',email:'',best:'Text',time:'Anytime',sms:false};
 const TRADES=['Roofing','HVAC','Remodeling','Pools','Fencing / concrete','Foundation','Plumbing','Electrical / generators','Landscaping','Med spa','Something else'];
 const Q={
  want:['Under $150k a year','$150k–$500k','$500k–$1M','$1M–$3M','$3M+'],
- size:['Not running ads yet','Under $2,000 a month','$2,000–$5,000 a month','$5,000+ a month'],
+ avgJob:['Under $500','$500–$1,500','$1,500–$5,000','$5,000–$10,000','$10,000+'],
+ sources:['Referrals and word of mouth','Google search or Maps','Paid ads (Google or Meta)','Angi, Thumbtack or HomeAdvisor','Door knocking, signs or mail','Repeat customers'],
  capacity:['Yes, easily','Yes, if we hire','No, we’re maxed out'],
  bottleneck:['Not enough leads','Leads don’t turn into jobs','Too busy to keep up','Admin and getting paid'],
- answers:['I do','Office staff','Answering service','Often missed'],
- tracking:['Paper, texts or my head','Spreadsheet','Job software (Jobber, ServiceTitan…)','A CRM'],
- avgJob:['Under $500','$500–$1,500','$1,500–$5,000','$5,000–$10,000','$10,000+'],
- decider:['Yes, I decide','With a partner','Someone else'],
+ size:['Not running ads yet','Under $2,000 a month','$2,000–$5,000 a month','$5,000+ a month'],
  timeline:['This month','In 1–3 months','Just looking']};
-const opts=(k,q,small)=>`<p class="stepq"${small?' style="margin-top:8px;font-size:19px"':''}>${q}</p><div class="opts">${Q[k].map(t=>`<button type="button" class="opt" data-k="${k}" data-v="${esc(t)}" aria-pressed="${D[k]===t}">${esc(t)}</button>`).join('')}</div>`;
+const opts=(k,q,first)=>`<p class="stepq"${first?'':' style="margin-top:10px;font-size:19px"'}>${q}</p><div class="opts">${Q[k].map(t=>`<button type="button" class="opt" data-k="${k}" data-v="${esc(t)}" aria-pressed="${D[k]===t}">${esc(t)}</button>`).join('')}</div>`;
+const multi=(k,q)=>`<p class="stepq" style="margin-top:10px;font-size:19px">${q} <small style="font-weight:600;opacity:.7">Pick all that apply</small></p><div class="opts">${Q[k].map(t=>`<button type="button" class="opt" data-m="1" data-k="${k}" data-v="${esc(t)}" aria-pressed="${D[k].includes(t)}">${esc(t)}</button>`).join('')}</div>`;
 let step=0;
 const S=[
  ()=>`<p class="stepq">What kind of business do you run?</p><div class="opts">${TRADES.map(t=>`<button type="button" class="opt" data-k="trade" data-v="${esc(t)}" aria-pressed="${D.trade===t}">${esc(t)}</button>`).join('')}</div>`,
- ()=>opts('want','About how much does your company do in a year?')+opts('size','Monthly ad budget you’re comfortable with?',1),
- ()=>opts('capacity','If we sent you 20 more booked jobs next month, could your team handle them?')+opts('bottleneck','What holds you back most right now?',1),
- ()=>opts('answers','Who answers new calls and web leads?')+opts('tracking','How do you keep track of jobs and customers?',1),
- ()=>opts('avgJob','What’s your average job worth?')+opts('decider','Are you the one who decides on marketing?',1)+opts('timeline','When would you want to start?',1),
- ()=>`<p class="stepq">Your website and your biggest goal</p><div class="field"><label for="fSite">Website address</label><input id="fSite" inputmode="url" autocomplete="url" placeholder="yourbusiness.com" value="${esc(D.site)}"></div>
-   <div class="field"><label for="fGoal">What would make the next 12 months a win?</label><input id="fGoal" placeholder="10 more roof replacements a month" value="${esc(D.goal)}"></div>`,
+ ()=>`<p class="steph">Your business today</p>`+opts('want','About how much does your company do in a year?',1)+opts('avgJob','What’s your average job worth?')+multi('sources','Where do most of your customers come from now?'),
+ ()=>`<p class="steph">Where it gets stuck</p>`+opts('capacity','If we sent you 20 more booked jobs next month, could your team handle them?',1)+opts('bottleneck','What holds you back most right now?'),
+ ()=>`<p class="steph">Getting started</p>`+opts('size','Monthly ad budget you’re comfortable with?',1)+opts('timeline','When would you want to start?')+
+   `<div class="field" style="margin-top:12px"><label for="fSite">Your website</label><input id="fSite" inputmode="url" autocomplete="url" placeholder="yourbusiness.com" value="${esc(D.site)}" ${D.noSite?'disabled':''}></div>
+   <label class="consent" style="margin-top:6px"><input type="checkbox" id="fNoSite" ${D.noSite?'checked':''}><span>I don’t have a website yet</span></label>`,
  ()=>`<p class="stepq">Where should we reach you?</p>
    <div class="field"><label for="fName">Your name</label><input id="fName" autocomplete="name" value="${esc(D.name)}"></div>
    <div class="two"><div class="field"><label for="fMobile">Mobile number</label><input id="fMobile" type="tel" inputmode="tel" autocomplete="tel" placeholder="(713) 555-0100" value="${esc(D.mobile)}"></div>
@@ -369,16 +368,17 @@ const S=[
 ];
 function paint(){$('#lfSteps').innerHTML=S[step]();$('#lfBar').style.width=((step+1)/S.length*100)+'%';$('#lfBack').hidden=step===0;$('#lfNext').textContent=step===S.length-1?'Apply for my audit':'Next';$('#lfErr').hidden=true}
 function err(m){const e=$('#lfErr');e.textContent=m;e.hidden=false}
-function read(){if(step===5){D.site=$('#fSite').value.trim();D.goal=$('#fGoal').value.trim()}if(step===6){D.name=$('#fName').value.trim();D.mobile=$('#fMobile').value.trim();D.email=$('#fEmail').value.trim();D.best=$('#fBest').value;D.time=$('#fTime').value;D.sms=$('#fSms').checked}}
-function ok(){if(step===0&&!D.trade)return 'Pick your type of business.';const need={1:['want','size'],2:['capacity','bottleneck'],3:['answers','tracking'],4:['avgJob','decider','timeline']}[step];if(need&&need.some(k=>!D[k]))return 'Pick one answer for each question.';if(step===5&&!D.site)return 'Add your website so we can audit it.';
-  if(step===6){if(!D.name)return 'Add your name.';if(D.mobile.replace(/\D/g,'').length<10)return 'Add a 10-digit mobile number.';if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(D.email))return 'Add an email like you@business.com.'}return ''}
-$('#lfSteps').addEventListener('click',e=>{const b=e.target.closest('.opt');if(!b)return;D[b.dataset.k]=b.dataset.v;paint();
+function read(){if(step===3){D.site=$('#fSite').value.trim();D.noSite=$('#fNoSite').checked;if(D.noSite)D.site='N/A'}if(step===4){D.name=$('#fName').value.trim();D.mobile=$('#fMobile').value.trim();D.email=$('#fEmail').value.trim();D.best=$('#fBest').value;D.time=$('#fTime').value;D.sms=$('#fSms').checked}}
+function ok(){if(step===0&&!D.trade)return 'Pick your type of business.';const need={1:['want','avgJob'],2:['capacity','bottleneck'],3:['size','timeline']}[step];if(need&&need.some(k=>!D[k]))return 'Pick one answer for each question.';if(step===1&&!D.sources.length)return 'Pick where your customers come from.';if(step===3&&!D.site&&!D.noSite)return 'Add your website, or tick “I don’t have a website yet.”';
+  if(step===4){if(!D.name)return 'Add your name.';if(D.mobile.replace(/\D/g,'').length<10)return 'Add a 10-digit mobile number.';if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(D.email))return 'Add an email like you@business.com.'}return ''}
+$('#lfSteps').addEventListener('change',e=>{if(e.target.id==='fNoSite'){D.noSite=e.target.checked;const f=$('#fSite');f.disabled=D.noSite;if(D.noSite)f.value=''}});
+$('#lfSteps').addEventListener('click',e=>{const b=e.target.closest('.opt');if(!b)return;if(step===3){D.site=$('#fSite').value.trim()}if(b.dataset.m){const a=D[b.dataset.k],i=a.indexOf(b.dataset.v);i<0?a.push(b.dataset.v):a.splice(i,1);b.setAttribute('aria-pressed',String(i<0));return}D[b.dataset.k]=b.dataset.v;paint();
   if(step===0)setTimeout(()=>{step=1;paint()},180)});
 $('#lfBack').addEventListener('click',()=>{read();step=Math.max(0,step-1);paint()});
 $('#lf').addEventListener('submit',async e=>{e.preventDefault();read();const m=ok();if(m)return err(m);
   if(step<S.length-1){step++;paint();return}
   const btn=$('#lfNext');btn.disabled=true;btn.textContent='Sending…';
-  const lead={action:'studio_lead',...D,revenue:D.want,adBudget:D.size,source:'Landing page',page:location.href.split('#')[0],ref:document.referrer||'',utm:location.search||'',at:new Date().toISOString()};
+  const lead={action:'studio_lead',...D,sources:D.sources.join(', '),revenue:D.want,adBudget:D.size,source:window.LEAD_SOURCE||'Landing page',program:window.PROGRAM||'',page:location.href.split('#')[0],ref:document.referrer||'',utm:location.search||'',at:new Date().toISOString()};
   let sent=false;
   if(LEAD_ENDPOINT){try{await fetch(LEAD_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(lead)});sent=true}catch(x){sent=false}}
   if(window.fbq)try{fbq('track','Lead',{content_name:D.trade})}catch(x){}

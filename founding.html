@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0F141A">
+<title>Founding Partner Program · Unplanned Studio</title>
+<meta name="description" content="Founding Partner Program for Houston home service companies doing $150k+ a year: 5 spots, the first 2 get the build free for a case study.">
+<meta property="og:title" content="Unplanned Studio founding partners: 5 Houston spots"><meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one narrow column (Hormozi page: call-out → headline → video → button), then offer, guarantees, steps, FAQ, form. Single dark look by choice. */
+:root{
+  --ink:#0F141A;        /* page */
+  --slab:#161D25;       /* raised sections */
+  --line:#27313C;
+  --text:#EEF1F4;
+  --soft:#A9B4BF;
+  --brass:#D4AF5A;      /* the one accent: Signature / Concierge */
+  --onbrass:#17130A;
+  --ok:#7FD1A8;
+  --display:'Archivo',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --body:'Public Sans',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--text);font:400 18px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:var(--brass)}
+:focus-visible{outline:3px solid var(--brass);outline-offset:3px;border-radius:6px}
+.wrap{width:100%;max-width:1040px;margin:0 auto;padding-inline:max(18px,env(safe-area-inset-left))}
+.narrow{max-width:820px}
+h1,h2,h3{font-family:var(--display);font-variation-settings:'wdth' 108;line-height:1.04;letter-spacing:-.01em;margin:0;text-wrap:balance}
+h1{font-size:clamp(36px,6.4vw,64px);font-weight:880}
+h2{font-size:clamp(30px,4.4vw,46px);font-weight:850}
+h3{font-size:22px;font-weight:800}
+p{margin:0}
+.eyebrow{font:700 13px/1.2 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--brass)}
+.lede{color:var(--soft);max-width:62ch}
+section{padding-block:72px}
+.slab{background:var(--slab);border-block:1px solid var(--line)}
+
+/* top bar */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--ink) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px}
+.logo{display:flex;align-items:center;gap:10px;color:var(--text);text-decoration:none;font:850 20px/1 var(--display);font-variation-settings:'wdth' 118;letter-spacing:.01em}
+.logo svg{width:30px;height:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;border-radius:12px;border:0;font:800 17px/1 var(--body);text-decoration:none;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn-main{background:var(--brass);color:var(--onbrass);box-shadow:0 10px 30px -12px color-mix(in srgb,var(--brass) 70%,transparent)}
+.btn-main:hover{transform:translateY(-2px)}
+.btn-line{background:transparent;color:var(--text);border:1.5px solid var(--line)}
+.top .btn{min-height:42px;padding:0 16px;font-size:15px}
+
+/* hero */
+.hero{padding-block:44px 64px;text-align:center}
+.hero .wrap{display:grid;gap:22px;justify-items:center}
+.callout{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:8px 16px;font:700 14px/1.3 var(--body);color:var(--soft)}
+.callout b{color:var(--text)}
+.hero h1 em{font-style:normal;color:var(--brass)}
+.hero .sub{font-size:20px;color:var(--soft);max-width:44ch}
+.vsl{position:relative;width:100%;max-width:880px;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:radial-gradient(120% 90% at 30% 20%,#223042 0%,#121922 60%);border:1px solid var(--line);box-shadow:0 30px 80px -40px #000}
+.vsl video,.vsl iframe{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}
+.vsl .ph{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:14px;color:var(--soft);padding:20px}
+.vsl .play{width:84px;height:84px;border-radius:50%;background:var(--brass);display:grid;place-items:center;box-shadow:0 0 0 12px color-mix(in srgb,var(--brass) 18%,transparent)}
+.vsl .play svg{width:30px;height:30px;margin-left:5px}
+.vsl .ph b{font:800 20px/1.2 var(--display);color:var(--text)}
+.under{display:grid;gap:10px;justify-items:center}
+.under small{color:var(--soft);font-size:15px}
+.ticks{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;list-style:none;padding:0;margin:4px 0 0;color:var(--soft);font-size:15px}
+.ticks li::before{content:'✓';color:var(--ok);font-weight:800;margin-right:7px}
+
+/* proof */
+.proof .wrap{display:grid;gap:22px}
+.demos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;list-style:none;padding:0;margin:0}
+.demos a{display:flex;flex-direction:column;gap:4px;padding:16px 18px;border:1px solid var(--line);border-radius:14px;color:var(--text);text-decoration:none;background:var(--ink);min-height:100%}
+.demos a:hover{border-color:var(--brass)}
+.demos b{font:800 17px/1.2 var(--display)}
+.demos span{color:var(--soft);font-size:14px}
+
+/* problem */
+.leaks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;list-style:none;padding:0;margin:28px 0 0}
+.leaks li{padding:20px;border-left:3px solid var(--brass);background:var(--slab);border-radius:0 12px 12px 0}
+.leaks b{display:block;font:800 19px/1.25 var(--display);margin-bottom:6px}
+.leaks span{color:var(--soft);font-size:16px}
+
+/* packages */
+.tiers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:30px}
+.tier{border:1px solid var(--line);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:14px;background:var(--ink)}
+.tier.pro{border-color:var(--brass);background:linear-gradient(180deg,color-mix(in srgb,var(--brass) 9%,var(--ink)),var(--ink) 40%)}
+.tier .name{font:900 34px/1 var(--display);font-variation-settings:'wdth' 118;letter-spacing:.01em}
+.tier .for{color:var(--soft)}
+.tier ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
+.tier li{padding-left:26px;position:relative;font-size:16.5px;line-height:1.45}
+.tier li::before{content:'';position:absolute;left:2px;top:.45em;width:12px;height:7px;border-left:2.5px solid var(--ok);border-bottom:2.5px solid var(--ok);transform:rotate(-45deg)}
+.tier .plus{font-weight:700;color:var(--brass)}
+.tier .btn{margin-top:auto}
+.badge{align-self:flex-start;background:var(--brass);color:var(--onbrass);font:800 12px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;padding:7px 10px;border-radius:999px}
+.price-note{margin-top:18px;color:var(--soft);font-size:16px}
+
+/* guarantees */
+.guars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:28px}
+.guar{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--ink)}
+.guar svg{width:40px;height:40px}
+.guar b{display:block;font:800 19px/1.25 var(--display);margin-bottom:4px}
+.guar span{color:var(--soft);font-size:16px}
+
+/* steps */
+.steps{list-style:none;padding:0;margin:28px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;counter-reset:s}
+.steps li{counter-increment:s;padding:22px;border:1px solid var(--line);border-radius:16px}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--brass);color:var(--onbrass);font:900 18px/1 var(--display);margin-bottom:12px}
+.steps b{display:block;font:800 20px/1.2 var(--display);margin-bottom:6px}
+.steps span{color:var(--soft);font-size:16px}
+.steps em{font-style:normal;color:var(--text);font-weight:700}
+
+/* faq */
+.qs{margin-top:24px;display:grid;gap:10px}
+.qs details{border:1px solid var(--line);border-radius:14px;background:var(--ink)}
+.qs summary{cursor:pointer;list-style:none;padding:18px 20px;font:700 18px/1.35 var(--body);display:flex;justify-content:space-between;gap:16px}
+.qs summary::-webkit-details-marker{display:none}
+.qs summary::after{content:'+';color:var(--brass);font-weight:800;font-size:22px;line-height:1}
+.qs details[open] summary::after{content:'–'}
+.qs details p{padding:0 20px 18px;color:var(--soft)}
+
+/* form */
+.formsec .wrap{display:grid;gap:26px;justify-items:center;text-align:center}
+.card{width:100%;max-width:620px;text-align:left;background:var(--slab);border:1px solid var(--line);border-radius:20px;padding:26px;display:grid;gap:18px}
+.bar{height:6px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:25%;background:var(--brass);transition:width .3s}
+.stepq{font:800 22px/1.25 var(--display)}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.opt{min-height:54px;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--ink);color:var(--text);font:600 16px/1.25 var(--body);text-align:left;cursor:pointer}
+.opt:hover,.opt[aria-pressed="true"]{border-color:var(--brass);background:color-mix(in srgb,var(--brass) 12%,var(--ink))}
+.field{display:grid;gap:6px}
+.field label{font-weight:700;font-size:15px}
+.field input,.field select{min-height:52px;border-radius:12px;border:1.5px solid var(--line);background:var(--ink);color:var(--text);font:500 17px var(--body);padding:0 14px;width:100%}
+.field input:focus,.field select:focus{border-color:var(--brass);outline:none}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.consent{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;font-size:13.5px;line-height:1.45;color:var(--soft)}
+.consent input{width:20px;height:20px;margin-top:2px;accent-color:var(--brass)}
+.nav{display:flex;gap:10px;justify-content:space-between;align-items:center}
+.back{background:none;border:0;color:var(--soft);font:600 16px var(--body);cursor:pointer;padding:8px 0}
+.err{color:#FFB4A8;font-size:15px;font-weight:600}
+.done{text-align:center;display:grid;gap:12px;justify-items:center}
+.done .ok{width:64px;height:64px;border-radius:50%;background:color-mix(in srgb,var(--ok) 18%,transparent);display:grid;place-items:center}
+.done .ok svg{width:30px;height:30px}
+
+footer{padding-block:34px 44px;border-top:1px solid var(--line);color:var(--soft);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center}
+footer nav{display:flex;gap:18px}
+footer a{color:var(--soft)}
+
+@media (max-width:760px){
+  section{padding-block:56px}
+  .demos,.leaks,.tiers,.guars,.steps{grid-template-columns:1fr}
+  .opts,.two{grid-template-columns:1fr}
+  .hero .sub{font-size:18px}
+  .top .btn span{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.steph{margin:0 0 4px;font:800 13px/1 var(--body,inherit);letter-spacing:.08em;text-transform:uppercase;color:#D4AF5A}
+
+.spots{display:grid;gap:14px;margin-top:22px}@media(min-width:860px){.spots{grid-template-columns:repeat(3,1fr)}}
+.spot{border:1px solid var(--line);border-radius:18px;padding:20px;background:rgba(255,255,255,.03);display:grid;gap:8px;align-content:start}
+.spot.on{border-color:var(--brass);box-shadow:0 0 0 1px var(--brass) inset}
+.spot .tag{justify-self:start;font:800 12px/1 var(--body,inherit);letter-spacing:.08em;text-transform:uppercase;padding:6px 9px;border-radius:999px;background:rgba(212,175,90,.14);color:var(--brass)}
+.spot h3{margin:0;font-size:22px}.spot .pr{font-size:28px;font-weight:900}.spot .pr s{opacity:.55;font-size:18px;font-weight:600;margin-left:6px}
+.spot ul{margin:4px 0 0;padding-left:18px;display:grid;gap:5px;color:var(--soft)}
+.spot .left{font-weight:800}.spot.full{opacity:.55}.spot.full .left{color:#E5908A}
+.meter{display:flex;gap:6px;margin:6px 0 2px}.meter i{flex:1;height:8px;border-radius:99px;background:rgba(255,255,255,.12)}.meter i.t{background:var(--brass)}
+.ask{display:grid;gap:10px;margin-top:18px}@media(min-width:760px){.ask{grid-template-columns:1fr 1fr}}
+.ask div{border-left:3px solid var(--brass);padding:4px 0 4px 12px;color:var(--soft)}.ask b{display:block;color:var(--text,#fff)}
+.honest{margin-top:16px;color:var(--soft);font-size:15px}
+</style>
+
+</head><body>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Unplanned Studio, top of page"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="3" width="26" height="26" rx="7" fill="none" stroke="#D4AF5A" stroke-width="2.6"/><path d="M10 11v7a6 6 0 0 0 12 0v-7" fill="none" stroke="#EEF1F4" stroke-width="2.8" stroke-linecap="round"/></svg>Unplanned Studio</a>
+    <a class="btn btn-main" href="#demo">Founding spot<span>&nbsp;(apply)</span></a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <p class="callout"><b>Founding Partner Program · Houston · 5 of 5 spots left</b></p>
+      <h1>Be one of our first five Houston partners. <em>The first two pay nothing to build.</em></h1>
+      <p class="sub">We’re opening 5 founding spots for home service companies doing $150k+ a year. We build your booking system, set up your lead follow-up and run your ads with you. The first 2 confirmed partners get the build free in exchange for a case study. The next 3 get founding pricing. After that, standard pricing.</p>
+      <div class="vsl" id="vsl" data-src="">
+        <div class="ph" id="vslPh"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z" fill="#17130A"/></svg></span><b>Watch: how the founding spots work</b><span>Video coming soon</span></div>
+      </div>
+      <div class="under">
+        <a class="btn btn-main" href="#demo">Apply for a founding spot</a>
+        <small>Free 15-minute Growth Audit first. You decide after.</small>
+      </div>
+      <ul class="ticks"><li>One company per trade per area</li><li>Every price shown up front</li><li>You own your site, ads and data</li></ul>
+    </div>
+  </section>
+
+  <section class="slab" id="spots" aria-labelledby="spotsH">
+    <div class="wrap">
+      <p class="eyebrow">How the founding spots work</p>
+      <h2 id="spotsH">Five spots. Every price on the table before you apply.</h2>
+      <div class="spots">
+        <article class="spot on ">
+          <span class="tag">Spots 1–2 · Case study</span><h3>Build fee waived</h3>
+          <div class="pr">$0 setup <s>$4,500</s></div>
+          <div class="meter" aria-hidden="true"><i class="t"></i><i class="t"></i></div><p class="left">2 of 2 left</p>
+          <ul><li>Website, booking, lead alerts, owner app</li><li>First 90 days of ad management free</li><li>You pay your own ad spend to Google or Meta</li><li>After 90 days: stay at $797/mo, or leave and keep everything we built</li></ul>
+        </article>
+        <article class="spot  ">
+          <span class="tag">Spots 3–5 · Founding rate</span><h3>Half-price setup</h3>
+          <div class="pr">$2,250 setup <s>$4,500</s></div>
+          <div class="meter" aria-hidden="true"><i class="t"></i><i class="t"></i><i class="t"></i></div><p class="left">3 of 3 left</p>
+          <ul><li>Everything in Signature Growth</li><li>$797/mo locked for 12 months (standard $997)</li><li>Ad spend paid by you, on your own accounts</li><li>Opens when spots 1–2 are confirmed</li></ul>
+        </article>
+        <article class="spot ">
+          <span class="tag">After spot 5</span><h3>Standard partnership</h3>
+          <div class="pr">$4,500 setup</div>
+          <p class="left">Open</p>
+          <ul><li>Signature Growth $997/mo, or Concierge $1,497/mo</li><li>Same guarantees, same team</li><li>One company per trade per area</li></ul>
+        </article>
+      </div>
+      <p class="eyebrow" style="margin-top:28px">What we ask from case-study partners</p>
+      <div class="ask">
+        <div><b>Real numbers</b>Share leads, booked jobs and revenue from the system so we can measure it.</div>
+        <div><b>A short video and a written review</b>Only if you’re happy with the results. Honest either way.</div>
+        <div><b>Fast replies</b>Answer new leads within 5 minutes in business hours (the app alerts you).</div>
+        <div><b>A real ad budget</b>At least $1,500 a month, paid by you directly to Google or Meta.</div>
+      </div>
+      <p class="honest">Why only five: we build every system by hand and take on 2 new partners a month. A spot counts as confirmed when the agreement is signed and kickoff is done. If a free spot falls through, it goes to the next approved applicant. Results depend on your market, team and follow-up; no one can promise revenue.</p>
+    </div>
+  </section>
+
+
+  <section class="slab proof" aria-labelledby="proofH">
+    <div class="wrap">
+      <p class="eyebrow">Proof you can click</p>
+      <h2 id="proofH">25 working demo sites. Try one on your phone.</h2>
+      <p class="lede">Book a visit, send a question, then open the owner app and see the lead land in seconds. These are demo businesses; yours is built around your services, crews, photos and prices.</p>
+      <ul class="demos">
+        <li><a href="https://roasryan.github.io/ridgeline-demo/" target="_blank" rel="noopener"><b>Roofing</b><span>Instant quote, booking, customer portal, crew app</span></a></li>
+        <li><a href="https://roasryan.github.io/houston-templates/hvac/" target="_blank" rel="noopener"><b>HVAC</b><span>Book a tune-up, maintenance plan, owner app</span></a></li>
+        <li><a href="https://roasryan.github.io/houston-templates/plumbing/" target="_blank" rel="noopener"><b>Plumbing</b><span>Leak and drain booking, city pages, alerts</span></a></li>
+        <li><a href="https://roasryan.github.io/houston-templates/hair-salon/" target="_blank" rel="noopener"><b>Hair salon</b><span>Appointments by service and stylist</span></a></li>
+        <li><a href="https://roasryan.github.io/houston-templates/landscaping/" target="_blank" rel="noopener"><b>Landscaping</b><span>Lawn plans, estimates, crew schedule</span></a></li>
+        <li><a href="https://roasryan.github.io/houston-templates/" target="_blank" rel="noopener"><b>All 24 trades</b><span>Auto, cleaning, med spa, towing and more</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section aria-labelledby="leakH">
+    <div class="wrap">
+      <p class="eyebrow">Where jobs leak out</p>
+      <h2 id="leakH">Most companies don't need more leads first. They need to stop losing the ones they pay for.</h2>
+      <ul class="leaks">
+        <li><b>Calls you can't answer</b><span>You're on a roof, under a sink or with a client. They call the next name on Google.</span></li>
+        <li><b>Ad leads nobody answers fast</b><span>You pay $100–$500 for a lead, it sits in an inbox for hours, and they book the company that called first.</span></li>
+        <li><b>A site that only "informs"</b><span>No way to book, no price range, no text button. People leave to find one that does.</span></li>
+        <li><b>Jobs scattered everywhere</b><span>Texts, notebooks, three apps. Things slip, customers ask "any update?", reviews never get asked for.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slab" id="packages" aria-labelledby="pkgH">
+    <div class="wrap">
+      <p class="eyebrow">Two ways to partner with us</p>
+      <h2 id="pkgH">Your ads, your booking and every job, in one system we run with you.</h2>
+      <div class="tiers">
+        <article class="tier">
+          <span class="name">Signature</span>
+          <p class="for">The full booking system plus ads on one channel.</p>
+          <ul>
+            <li>Website built for your business, your photos and brand</li>
+            <li>Online booking, service forms and a Text-us button</li>
+            <li>Lead alerts to your phone within 60 seconds</li>
+            <li>Owner app: leads, jobs, schedule, notes, photos</li>
+            <li>Customer portal: job progress, change or cancel, add to calendar</li>
+            <li>Crew app: today's jobs, steps and photos</li>
+            <li>Local SEO: a page for every service and 5 city pages</li>
+            <li>Google or Meta ads run for you, with a monthly cost-per-job report</li>
+          </ul>
+          <a class="btn btn-line" href="#demo">Apply for an audit</a>
+        </article>
+        <article class="tier pro">
+          <span class="badge">Most hands-off</span>
+          <span class="name">Concierge</span>
+          <p class="for">Signature, plus an AI front desk and ads on Google and Meta.</p>
+          <ul>
+            <li class="plus">Everything in Signature, plus:</li>
+            <li>AI receptionist answers every call 24/7 and books the visit</li>
+            <li>AI chat on your site that answers questions and books</li>
+            <li>Missed calls get a text back within 1 minute</li>
+            <li>Google review request after every job</li>
+            <li>Google and Meta ads that learn which leads became jobs</li>
+            <li>2 new ranking pages a month and weekly Google profile posts</li>
+            <li>Past-customer comeback campaign every quarter</li>
+            <li>Membership plan page, Spanish site, strategy call every other week</li>
+          </ul>
+          <a class="btn btn-main" href="#demo">Apply for an audit</a>
+        </article>
+      </div>
+      <p class="price-note">Partnerships run <b>$16,000–$25,000 for the first year</b>, depending on the plan. Ad spend is paid directly to Google and Meta on your own accounts. We take 2 new partners a month, one company per trade per area.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="guarH">
+    <div class="wrap">
+      <p class="eyebrow">Our guarantees, in writing</p>
+      <h2 id="guarH">We take the risk, so you don't have to.</h2>
+      <div class="guars">
+        <div class="guar"><svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="#D4AF5A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="8" width="28" height="26" rx="3"/><path d="M6 15h28M13 4v7M27 4v7M14 24l4 4 8-8"/></svg><div><b>Booked-appointment guarantee</b><span>We set a 90-day target together from your budget and your trade's real cost per lead. Miss it and our management fee stops until we hit it.</span></div></div>
+        <div class="guar"><svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="#D4AF5A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 34s-12-7-12-17a7 7 0 0 1 12-5 7 7 0 0 1 12 5c0 10-12 17-12 17z"/></svg><div><b>Love it or don't pay the second half</b><span>Half the setup to start. See the whole system before launch, with 2 rounds of changes. Not in love? You don't pay the rest.</span></div></div>
+        <div class="guar"><svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="#D4AF5A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="21" r="13"/><path d="M20 13v8l5 4M15 4h10"/></svg><div><b>Live in 21 days</b><span>Or $100 off for every day we're late, counted from the day we have your info.</span></div></div>
+        <div class="guar"><svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="#D4AF5A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="17" width="24" height="18" rx="3"/><path d="M13 17v-5a7 7 0 0 1 14 0v5"/></svg><div><b>You own it</b><span>Your domain, site, ad accounts and customer list stay yours. If you leave, we hand it all over.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slab" aria-labelledby="howH">
+    <div class="wrap">
+      <p class="eyebrow">How it works</p>
+      <h2 id="howH">Audit first. Decide after.</h2>
+      <ol class="steps">
+        <li><b>Apply (2 minutes)</b><span>Tell us your trade, your size and your ad budget. If we're a fit, we book your audit within <em>2 business days</em>.</span></li>
+        <li><b>15-minute Growth Audit</b><span>We show how fast your business answered our test lead and call, where jobs leak out, and a demo of your new system.</span></li>
+        <li><b>Live in 21 days</b><span>We build it around your services, crews and prices, you approve the preview, and the ads go live.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section aria-labelledby="faqH">
+    <div class="wrap narrow">
+      <p class="eyebrow">Questions owners ask</p>
+      <h2 id="faqH">Straight answers.</h2>
+      <div class="qs">
+        <details><summary>Is the build really free for the first two?</summary><p>Yes. Spots 1 and 2 pay $0 setup and get 90 days of ad management free. You pay your own ad spend to Google or Meta. In return we ask for real numbers and, if you're happy, a review and short video. After 90 days you can stay at the founding rate of $797/mo or leave and keep everything.</p></details>
+        <details><summary>What happens after the first two spots are taken?</summary><p>Spots 3–5 pay a $2,250 setup (half off) and $797/mo for 12 months. After spot 5, standard pricing applies. The counter on this page shows how many are left.</p></details>
+        <details><summary>What does it cost?</summary><p>Partnerships run $16,000–$25,000 for the first year: a one-time setup plus monthly management. Ad spend is separate and goes straight to Google and Meta on your accounts. Most of our partners already spend 7–10% of revenue on marketing; this replaces the parts that weren't working.</p></details>
+        <details><summary>I already have a website. Do I need a new one?</summary><p>Usually yes, because most sites only show information. We keep what works (your name, photos, reviews link) and add booking, alerts and the owner app. Your domain stays yours.</p></details>
+        <details><summary>I already use a CRM or invoicing tool.</summary><p>Keep it. We plug into what you use (QuickBooks, Square, Jobber, Google Calendar, Slack). We don't replace your invoicing, payments or accounting.</p></details>
+        <details><summary>Do I need to be good with tech?</summary><p>No. If you can read a text message you can run it. We set everything up and show you on a short call.</p></details>
+        <details><summary>Is there a contract?</summary><p>12 months for management, because ads need about 90 days to learn what a good lead looks like. After that it's month to month. Leave and we hand over your site, ad accounts and data.</p></details>
+        <details><summary>Who is this not for?</summary><p>Companies under about $500k a year, or anyone who can't put $2,000 a month into ads yet. We'd rather tell you that now than take your money.</p></details>
+        <details><summary>Can you promise I'll rank #1 on Google?</summary><p>No one honest can. We build every page by Google's rules, set up your Google tools and help you get more reviews. Rankings follow over time.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="slab formsec" id="demo" aria-labelledby="demoH">
+    <div class="wrap">
+      <p class="eyebrow">Free Growth Audit</p>
+      <h2 id="demoH">Apply for a founding spot.</h2><p class="sub" style="margin:-4px 0 14px">Start with a free 15-minute Growth Audit. If we’re a fit, we’ll tell you which spot is open.</p>
+      <form class="card" id="lf" novalidate>
+        <div class="bar" aria-hidden="true"><i id="lfBar"></i></div>
+        <div id="lfSteps"></div>
+        <p class="err" id="lfErr" role="alert" hidden></p>
+        <div class="nav"><button type="button" class="back" id="lfBack" hidden>← Back</button><button type="submit" class="btn btn-main" id="lfNext">Next</button></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Unplanned Studio · Houston, TX</span>
+    <nav aria-label="Legal"><a href="privacy.html">Privacy policy</a><a href="#demo">Free demo</a></nav>
+  </div>
+</footer>
+
+<script>window.PROGRAM="Founding partner";window.LEAD_SOURCE="Founding page";</script>
+<script>
+(()=>{
+/* ===== settings: fill these in ===== */
+const LEAD_ENDPOINT = '';   // Apps Script web app /exec URL from studio-leads.gs (see STUDIO_LEADS_SETUP.md)
+const VSL_SRC = '';         // MP4 URL (e.g. vsl.mp4 in this repo) or a YouTube/Vimeo embed URL
+const PIXEL_ID = '';        // Meta Pixel ID; fires Lead on submit
+/* ==================================== */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// VSL: mp4 → <video controls>, anything else → embed (works on the live site, not in previews that block frames)
+(function vsl(){const box=$('#vsl');const src=VSL_SRC||box.dataset.src;if(!src)return;
+  if(/\.mp4($|\?)/i.test(src)){box.insertAdjacentHTML('beforeend',`<video src="${esc(src)}" controls playsinline preload="metadata"></video>`)}
+  else{box.insertAdjacentHTML('beforeend',`<iframe src="${esc(src)}" title="Unplanned Studio video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`)}
+  $('#vslPh').hidden=true})();
+
+// Meta Pixel (only when an ID is set)
+if(PIXEL_ID){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init',PIXEL_ID);fbq('track','PageView')}
+
+// multi-step form: easy questions first
+const D={trade:'',want:'',size:'',capacity:'',bottleneck:'',avgJob:'',timeline:'',sources:[],site:'',noSite:false,name:'',mobile:'',email:'',best:'Text',time:'Anytime',sms:false};
+const TRADES=['Roofing','HVAC','Remodeling','Pools','Fencing / concrete','Foundation','Plumbing','Electrical / generators','Landscaping','Med spa','Something else'];
+const Q={
+ want:['Under $150k a year','$150k–$500k','$500k–$1M','$1M–$3M','$3M+'],
+ avgJob:['Under $500','$500–$1,500','$1,500–$5,000','$5,000–$10,000','$10,000+'],
+ sources:['Referrals and word of mouth','Google search or Maps','Paid ads (Google or Meta)','Angi, Thumbtack or HomeAdvisor','Door knocking, signs or mail','Repeat customers'],
+ capacity:['Yes, easily','Yes, if we hire','No, we’re maxed out'],
+ bottleneck:['Not enough leads','Leads don’t turn into jobs','Too busy to keep up','Admin and getting paid'],
+ size:['Not running ads yet','Under $2,000 a month','$2,000–$5,000 a month','$5,000+ a month'],
+ timeline:['This month','In 1–3 months','Just looking']};
+const opts=(k,q,first)=>`<p class="stepq"${first?'':' style="margin-top:10px;font-size:19px"'}>${q}</p><div class="opts">${Q[k].map(t=>`<button type="button" class="opt" data-k="${k}" data-v="${esc(t)}" aria-pressed="${D[k]===t}">${esc(t)}</button>`).join('')}</div>`;
+const multi=(k,q)=>`<p class="stepq" style="margin-top:10px;font-size:19px">${q} <small style="font-weight:600;opacity:.7">Pick all that apply</small></p><div class="opts">${Q[k].map(t=>`<button type="button" class="opt" data-m="1" data-k="${k}" data-v="${esc(t)}" aria-pressed="${D[k].includes(t)}">${esc(t)}</button>`).join('')}</div>`;
+let step=0;
+const S=[
+ ()=>`<p class="stepq">What kind of business do you run?</p><div class="opts">${TRADES.map(t=>`<button type="button" class="opt" data-k="trade" data-v="${esc(t)}" aria-pressed="${D.trade===t}">${esc(t)}</button>`).join('')}</div>`,
+ ()=>`<p class="steph">Your business today</p>`+opts('want','About how much does your company do in a year?',1)+opts('avgJob','What’s your average job worth?')+multi('sources','Where do most of your customers come from now?'),
+ ()=>`<p class="steph">Where it gets stuck</p>`+opts('capacity','If we sent you 20 more booked jobs next month, could your team handle them?',1)+opts('bottleneck','What holds you back most right now?'),
+ ()=>`<p class="steph">Getting started</p>`+opts('size','Monthly ad budget you’re comfortable with?',1)+opts('timeline','When would you want to start?')+
+   `<div class="field" style="margin-top:12px"><label for="fSite">Your website</label><input id="fSite" inputmode="url" autocomplete="url" placeholder="yourbusiness.com" value="${esc(D.site)}" ${D.noSite?'disabled':''}></div>
+   <label class="consent" style="margin-top:6px"><input type="checkbox" id="fNoSite" ${D.noSite?'checked':''}><span>I don’t have a website yet</span></label>`,
+ ()=>`<p class="stepq">Where should we reach you?</p>
+   <div class="field"><label for="fName">Your name</label><input id="fName" autocomplete="name" value="${esc(D.name)}"></div>
+   <div class="two"><div class="field"><label for="fMobile">Mobile number</label><input id="fMobile" type="tel" inputmode="tel" autocomplete="tel" placeholder="(713) 555-0100" value="${esc(D.mobile)}"></div>
+   <div class="field"><label for="fEmail">Email</label><input id="fEmail" type="email" autocomplete="email" value="${esc(D.email)}"></div></div>
+   <div class="two"><div class="field"><label for="fBest">Best way to reach you</label><select id="fBest">${['Text','Call','Email'].map(o=>`<option ${D.best===o?'selected':''}>${o}</option>`).join('')}</select></div>
+   <div class="field"><label for="fTime">Best time</label><select id="fTime">${['Anytime','Morning','Afternoon','Evening'].map(o=>`<option ${D.time===o?'selected':''}>${o}</option>`).join('')}</select></div></div>
+   <label class="consent"><input type="checkbox" id="fSms" ${D.sms?'checked':''}><span>Text me about my audit (optional). Unplanned Studio sends texts about your request only, usually 1–4 messages. Msg & data rates may apply. Reply STOP to opt out, HELP for help. Not required to apply. <a href="privacy.html">Privacy policy</a>.</span></label>`
+];
+function paint(){$('#lfSteps').innerHTML=S[step]();$('#lfBar').style.width=((step+1)/S.length*100)+'%';$('#lfBack').hidden=step===0;$('#lfNext').textContent=step===S.length-1?'Apply for my audit':'Next';$('#lfErr').hidden=true}
+function err(m){const e=$('#lfErr');e.textContent=m;e.hidden=false}
+function read(){if(step===3){D.site=$('#fSite').value.trim();D.noSite=$('#fNoSite').checked;if(D.noSite)D.site='N/A'}if(step===4){D.name=$('#fName').value.trim();D.mobile=$('#fMobile').value.trim();D.email=$('#fEmail').value.trim();D.best=$('#fBest').value;D.time=$('#fTime').value;D.sms=$('#fSms').checked}}
+function ok(){if(step===0&&!D.trade)return 'Pick your type of business.';const need={1:['want','avgJob'],2:['capacity','bottleneck'],3:['size','timeline']}[step];if(need&&need.some(k=>!D[k]))return 'Pick one answer for each question.';if(step===1&&!D.sources.length)return 'Pick where your customers come from.';if(step===3&&!D.site&&!D.noSite)return 'Add your website, or tick “I don’t have a website yet.”';
+  if(step===4){if(!D.name)return 'Add your name.';if(D.mobile.replace(/\D/g,'').length<10)return 'Add a 10-digit mobile number.';if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(D.email))return 'Add an email like you@business.com.'}return ''}
+$('#lfSteps').addEventListener('change',e=>{if(e.target.id==='fNoSite'){D.noSite=e.target.checked;const f=$('#fSite');f.disabled=D.noSite;if(D.noSite)f.value=''}});
+$('#lfSteps').addEventListener('click',e=>{const b=e.target.closest('.opt');if(!b)return;if(step===3){D.site=$('#fSite').value.trim()}if(b.dataset.m){const a=D[b.dataset.k],i=a.indexOf(b.dataset.v);i<0?a.push(b.dataset.v):a.splice(i,1);b.setAttribute('aria-pressed',String(i<0));return}D[b.dataset.k]=b.dataset.v;paint();
+  if(step===0)setTimeout(()=>{step=1;paint()},180)});
+$('#lfBack').addEventListener('click',()=>{read();step=Math.max(0,step-1);paint()});
+$('#lf').addEventListener('submit',async e=>{e.preventDefault();read();const m=ok();if(m)return err(m);
+  if(step<S.length-1){step++;paint();return}
+  const btn=$('#lfNext');btn.disabled=true;btn.textContent='Sending…';
+  const lead={action:'studio_lead',...D,sources:D.sources.join(', '),revenue:D.want,adBudget:D.size,source:window.LEAD_SOURCE||'Landing page',program:window.PROGRAM||'',page:location.href.split('#')[0],ref:document.referrer||'',utm:location.search||'',at:new Date().toISOString()};
+  let sent=false;
+  if(LEAD_ENDPOINT){try{await fetch(LEAD_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(lead)});sent=true}catch(x){sent=false}}
+  if(window.fbq)try{fbq('track','Lead',{content_name:D.trade})}catch(x){}
+  if(!sent){btn.disabled=false;btn.textContent='Apply for my audit';return err(LEAD_ENDPOINT?'That didn’t go through. Check your connection and try again.':'Preview only: the form sends once the live page is connected.')}
+  $('#lf').innerHTML=`<div class="done"><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="#7FD1A8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span><h3>You're in, ${esc(D.name.split(' ')[0])}.</h3><p class="lede">${D.want==='Under $150k a year'?'Thanks for applying. Right now we work with companies doing $150k+ a year, so we may not be the right fit yet. We\'ll reply within 1 business day either way.':D.capacity.startsWith('No')?'Thanks! Since your team is already full, we\'ll start with systems that free up your time, not more leads. We\'ll be in touch within 1 business hour, and we\'ll send you a free plan based on your answers.':`We'll ${D.best==='Call'?'call':D.best==='Email'?'email':'text'} you within 1 business hour to book your 15-minute audit. We\'ll also send you a free plan based on your answers.`}</p></div>`});
+paint();
+})();
+</script>
+
+</body></html>
