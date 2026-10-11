@@ -6,7 +6,9 @@
 <meta name="description" content="For Houston home service companies doing $150k+ a year: booking system, ads and 60-second lead response, with a booked-appointment guarantee. Apply for a free Growth Audit.">
 <meta property="og:title" content="Unplanned Studio: more booked jobs in 90 days"><meta property="og:description" content="Free 15-minute Growth Audit for Houston home service companies doing $150k+ a year."><meta property="og:type" content="website">
 
+<script>try{var s=localStorage.getItem('us-style');if(s==='soft'||s==='luxe')document.documentElement.setAttribute('data-style',s)}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..800,0..100,0..1;1,9..144,300..800,0..100,0..1&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Public+Sans:wght@400;500;600;700&display=swap">
 <style>
 /* Layout: one narrow column (Hormozi page: call-out → headline → video → button), then offer, guarantees, steps, FAQ, form. Single dark look by choice. */
@@ -159,13 +161,36 @@ footer a{color:var(--soft)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 .steph{margin:0 0 4px;font:800 13px/1 var(--body,inherit);letter-spacing:.08em;text-transform:uppercase;color:#D4AF5A}
 .catnote{margin:14px 0 0;padding:10px 14px;border-left:3px solid var(--brass);background:rgba(255,255,255,.04);border-radius:10px;color:var(--soft);font-size:15px}.done .conf{margin:6px 0 0;color:var(--soft);font-size:15px}
+
+/* ===== Soft style (Oct 11): cushy display letters (Fraunces SOFT 100) + strict Public Sans; blush porcelain, rose accent, sage ok ===== */
+:root{--sw-line:var(--line);--sw-bg:transparent;--sw-ink:var(--soft);--sw-on:var(--brass);--sw-on-ink:var(--onbrass);--sw-font:var(--body)}
+:root[data-style="soft"]{--ink:#FBF4F2;--slab:#F6E9E6;--line:#EBD7D3;--text:#3A2B2E;--soft:#7B6366;--brass:#B9677A;--onbrass:#FFFFFF;--ok:#4F8A6B;
+  --display:'Fraunces','Recoleta',Georgia,serif;color-scheme:light}
+[data-style="soft"] h1,[data-style="soft"] h2,[data-style="soft"] h3,[data-style="soft"] .logo{font-variation-settings:'SOFT' 100,'WONK' 0;letter-spacing:-.005em}
+[data-style="soft"] h1{font-weight:560}[data-style="soft"] h2{font-weight:540}[data-style="soft"] h3{font-weight:600}
+[data-style="soft"] .btn{border-radius:999px}
+[data-style="soft"] .vsl{border-radius:28px}
+[data-style="soft"] .logo svg rect{stroke:var(--brass)}[data-style="soft"] .logo svg path{stroke:var(--text)}
+.top .wrap .stylesw{margin-left:auto}
+[data-style="soft"] .vsl{background:radial-gradient(120% 90% at 30% 20%,#FFFFFF 0%,#F6E3E3 55%,#EFD3D6 100%);box-shadow:0 30px 60px -30px rgba(120,60,72,.45)}
+[data-style="soft"] .vsl .ph b,[data-style="soft"] .vsl .ph span{color:var(--text)}
+[data-style="soft"] [stroke="#D4AF5A"]{stroke:var(--brass)}[data-style="soft"] [fill="#D4AF5A"]{fill:var(--brass)}
+[data-style="soft"] [fill="#17130A"]{fill:#FFFFFF}
+@media (max-width:520px){.top .btn{min-height:42px;padding:0 14px;font-size:15px;white-space:nowrap}.logo{font-size:17px}.logo svg{width:26px;height:26px}}
+@media (max-width:440px){.top .wrap > .btn{display:none}}
+@media (max-width:520px){.top .btn span{display:none}.stylesw button{padding:6px 9px}}
+
+.stylesw{display:inline-flex;gap:2px;padding:3px;border-radius:999px;border:1px solid var(--sw-line);background:var(--sw-bg);font:600 12px/1 var(--sw-font,system-ui);letter-spacing:.04em}
+.stylesw button{border:0;background:transparent;color:var(--sw-ink);padding:7px 12px;border-radius:999px;cursor:pointer;font:inherit;letter-spacing:inherit}
+.stylesw button[aria-pressed="true"]{background:var(--sw-on);color:var(--sw-on-ink)}
+.stylesw button:focus-visible{outline:2px solid var(--sw-on);outline-offset:2px}
 </style>
 
 </head><body>
 <header class="top">
   <div class="wrap">
     <a class="logo" href="#top" aria-label="Unplanned Studio, top of page"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="3" width="26" height="26" rx="7" fill="none" stroke="#D4AF5A" stroke-width="2.6"/><path d="M10 11v7a6 6 0 0 0 12 0v-7" fill="none" stroke="#EEF1F4" stroke-width="2.8" stroke-linecap="round"/></svg>Unplanned Studio</a>
-    <a class="btn btn-main" href="#demo">Growth audit<span>&nbsp;(free)</span></a>
+    <div class="stylesw" role="group" aria-label="Page style"><button type="button" data-style-pick="luxe">Luxe</button><button type="button" data-style-pick="soft">Soft</button></div><a class="btn btn-main" href="#demo">Growth audit<span>&nbsp;(free)</span></a>
   </div>
 </header>
 
@@ -390,5 +415,10 @@ $('#lf').addEventListener('submit',async e=>{e.preventDefault();read();const m=o
 paint();
 })();
 </script>
+<script>(function(){const root=document.documentElement;
+function cur(){return root.getAttribute('data-style')||'luxe'}
+function paint(){document.querySelectorAll('[data-style-pick]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.stylePick===cur())))}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-style-pick]');if(!b)return;root.setAttribute('data-style',b.dataset.stylePick);try{localStorage.setItem('us-style',b.dataset.stylePick)}catch(x){}paint()});
+paint();})();</script>
 
 </body></html>
