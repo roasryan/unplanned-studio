@@ -146,6 +146,24 @@ section{padding-block:72px}
 .done .ok{width:64px;height:64px;border-radius:50%;background:color-mix(in srgb,var(--ok) 18%,transparent);display:grid;place-items:center}
 .done .ok svg{width:30px;height:30px}
 
+/* apply modal (Oct 15) */
+.apply{width:min(640px,calc(100% - 24px));max-height:min(880px,calc(100dvh - 24px));padding:0;border:1px solid var(--line);border-radius:22px;background:var(--slab);color:var(--text);overflow:auto;overscroll-behavior:contain}
+.apply::backdrop{background:rgba(8,10,14,.62);backdrop-filter:blur(3px)}
+.apply .card{border:0;background:none;max-width:none;padding:6px 24px 26px}
+.apply-h{position:sticky;top:0;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px 8px 24px;background:var(--slab)}
+.apply-h b{font:800 17px/1.2 var(--body);letter-spacing:.02em}
+.apply-x{width:44px;height:44px;flex:none;border-radius:50%;border:1px solid var(--line);background:var(--ink);color:var(--text);font:400 26px/1 var(--body);cursor:pointer;display:grid;place-items:center}
+html.modal-open{overflow:hidden}
+.startcard{justify-items:center;text-align:left}
+.mini{list-style:none;margin:0;padding:0;display:grid;gap:14px;width:100%;counter-reset:m}
+.mini li{counter-increment:m;display:grid;grid-template-columns:34px minmax(0,1fr);gap:2px 12px}
+.mini li::before{content:counter(m);grid-row:span 2;width:34px;height:34px;border-radius:50%;background:var(--brass);color:var(--onbrass);display:grid;place-items:center;font:900 16px/1 var(--display)}
+.mini b{font:800 18px/1.25 var(--display)}.mini span{color:var(--soft);font-size:15px}
+.note{margin:4px 0 0;font-size:13.5px;line-height:1.45;color:var(--soft)}
+.precall{margin-top:8px;width:100%;padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--ink);display:grid;gap:8px;justify-items:center}
+.precall p{color:var(--soft);font-size:15px;margin:0}
+@media (max-width:640px){.apply{width:100%;max-width:100%;height:100dvh;max-height:100dvh;border-radius:0;border:0;margin:0}.apply .card{padding:4px 18px 24px}.apply-h{padding:12px 12px 6px 18px}}
+@media (prefers-reduced-motion:no-preference){.apply[open]{animation:aIn .22s ease-out}@keyframes aIn{from{opacity:0;transform:translateY(14px)}}}
 footer{padding-block:34px 44px;border-top:1px solid var(--line);color:var(--soft);font-size:14px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center}
 footer nav{display:flex;gap:18px}
@@ -328,15 +346,23 @@ footer a{color:var(--soft)}
     <div class="wrap">
       <p class="eyebrow">Free Growth Audit</p>
       <h2 id="demoH">Apply for your 15-minute Growth Audit.</h2>
-      <form class="card" id="lf" novalidate>
-        <div class="bar" aria-hidden="true"><i id="lfBar"></i></div>
-        <div id="lfSteps"></div>
-        <p class="err" id="lfErr" role="alert" hidden></p>
-        <div class="nav"><button type="button" class="back" id="lfBack" hidden>← Back</button><button type="submit" class="btn btn-main" id="lfNext">Next</button></div>
-      </form>
+      <div class="card startcard">
+        <ol class="mini"><li><b>Answer a few quick taps</b><span>About your business. About 2 minutes.</span></li><li><b>Pick a call time</b><span>15 minutes with Ryan, by phone.</span></li><li><b>Get your free plan</b><span>Yours to keep, either way.</span></li></ol>
+        <button type="button" class="btn btn-main" data-apply>Start my application</button>
+      </div>
     </div>
   </section>
 </main>
+
+<dialog class="apply" id="applyDlg" aria-labelledby="applyH">
+  <div class="apply-h"><b id="applyH">Growth Audit application</b><button type="button" class="apply-x" id="applyX" aria-label="Close">&times;</button></div>
+  <form class="card" id="lf" novalidate>
+    <div class="bar" aria-hidden="true"><i id="lfBar"></i></div>
+    <div id="lfSteps"></div>
+    <p class="err" id="lfErr" role="alert" hidden></p>
+    <div class="nav"><button type="button" class="back" id="lfBack" hidden>← Back</button><button type="submit" class="btn btn-main" id="lfNext">Next</button></div>
+  </form>
+</dialog>
 
 <footer>
   <div class="wrap">
@@ -351,7 +377,8 @@ footer a{color:var(--soft)}
 const BOOK_URL = 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ1dP2UvYGF_hURWCwoYjehDTUThB3KfwMC7xpq7az9r3xcgpwGPqYTB7olytC6KNYIKPYPuPner';
 const LEAD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbw4-sLl7xQb6qJf_CPsw3FKAAG_csUhXF9t_ixW0FPtIBC_E82097yta_QE1-m9hKbo/exec';   // Apps Script web app /exec URL from studio-leads.gs (see STUDIO_LEADS_SETUP.md)
 const VSL_SRC = '';         // MP4 URL (e.g. vsl.mp4 in this repo) or a YouTube/Vimeo embed URL
-const PIXEL_ID = '';        // Meta Pixel ID; fires Lead on submit
+const PIXEL_ID = '';
+const PRECALL_VSL = '';     // "Watch before your call" video URL (shown on the thank-you screen). Empty = hidden.        // Meta Pixel ID; fires Lead on submit
 /* ==================================== */
 const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -381,37 +408,56 @@ const multi=(k,q)=>`<p class="stepq" style="margin-top:10px;font-size:19px">${q}
 let step=0;
 const S=[
  ()=>`<p class="stepq">What kind of business do you run?</p><div class="opts">${TRADES.map(t=>`<button type="button" class="opt" data-k="trade" data-v="${esc(t)}" aria-pressed="${D.trade===t}">${esc(t)}</button>`).join('')}</div>`,
- ()=>`<p class="steph">Your business today</p>`+opts('want','About how much does your company do in a year?',1)+opts('avgJob','What’s your average job worth?')+multi('sources','Where do most of your customers come from now?'),
- ()=>`<p class="steph">Where it gets stuck</p>`+opts('capacity','If we sent you 20 more booked jobs next month, could your team handle them?',1)+opts('bottleneck','What holds you back most right now?'),
- ()=>`<p class="steph">Getting started</p>`+opts('size','Monthly ad budget you’re comfortable with?',1)+opts('timeline','When would you want to start?')+
-   `<div class="field" style="margin-top:12px"><label for="fSite">Your website</label><input id="fSite" inputmode="url" autocomplete="url" placeholder="yourbusiness.com" value="${esc(D.site)}" ${D.noSite?'disabled':''}></div>
-   <label class="consent" style="margin-top:6px"><input type="checkbox" id="fNoSite" ${D.noSite?'checked':''}><span>I don’t have a website yet</span></label>`,
- ()=>`<p class="stepq">Where should we reach you?</p>
+ ()=>`<p class="steph">Your business today</p>`+opts('want','About how much does your company do in a year?',1)+opts('avgJob','What’s your average job worth?'),
+ ()=>`<p class="stepq">Where should we send your audit results?</p>
    <div class="field"><label for="fName">Your name</label><input id="fName" autocomplete="name" value="${esc(D.name)}"></div>
    <div class="two"><div class="field"><label for="fMobile">Mobile number</label><input id="fMobile" type="tel" inputmode="tel" autocomplete="tel" placeholder="(713) 555-0100" value="${esc(D.mobile)}"></div>
    <div class="field"><label for="fEmail">Email</label><input id="fEmail" type="email" autocomplete="email" value="${esc(D.email)}"></div></div>
    <div class="two"><div class="field"><label for="fBest">Best way to reach you</label><select id="fBest">${['Text','Call','Email'].map(o=>`<option ${D.best===o?'selected':''}>${o}</option>`).join('')}</select></div>
    <div class="field"><label for="fTime">Best time</label><select id="fTime">${['Anytime','Morning','Afternoon','Evening'].map(o=>`<option ${D.time===o?'selected':''}>${o}</option>`).join('')}</select></div></div>
-   <label class="consent"><input type="checkbox" id="fSms" ${D.sms?'checked':''}><span>Text me about my audit (optional). Unplanned Holdings sends texts about your request only, usually 1–4 messages. Msg & data rates may apply. Reply STOP to opt out, HELP for help. Not required to apply. <a href="privacy.html">Privacy policy</a>.</span></label>`
+   <label class="consent"><input type="checkbox" id="fSms" ${D.sms?'checked':''}><span>Text me about my audit (optional). Unplanned Holdings sends texts about your request only, usually 1–4 messages. Msg & data rates may apply. Reply STOP to opt out, HELP for help. Not required to apply. <a href="privacy.html">Privacy policy</a>.</span></label>
+   <p class="note">We save your answers as you go, so nothing is lost if you get interrupted. If you stop partway, Ryan may reach out once about your application.</p>`,
+ ()=>`<p class="steph">Where it gets stuck</p>`+multi('sources','Where do most of your customers come from now?').replace('margin-top:10px;','')+opts('capacity','If we sent you 20 more booked jobs next month, could your team handle them?')+opts('bottleneck','What holds you back most right now?'),
+ ()=>`<p class="steph">Getting started</p>`+opts('size','Monthly ad budget you’re comfortable with?',1)+opts('timeline','When would you want to start?')+
+   `<div class="field" style="margin-top:12px"><label for="fSite">Your website</label><input id="fSite" inputmode="url" autocomplete="url" placeholder="yourbusiness.com" value="${esc(D.site)}" ${D.noSite?'disabled':''}></div>
+   <label class="consent" style="margin-top:6px"><input type="checkbox" id="fNoSite" ${D.noSite?'checked':''}><span>I don’t have a website yet</span></label>`
 ];
+const SITE=4,CONTACT=2;
 function paint(){$('#lfSteps').innerHTML=S[step]();$('#lfBar').style.width=((step+1)/S.length*100)+'%';$('#lfBack').hidden=step===0;$('#lfNext').textContent=step===S.length-1?'Apply for my audit':'Next';$('#lfErr').hidden=true}
 function err(m){const e=$('#lfErr');e.textContent=m;e.hidden=false}
-function read(){if(step===3){D.site=$('#fSite').value.trim();D.noSite=$('#fNoSite').checked;if(D.noSite)D.site='N/A'}if(step===4){D.name=$('#fName').value.trim();D.mobile=$('#fMobile').value.trim();D.email=$('#fEmail').value.trim();D.best=$('#fBest').value;D.time=$('#fTime').value;D.sms=$('#fSms').checked}}
-function ok(){if(step===0&&!D.trade)return 'Pick your type of business.';const need={1:['want','avgJob'],2:['capacity','bottleneck'],3:['size','timeline']}[step];if(need&&need.some(k=>!D[k]))return 'Pick one answer for each question.';if(step===1&&!D.sources.length)return 'Pick where your customers come from.';if(step===3&&!D.site&&!D.noSite)return 'Add your website, or tick “I don’t have a website yet.”';
-  if(step===4){if(!D.name)return 'Add your name.';if(D.mobile.replace(/\D/g,'').length<10)return 'Add a 10-digit mobile number.';if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(D.email))return 'Add an email like you@business.com.'}return ''}
+function read(){if(step===SITE&&$('#fSite')){D.site=$('#fSite').value.trim();D.noSite=$('#fNoSite').checked;if(D.noSite)D.site='N/A'}if(step===CONTACT&&$('#fName')){D.name=$('#fName').value.trim();D.mobile=$('#fMobile').value.trim();D.email=$('#fEmail').value.trim();D.best=$('#fBest').value;D.time=$('#fTime').value;D.sms=$('#fSms').checked}}
+function ok(){if(step===0&&!D.trade)return 'Pick your type of business.';const need={1:['want','avgJob'],3:['capacity','bottleneck'],4:['size','timeline']}[step];if(need&&need.some(k=>!D[k]))return 'Pick one answer for each question.';if(step===3&&!D.sources.length)return 'Pick where your customers come from.';if(step===SITE&&!D.site&&!D.noSite)return 'Add your website, or tick “I don’t have a website yet.”';
+  if(step===CONTACT){if(!D.name)return 'Add your name.';if(D.mobile.replace(/\D/g,'').length<10)return 'Add a 10-digit mobile number.';if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(D.email))return 'Add an email like you@business.com.'}return ''}
+// saved-as-you-go: once we have contact info, unfinished applications reach Ryan's sheet (studio_partial)
+const AID=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2);
+let partial=false,finished=false;
+function payload(action){return {action,id:AID,...D,sources:D.sources.join(', '),revenue:D.want,adBudget:D.size,stage:(step+1)+' of '+S.length,source:window.LEAD_SOURCE||'Landing page',program:window.PROGRAM||'',page:location.href.split('#')[0],ref:document.referrer||'',utm:location.search||'',at:new Date().toISOString()}}
+function sendPartial(beacon){if(!LEAD_ENDPOINT||finished||!D.email)return;partial=true;const body=JSON.stringify(payload('studio_partial'));
+  if(beacon&&navigator.sendBeacon){try{if(navigator.sendBeacon(LEAD_ENDPOINT,new Blob([body],{type:'text/plain;charset=utf-8'})))return}catch(x){}}
+  fetch(LEAD_ENDPOINT,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain;charset=utf-8'},body}).catch(()=>{})}
+addEventListener('pagehide',()=>{if(partial&&!finished){read();sendPartial(true)}});
+// modal
+const dlg=$('#applyDlg');
+function openApply(){if(!dlg.open){dlg.showModal();document.documentElement.classList.add('modal-open');const f=dlg.querySelector('.opt,input');if(f)f.focus()}}
+dlg.addEventListener('close',()=>{document.documentElement.classList.remove('modal-open');if(partial&&!finished){read();sendPartial()}});
+$('#applyX').addEventListener('click',()=>dlg.close());
+dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+document.addEventListener('click',e=>{const a=e.target.closest('a[href="#demo"],[data-apply]');if(!a)return;e.preventDefault();openApply()});
+if(/^#(apply|demo)$/.test(location.hash))setTimeout(openApply,300);
 $('#lfSteps').addEventListener('change',e=>{if(e.target.id==='fNoSite'){D.noSite=e.target.checked;const f=$('#fSite');f.disabled=D.noSite;if(D.noSite)f.value=''}});
-$('#lfSteps').addEventListener('click',e=>{const b=e.target.closest('.opt');if(!b)return;if(step===3){D.site=$('#fSite').value.trim()}if(b.dataset.m){const a=D[b.dataset.k],i=a.indexOf(b.dataset.v);i<0?a.push(b.dataset.v):a.splice(i,1);b.setAttribute('aria-pressed',String(i<0));return}D[b.dataset.k]=b.dataset.v;paint();
+$('#lfSteps').addEventListener('click',e=>{const b=e.target.closest('.opt');if(!b)return;if(step===SITE){D.site=$('#fSite').value.trim()}if(b.dataset.m){const a=D[b.dataset.k],i=a.indexOf(b.dataset.v);i<0?a.push(b.dataset.v):a.splice(i,1);b.setAttribute('aria-pressed',String(i<0));return}D[b.dataset.k]=b.dataset.v;paint();
   if(step===0)setTimeout(()=>{step=1;paint()},180)});
 $('#lfBack').addEventListener('click',()=>{read();step=Math.max(0,step-1);paint()});
 $('#lf').addEventListener('submit',async e=>{e.preventDefault();read();const m=ok();if(m)return err(m);
-  if(step<S.length-1){step++;paint();return}
+  if(step<S.length-1){if(step>=CONTACT)sendPartial();step++;paint();$('#applyDlg').scrollTop=0;return}
   const btn=$('#lfNext');btn.disabled=true;btn.textContent='Sending…';
-  const lead={action:'studio_lead',...D,sources:D.sources.join(', '),revenue:D.want,adBudget:D.size,source:window.LEAD_SOURCE||'Landing page',program:window.PROGRAM||'',page:location.href.split('#')[0],ref:document.referrer||'',utm:location.search||'',at:new Date().toISOString()};
+  const lead=payload('studio_lead');
   let sent=false;
   if(LEAD_ENDPOINT){try{await fetch(LEAD_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(lead)});sent=true}catch(x){sent=false}}
+  if(sent)finished=true;
   if(window.fbq)try{fbq('track','Lead',{content_name:D.trade})}catch(x){}
   if(!sent){btn.disabled=false;btn.textContent='Apply for my audit';const live=/github\.io|unplannedstudio\.com/.test(location.hostname);return err(!LEAD_ENDPOINT?'Preview only: the form sends once the live page is connected.':live?'That didn’t go through. Check your connection and try again.':'This preview can’t send applications. Apply on the live page: roasryan.github.io/unplanned-studio')}
-  $('#lf').innerHTML=`<div class="done"><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="#7FD1A8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span><h3>You're in, ${esc(D.name.split(' ')[0])}.</h3><p class="conf">Confirmation sent to ${esc(D.email)}${D.sms&&D.mobile?' and '+esc(D.mobile):''}.</p><p class="lede">${D.want==='Under $150k a year'?'Thanks for applying. Right now we work with companies doing $150k+ a year, so we may not be the right fit yet. We\'ll reply within 1 business day either way.':D.capacity.startsWith('No')?'Thanks! Since your team is already full, we\'ll start with systems that free up your time, not more leads. We\'ll be in touch within 1 business hour, and we\'ll send you a free plan based on your answers.':`We'll ${D.best==='Call'?'call':D.best==='Email'?'email':'text'} you within 1 business hour to book your 15-minute audit. We\'ll also send you a free plan based on your answers.`}</p>${D.want==='Under $150k a year'?'':`<p style="margin-top:16px"><a class="btn btn-main" href="${BOOK_URL}" target="_blank" rel="noopener">Pick your call time now</a></p><p class="conf">15-minute phone call with Ryan. Any day, any time that works for you.</p>`}</div>`});
+  $('#lf').innerHTML=`<div class="done"><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="#7FD1A8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span><h3>You're in, ${esc(D.name.split(' ')[0])}.</h3><p class="conf">Confirmation sent to ${esc(D.email)}${D.sms&&D.mobile?' and '+esc(D.mobile):''}.</p><p class="lede">${D.want==='Under $150k a year'?'Thanks for applying. Right now we work with companies doing $150k+ a year, so we may not be the right fit yet. We\'ll reply within 1 business day either way.':D.capacity.startsWith('No')?'Thanks! Since your team is already full, we\'ll start with systems that free up your time, not more leads. We\'ll be in touch within 1 business hour, and we\'ll send you a free plan based on your answers.':`We'll ${D.best==='Call'?'call':D.best==='Email'?'email':'text'} you within 1 business hour to book your 15-minute audit. We\'ll also send you a free plan based on your answers.`}</p>${D.want==='Under $150k a year'?'':`<p style="margin-top:16px"><a class="btn btn-main" href="${BOOK_URL}" target="_blank" rel="noopener">Pick your call time now</a></p><p class="conf">15-minute phone call with Ryan. Any day, any time that works for you.</p>`}${PRECALL_VSL&&D.want!=='Under $150k a year'?`<div class="precall"><b>Before your call: watch this short video</b><p>How it works, how it’s priced, contract length, how much of your time it takes, and what happens if we miss the target.</p><a class="btn btn-line" href="${esc(PRECALL_VSL)}" target="_blank" rel="noopener">Watch before our call</a></div>`:''}</div>`});
 paint();
 })();
 </script>

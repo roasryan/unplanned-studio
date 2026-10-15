@@ -142,6 +142,24 @@ section{padding-block:72px}
 .done .ok{width:64px;height:64px;border-radius:50%;background:color-mix(in srgb,var(--ok) 18%,transparent);display:grid;place-items:center}
 .done .ok svg{width:30px;height:30px}
 
+/* apply modal (Oct 15) */
+.apply{width:min(640px,calc(100% - 24px));max-height:min(880px,calc(100dvh - 24px));padding:0;border:1px solid var(--line);border-radius:22px;background:var(--slab);color:var(--text);overflow:auto;overscroll-behavior:contain}
+.apply::backdrop{background:rgba(8,10,14,.62);backdrop-filter:blur(3px)}
+.apply .card{border:0;background:none;max-width:none;padding:6px 24px 26px}
+.apply-h{position:sticky;top:0;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px 8px 24px;background:var(--slab)}
+.apply-h b{font:800 17px/1.2 var(--body);letter-spacing:.02em}
+.apply-x{width:44px;height:44px;flex:none;border-radius:50%;border:1px solid var(--line);background:var(--ink);color:var(--text);font:400 26px/1 var(--body);cursor:pointer;display:grid;place-items:center}
+html.modal-open{overflow:hidden}
+.startcard{justify-items:center;text-align:left}
+.mini{list-style:none;margin:0;padding:0;display:grid;gap:14px;width:100%;counter-reset:m}
+.mini li{counter-increment:m;display:grid;grid-template-columns:34px minmax(0,1fr);gap:2px 12px}
+.mini li::before{content:counter(m);grid-row:span 2;width:34px;height:34px;border-radius:50%;background:var(--brass);color:var(--onbrass);display:grid;place-items:center;font:900 16px/1 var(--display)}
+.mini b{font:800 18px/1.25 var(--display)}.mini span{color:var(--soft);font-size:15px}
+.note{margin:4px 0 0;font-size:13.5px;line-height:1.45;color:var(--soft)}
+.precall{margin-top:8px;width:100%;padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--ink);display:grid;gap:8px;justify-items:center}
+.precall p{color:var(--soft);font-size:15px;margin:0}
+@media (max-width:640px){.apply{width:100%;max-width:100%;height:100dvh;max-height:100dvh;border-radius:0;border:0;margin:0}.apply .card{padding:4px 18px 24px}.apply-h{padding:12px 12px 6px 18px}}
+@media (prefers-reduced-motion:no-preference){.apply[open]{animation:aIn .22s ease-out}@keyframes aIn{from{opacity:0;transform:translateY(14px)}}}
 footer{padding-block:34px 44px;border-top:1px solid var(--line);color:var(--soft);font-size:14px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center}
 footer nav{display:flex;gap:18px}
