@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#FAF9F6">
+<title>Terms · Unplanned &amp; Co.</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800&display=swap">
+<style>
+/* v2 (Oct 15): light, product-first. Real screenshots of our demo sites, owner app and portal carry every section. */
+:root{
+  --bg:#FAF9F6; --paper:#FFFFFF; --line:#E6E2DA; --line2:#D9D4CA;
+  --text:#15171C; --soft:#5B616C; --mute:#8A8F98;
+  --accent:#B5821F; --ok:#2F8A5B;
+  --sand:#F3EEE5; --sage:#E7EFE9; --sky:#E6EDF6;
+  --display:'Inter Tight','Inter',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --body:'Inter',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --shadow:0 1px 2px rgba(20,22,28,.06),0 12px 32px -12px rgba(20,22,28,.18);
+  --shadow-lg:0 2px 4px rgba(20,22,28,.05),0 30px 70px -24px rgba(20,22,28,.28);
+  /* names the form + modal use */
+  --ink:#FFFFFF; --slab:#FFFFFF; --brass:#15171C; --onbrass:#FFFFFF;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid #2563EB;outline-offset:3px;border-radius:6px}
+.wrap{width:100%;max-width:1160px;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left))}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.025em;line-height:1.05;margin:0;text-wrap:balance}
+h1{font-size:clamp(40px,6.6vw,76px);font-weight:800}
+h2{font-size:clamp(30px,4.2vw,50px);font-weight:750}
+h3{font-size:21px;font-weight:700;letter-spacing:-.015em}
+p{margin:0}
+.eyebrow{font:600 13px/1.2 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.lede{color:var(--soft);font-size:19px;max-width:640px;margin-top:16px}
+section{padding-block:96px}
+.center{text-align:center}.center .lede{margin-inline:auto}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 22px;border-radius:12px;border:1px solid transparent;font:600 16px/1 var(--body);text-decoration:none;cursor:pointer;transition:transform .15s,box-shadow .15s,background .15s}
+.btn-main{background:var(--text);color:#fff;box-shadow:0 1px 0 rgba(255,255,255,.12) inset,0 6px 16px -6px rgba(20,22,28,.5)}
+.btn-main:hover{transform:translateY(-1px);background:#000}
+.btn-line{background:var(--paper);color:var(--text);border-color:var(--line2)}
+.btn-line:hover{border-color:var(--text)}
+
+/* header */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
+.top.scrolled{border-bottom-color:var(--line)}
+.top .wrap{display:flex;align-items:center;gap:24px;min-height:64px}
+.logo{display:inline-flex;align-items:center;gap:10px;font:700 17px/1 var(--display);letter-spacing:-.01em;text-decoration:none}
+.logo svg{width:28px;height:28px}
+.logo .amp{font-family:"Iowan Old Style","Palatino Linotype",Georgia,"Times New Roman",serif;font-style:italic;font-weight:400;font-size:1.12em;letter-spacing:0;margin:0 .04em}
+.top nav{display:flex;gap:26px;margin-left:auto}
+.top nav a{text-decoration:none;color:var(--soft);font-size:15px;font-weight:500}
+.top nav a:hover{color:var(--text)}
+.top .btn{min-height:40px;padding:0 16px;font-size:15px;border-radius:10px;white-space:nowrap}
+
+/* hero */
+.hero{padding-block:72px 40px}
+.hero .wrap{text-align:center}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 8px;border:1px solid var(--line);border-radius:999px;background:var(--paper);font-size:14px;color:var(--soft);margin-bottom:26px}
+.pill .pl-short{display:none}.pill{white-space:nowrap;max-width:100%}
+.pill b{background:var(--sage);color:var(--ok);font-size:12px;padding:3px 8px;border-radius:999px;font-weight:600}
+.hero h1 em{font-style:normal;color:var(--soft)}
+.hero .sub{color:var(--soft);font-size:clamp(17px,2vw,20px);max-width:660px;margin:22px auto 0}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+.hero small{display:block;color:var(--mute);font-size:14px;margin-top:14px}
+.ticks{list-style:none;padding:0;margin:22px 0 0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;color:var(--soft);font-size:15px}
+.ticks li::before{content:'✓';color:var(--ok);font-weight:700;margin-right:7px}
+
+/* product stage */
+.stage{position:relative;margin:56px auto 0;max-width:1120px;padding:44px 44px 0;border-radius:28px;background:linear-gradient(var(--sand),var(--sand)) padding-box;border:1px solid var(--line);overflow:hidden}
+.win{background:var(--paper);border:1px solid var(--line2);border-radius:14px;box-shadow:var(--shadow-lg);overflow:hidden}
+.win .chrome{display:flex;align-items:center;gap:6px;height:34px;padding:0 12px;border-bottom:1px solid var(--line);background:#FBFAF8}
+.win .chrome i{width:10px;height:10px;border-radius:50%;background:#E3DED5}
+.win .chrome span{margin-left:10px;flex:1;max-width:340px;height:20px;border-radius:6px;background:#F1EEE8;font:500 11.5px/20px var(--body);color:var(--mute);text-align:left;padding-left:10px;white-space:nowrap;overflow:hidden}
+.stage .main{width:82%;margin-right:auto}
+.stage .side{position:absolute;right:44px;top:120px;width:27%}
+.phone{border-radius:34px;padding:9px;background:#15171C;box-shadow:var(--shadow-lg)}
+.phone img{border-radius:26px}
+.chip{position:absolute;display:flex;align-items:center;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:10px 14px;box-shadow:var(--shadow);font-size:14px;text-align:left;line-height:1.3}
+.chip .dot{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;flex:none}
+.chip b{display:block;font-weight:600}
+.chip span{color:var(--mute);font-size:12.5px}
+.chip.c1{left:24px;bottom:44px}
+.chip.c2{right:30%;bottom:110px}
+@media (prefers-reduced-motion:no-preference){
+  .chip{animation:pop .6s cubic-bezier(.2,.8,.2,1) both}
+  .chip.c1{animation-delay:.6s}.chip.c2{animation-delay:1.3s}
+  @keyframes pop{from{opacity:0;transform:translateY(10px) scale(.97)}}
+}
+.cap{font-size:13px;color:var(--mute);margin-top:12px;text-align:center}
+
+/* trades strip */
+.trades{padding-block:28px 8px}
+.trades p{color:var(--mute);font-size:14px;text-align:center}
+.trades ul{list-style:none;padding:0;margin:14px 0 0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.trades li{padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:var(--paper);font-size:14px;color:var(--soft)}
+
+/* product tour */
+.tour-tabs{display:flex;gap:6px;margin-top:34px;padding:5px;background:#F0EDE7;border-radius:14px;width:max-content;max-width:100%;overflow-x:auto;scrollbar-width:none}
+.tour-hint{display:none}
+.tour-tabs button{border:0;background:none;padding:10px 16px;border-radius:10px;font:600 15px var(--body);color:var(--soft);cursor:pointer;white-space:nowrap}
+.tour-tabs button[aria-selected="true"]{background:var(--paper);color:var(--text);box-shadow:0 1px 3px rgba(20,22,28,.12)}
+.tour{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px;align-items:center;margin-top:30px}
+.tour .copy h3{font-size:28px;line-height:1.15}
+.tour .copy p{color:var(--soft);margin-top:12px}
+.tour .copy ul{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}
+.tour .copy li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;font-size:16px}
+.tour .copy li::before{content:'';width:18px;height:18px;margin-top:3px;border-radius:50%;background:var(--sage) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F8A5B' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12l4 4 8-8'/%3E%3C/svg%3E") center/12px no-repeat}
+.shot{position:relative;border-radius:22px;padding:32px;border:1px solid var(--line);min-height:420px;display:grid;place-items:center}
+.shot.sand{background:var(--sand)}.shot.sage{background:var(--sage)}.shot.sky{background:var(--sky)}
+.shot .win{width:100%}
+.shot .phone{width:min(270px,70%)}
+.shot.pair{grid-template-columns:1fr 1fr;gap:20px}
+.shot.pair .phone{width:100%}
+.tour[hidden]{display:none}
+@media (prefers-reduced-motion:no-preference){.tour:not([hidden]) .shot{animation:fade .35s ease both}@keyframes fade{from{opacity:0;transform:translateY(6px)}}}
+
+
+/* address demo */
+.demo{width:100%;max-width:440px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow);display:grid;gap:10px;text-align:left}
+.demo-k{font:600 12.5px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--ok)}
+.demo-l{font-weight:600;font-size:15px}
+.demo-f{position:relative}
+.demo-f input{width:100%;min-height:48px;border:1.5px solid var(--line);border-radius:12px;padding:0 14px;font:500 16px var(--body);color:var(--text);background:#fff}
+.demo-f input:focus{outline:none;border-color:var(--text)}
+#dList{position:absolute;z-index:5;left:0;right:0;top:calc(100% + 4px);margin:0;padding:6px;list-style:none;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+#dList li{padding:10px;border-radius:8px;font-size:14.5px;cursor:pointer}
+#dList li[aria-selected="true"],#dList li:hover{background:#F4F2EE}
+.dmap{margin:4px 0 0;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.dmapf iframe{display:block;width:100%;aspect-ratio:16/11;border:0;background:#E9EDF0}
+.dmap figcaption{padding:10px 12px;display:grid;gap:2px;font-size:14.5px}
+#dArea{color:var(--soft);font-size:14px}#dArea.in{color:var(--ok)}#dArea.out{color:#A15C07}
+.demo-n{font-size:12.5px;color:var(--mute)}
+/* features list */
+.feats{margin-top:64px;padding-top:40px;border-top:1px solid var(--line)}
+.feats-h{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.feats-h h3{font-size:28px}.feats-h p{color:var(--soft);font-size:15px}
+.tagc{display:inline-block;font:600 11px/1 var(--body);letter-spacing:.03em;padding:4px 7px;border-radius:999px;background:var(--sand);color:#7A5A14;vertical-align:2px;margin-left:4px}
+.fgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;margin-top:26px}
+.fg{font:600 12.5px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.fcol ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.fcol li{display:grid;gap:2px;padding-left:24px;position:relative}
+.fcol li::before{content:'';position:absolute;left:0;top:3px;width:16px;height:16px;border-radius:50%;background:var(--sage) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F8A5B' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12l4 4 8-8'/%3E%3C/svg%3E") center/11px no-repeat}
+.fcol b{font-size:15.5px;font-weight:600}
+.fcol li>span{color:var(--soft);font-size:14.5px;line-height:1.45}
+.fmore{display:none;margin-top:22px}
+@media (max-width:900px){
+  .fgrid{grid-template-columns:1fr 1fr;gap:24px}
+  .feats:not(.open) .fcol li:nth-child(n+4){display:none}
+  .fmore{display:inline-flex}
+}
+@media (max-width:560px){.fgrid{grid-template-columns:1fr}}
+/* problem */
+.leaks{list-style:none;padding:0;margin:40px 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.leaks li{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:22px}
+.leaks .n{font:700 34px/1 var(--display);color:var(--accent);letter-spacing:-.02em}
+.leaks b{display:block;font:700 18px/1.25 var(--display);margin:14px 0 6px}
+.leaks span{color:var(--soft);font-size:15.5px}
+
+/* catalog */
+.cat{list-style:none;padding:0;margin:40px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.cat a{display:block;text-decoration:none;border-radius:18px;transition:transform .2s}
+.cat a:hover{transform:translateY(-3px)}
+.cat .win{box-shadow:var(--shadow)}
+.cat .meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:12px;padding-inline:4px}
+.cat .meta b{font-weight:600}
+.cat .meta span{color:var(--mute);font-size:14px}
+.catnote{margin-top:22px;color:var(--mute);font-size:14px;text-align:center}
+
+/* packages */
+.tiers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:40px}
+.tier{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:30px;display:grid;gap:16px;align-content:start}
+.tier.pro{border-color:var(--text);box-shadow:var(--shadow)}
+.tier .name{font:750 28px/1 var(--display);letter-spacing:-.02em}
+.tier .for{color:var(--soft)}
+.tier ul{list-style:none;padding:0;margin:0;display:grid;gap:9px;font-size:16px}
+.tier li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:8px}
+.tier li::before{content:'✓';color:var(--ok);font-weight:700}
+.tier li.plus{font-weight:600}.tier li.plus::before{content:''}
+.badge{justify-self:start;background:var(--text);color:#fff;font:600 12px/1 var(--body);letter-spacing:.04em;padding:7px 10px;border-radius:999px}
+.tier .btn{justify-self:start;margin-top:6px}
+.price-note{color:var(--soft);font-size:15px;margin-top:20px;max-width:760px}
+
+/* guarantees */
+.guars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:40px}
+.guar{display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px}
+.guar svg{width:44px;height:44px;padding:10px;border-radius:12px;background:var(--sand)}
+.guar b{display:block;font:700 18px/1.25 var(--display);margin-bottom:6px}
+.guar span{color:var(--soft);font-size:15.5px}
+
+/* steps */
+.steps{list-style:none;padding:0;margin:40px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;counter-reset:s}
+.steps li{counter-increment:s;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--text);color:#fff;font:700 16px/1 var(--display);margin-bottom:16px}
+.steps b{display:block;font:700 19px/1.25 var(--display);margin-bottom:6px}
+.steps span{color:var(--soft);font-size:15.5px}
+.steps em{font-style:normal;color:var(--text);font-weight:600}
+
+/* faq */
+.faq{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:48px}
+.qs{display:grid;gap:10px}
+.qs details{background:var(--paper);border:1px solid var(--line);border-radius:14px}
+.qs summary{cursor:pointer;list-style:none;padding:18px 20px;font:600 16.5px/1.4 var(--body);display:flex;justify-content:space-between;gap:16px}
+.qs summary::-webkit-details-marker{display:none}
+.qs summary::after{content:'+';color:var(--mute);font-weight:500;font-size:22px;line-height:1}
+.qs details[open] summary::after{content:'–'}
+.qs details p{padding:0 20px 18px;color:var(--soft);font-size:16px}
+
+/* final cta */
+.formsec .end{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:40px;align-items:center;background:var(--text);color:#fff;border-radius:28px;padding:56px;overflow:hidden}
+.formsec .eyebrow{color:#E2B95A}
+.formsec h2{color:#fff}
+.formsec .startcard{margin-top:26px;display:grid;gap:22px}
+.mini{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:m}
+.mini li{counter-increment:m;display:grid;grid-template-columns:32px minmax(0,1fr);gap:2px 12px}
+.mini li::before{content:counter(m);grid-row:span 2;width:32px;height:32px;border-radius:9px;background:rgba(255,255,255,.12);display:grid;place-items:center;font:700 15px/1 var(--display)}
+.mini b{font-weight:600}.mini span{color:#B7BCC5;font-size:15px}
+.formsec .btn-main{background:#fff;color:var(--text);justify-self:start}
+.formsec .btn-main:hover{background:#F1EEE8}
+.formsec .phone{width:100%;max-width:260px;justify-self:center;background:#2A2D34;transform:rotate(3deg)}
+
+footer{padding-block:34px 44px;border-top:1px solid var(--line);color:var(--mute);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center}
+footer nav{display:flex;gap:18px}
+footer a{color:var(--soft)}
+
+/* founding page hero bits */
+.callout{font-size:15px;color:var(--soft);margin-bottom:18px}
+.under{margin-top:26px;display:grid;justify-items:center;gap:10px}
+.under small{color:var(--mute);font-size:14px}
+.vsl{position:relative;max-width:860px;margin:36px auto 0;aspect-ratio:16/9;border-radius:20px;overflow:hidden;background:#000;box-shadow:var(--shadow-lg)}
+.vsl video,.vsl iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vsl .ph{display:none}
+
+/* apply form + modal */
+.card{width:100%;text-align:left;display:grid;gap:18px}
+.bar{height:5px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:25%;background:var(--text);transition:width .3s}
+.steph{margin:0 0 4px;font:600 12.5px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.stepq{font:700 21px/1.3 var(--display);letter-spacing:-.015em}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.opt{min-height:52px;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:#fff;color:var(--text);font:500 15.5px/1.25 var(--body);text-align:left;cursor:pointer}
+.opt:hover{border-color:var(--line2);background:#FBFAF7}
+.opt[aria-pressed="true"]{border-color:var(--text);background:#F4F2EE;font-weight:600}
+.field{display:grid;gap:6px}
+.field label{font-weight:600;font-size:14.5px}
+.field input,.field select{min-height:50px;border-radius:12px;border:1.5px solid var(--line);background:#fff;color:var(--text);font:500 16px var(--body);padding:0 14px;width:100%}
+.field input:focus,.field select:focus{border-color:var(--text);outline:none}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.consent{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;font-size:13px;line-height:1.45;color:var(--soft)}
+.consent input{width:18px;height:18px;margin-top:2px;accent-color:var(--text)}
+.consent a{color:var(--text)}
+.note{margin:4px 0 0;font-size:13px;line-height:1.45;color:var(--mute)}
+.nav{display:flex;gap:10px;justify-content:space-between;align-items:center}
+.back{background:none;border:0;color:var(--soft);font:500 15px var(--body);cursor:pointer;padding:8px 0}
+.err{color:#B42318;font-size:14.5px;font-weight:600}
+.done{text-align:center;display:grid;gap:12px;justify-items:center}
+.done .ok{width:64px;height:64px;border-radius:50%;background:var(--sage);display:grid;place-items:center}
+.done .ok svg{width:30px;height:30px}
+.done svg path{stroke:var(--ok)}
+.done .conf{color:var(--soft);font-size:15px}
+.done .lede{margin:0;font-size:16px}
+.precall{margin-top:8px;width:100%;padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--bg);display:grid;gap:8px;justify-items:center}
+.precall p{color:var(--soft);font-size:15px}
+.apply{width:min(620px,calc(100% - 24px));max-height:min(880px,calc(100dvh - 24px));padding:0;border:1px solid var(--line);border-radius:22px;background:#fff;color:var(--text);overflow:auto;overscroll-behavior:contain;box-shadow:var(--shadow-lg)}
+.apply::backdrop{background:rgba(20,22,28,.38);backdrop-filter:blur(4px)}
+.apply .card{padding:4px 26px 26px}
+.apply-h{position:sticky;top:0;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 14px 8px 26px;background:#fff}
+.apply-h b{font:700 16px/1.2 var(--display)}
+.apply-x{width:40px;height:40px;flex:none;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--text);font:400 24px/1 var(--body);cursor:pointer;display:grid;place-items:center}
+html.modal-open{overflow:hidden}
+@media (prefers-reduced-motion:no-preference){.apply[open]{animation:aIn .22s ease-out}@keyframes aIn{from{opacity:0;transform:translateY(14px) scale(.99)}}}
+
+@media (max-width:900px){
+  section{padding-block:64px}
+  .top nav{display:none}.top .btn{margin-left:auto}
+  .stage{padding:20px 16px 0;margin-top:40px;border-radius:20px}
+  .stage .main{width:100%}
+  .stage .side{position:relative;right:auto;top:auto;width:52%;margin:-120px 0 0 auto}
+  .chip.c2{display:none}.chip.c1{left:14px;bottom:20px}
+  .tour{grid-template-columns:1fr;gap:24px}
+  .tour-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%;overflow:visible}
+  .tour-tabs button{white-space:normal;padding:10px 6px;font-size:14px;line-height:1.2}
+  .tour-hint{display:block;margin-top:10px;font-size:13px;color:var(--mute)}
+  .shot{padding:18px;min-height:0}
+  .leaks{grid-template-columns:1fr 1fr}
+  .cat{grid-template-columns:1fr 1fr}
+  .tiers,.guars,.steps,.faq{grid-template-columns:1fr}
+  .faq{gap:24px}
+  .formsec .end{grid-template-columns:1fr;padding:32px 22px}
+  .formsec .phone{display:none}
+}
+@media (max-width:560px){
+  .pill .pl-long{display:none}.pill .pl-short{display:inline}.pill{font-size:13.5px}
+  .top .btn span{display:none}.logo{font-size:16px}
+  .leaks,.opts,.two{grid-template-columns:1fr}.cat{gap:12px}.cat .meta span{display:none}
+  .shot.pair{grid-template-columns:1fr 1fr;gap:10px}
+  .apply{width:100%;max-width:100%;height:100dvh;max-height:100dvh;border-radius:0;border:0;margin:0}
+  .apply .card{padding:4px 18px 24px}.apply-h{padding:12px 12px 6px 18px}
+  .cta-row .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style><style>.narrow{max-width:760px}.legal h2{font-size:24px;margin:34px 0 8px;scroll-margin-top:84px}.legal p,.legal li{color:var(--soft);max-width:68ch}.legal ul{padding-left:20px;display:grid;gap:6px}.legal p+p{margin-top:10px}.legal b{color:var(--text)}.legal .lead{font-size:18px;color:var(--soft)}.toc{margin:26px 0 10px;padding:18px 20px;border:1px solid var(--line);border-radius:16px;background:var(--paper)}.toc p{font:600 12.5px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}.toc ol{margin:0;padding-left:20px;columns:2;column-gap:28px}.toc li{margin:3px 0;break-inside:avoid}.toc a{color:var(--text);text-decoration:none}.toc a:hover{text-decoration:underline}@media (max-width:560px){.toc ol{columns:1}}</style>
+</head><body>
+<header class="top"><div class="wrap"><a class="logo" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="8" fill="#15171C"/><path d="M10.5 10v7.5a5.5 5.5 0 0 0 11 0V10" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round"/></svg><span class="wm">Unplanned <i class="amp">&amp;</i> Co.</span></a><a class="btn btn-main" href="index.html#demo" style="margin-left:auto">Growth audit</a></div></header>
+<main><section><div class="wrap narrow legal">
+<p class="eyebrow">Last updated October 16, 2026</p>
+<h1 style="font-size:clamp(34px,5vw,48px);margin:10px 0 18px">Terms and conditions</h1>
+<p class="lead">The rules for using the Unplanned &amp; Co. website, applying for a Growth Audit, browsing our demo catalog and receiving our text messages.</p>
+<nav class="toc" aria-label="On this page"><p>On this page</p><ol><li><a href="#agree">Using this website</a></li><li><a href="#who">Who can apply</a></li><li><a href="#audit">The free Growth Audit</a></li><li><a href="#services">Our services and prices</a></li><li><a href="#guarantees">Guarantees and results</a></li><li><a href="#texts">Text message program</a></li><li><a href="#demos">Demo catalog</a></li><li><a href="#ip">Our content</a></li><li><a href="#use">Acceptable use</a></li><li><a href="#third">Other services</a></li><li><a href="#disclaimer">No warranties</a></li><li><a href="#liability">Limit of liability</a></li><li><a href="#indemnity">Your responsibility</a></li><li><a href="#law">Texas law and disputes</a></li><li><a href="#changes">Changes and other terms</a></li><li><a href="#contact">Contact us</a></li></ol></nav>
+<h2 id="agree">Using this website</h2><p>These terms apply to this website, our application form, our demo catalog and our text messages, all run by Unplanned &amp; Co., the business name of Ryan Bernal, a sole proprietor in Houston, Texas ("Unplanned &amp; Co.", "we", "us"). By using the site or applying, you agree to these terms and to our <a href="privacy.html">privacy policy</a>. If you do not agree, please do not use the site.</p><h2 id="who">Who can apply</h2><p>The site and our services are for businesses. You must be at least 18 and have the authority to share information about the business you apply for. Please give true and current answers.</p><h2 id="audit">The free Growth Audit</h2><p>Applying is free and does not create a contract or obligation for you or for us. We may decline any application, for example if the business is under our revenue minimum or we already work with a company in the same trade and area. The audit call and any Growth Plan we send are general, educational information based on what you tell us. They are not legal, tax, financial or accounting advice.</p><h2 id="services">Our services and prices</h2><p>Nothing on this website is an offer you can accept. Prices are set for each business and given in writing after the audit. If you become a client, the signed Growth Partner Agreement controls the work, prices, timelines, payment, guarantees, cancellation and ownership. If that agreement and these terms disagree, the signed agreement wins.</p><h2 id="guarantees">Guarantees and results</h2><p>The guarantees described on this website are summaries. Each one applies only as written in a signed agreement, with its conditions and measurement method. We do not promise any specific number of leads, bookings, revenue or search rankings. Results depend on your market, prices, team, how fast leads are answered, ad spend and other things outside our control. Any example numbers on the site are examples, not forecasts.</p><h2 id="texts">Text message program</h2><p><b>Program:</b> Unplanned &amp; Co. application and appointment messages. <b>What you get:</b> texts about your application, call times and replies, only if you check the text box or ask us to text you. <b>How often:</b> usually 1 to 4 messages per request. <b>Cost:</b> message and data rates may apply. <b>Stop:</b> reply STOP at any time to stop all texts; we will send one message to confirm. <b>Help:</b> reply HELP, or contact us through the form on our home page. Carriers are not liable for delayed or undelivered messages. Agreeing to texts is not a condition of applying or buying anything. See our <a href="privacy.html#texts">privacy policy</a> for how we protect your number.</p><h2 id="demos">Demo catalog</h2><p>Our demo websites show made-up companies, names, reviews, prices and numbers so you can try how the system works. They are not real businesses or real customer reviews. In the catalog, texts, emails and owner tools are switched off, so nothing you enter there is sent. Please do not enter real personal or payment information on demo sites.</p><h2 id="ip">Our content</h2><p>The text, designs, screenshots, code, photos and demo sites on this website belong to us or our licensors. You may view them and share links to them. You may not copy, resell or reuse them to build your own product without our written permission. If you become a client, your agreement explains what you own, including your domain, website content, ad accounts and customer list.</p><h2 id="use">Acceptable use</h2><p>Please do not misuse the site: no false applications, spam or automated submissions, no attempts to break, overload or get into parts of the site or our systems you are not allowed to, and no uploading harmful code or content that is illegal or infringes someone else's rights.</p><h2 id="third">Other services</h2><p>The site uses services run by others, such as Google (forms, calendar, maps and fonts), Esri (address search), Meta, Stripe and GitHub. Your use of those parts is also subject to their terms. We are not responsible for services or websites we do not control.</p><h2 id="disclaimer">No warranties</h2><p>The website and its content are provided "as is" and "as available." To the fullest extent the law allows, we disclaim all warranties, express or implied, including merchantability, fitness for a particular purpose and non-infringement. We do not promise the site will always be available, error-free or secure.</p><h2 id="liability">Limit of liability</h2><p>To the fullest extent the law allows, we are not liable for indirect, incidental, special, consequential or punitive damages, or for lost profits, revenue or data, arising from your use of this website, the audit or the Growth Plan. For anything related to this website, our total liability is limited to $100. Liability for paid services is set by your signed agreement. Some places do not allow these limits, so they may not fully apply to you.</p><h2 id="indemnity">Your responsibility</h2><p>If you misuse the site or break these terms and someone makes a claim against us because of it, you agree to cover our reasonable costs of that claim, including attorney fees.</p><h2 id="law">Texas law and disputes</h2><p>Texas law governs these terms, without regard to conflict-of-law rules. Before filing any claim, please contact us so we can try to fix the problem informally within 30 days. Any lawsuit about the site must be brought in the state or federal courts located in Harris County, Texas, and both sides agree to that venue.</p><h2 id="changes">Changes and other terms</h2><p>We may update these terms; the date at the top shows the latest version, and the version on the site when you use it applies. If one part of these terms cannot be enforced, the rest still applies. Not enforcing a term right away does not mean we give it up.</p><h2 id="contact">Contact us</h2><p>Unplanned &amp; Co., Houston, Texas. Questions about these terms: use the form on our home page, or reply to any email or text we send you.</p>
+</div></section></main>
+<footer><div class="wrap"><span>© 2026 Unplanned &amp; Co. · Houston, TX</span><nav aria-label="Legal"><a href="index.html">Home</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav></div></footer>
+</body></html>

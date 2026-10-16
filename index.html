@@ -2,9 +2,9 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#FAF9F6">
-<title>Unplanned Holdings</title>
+<title>Unplanned &amp; Co.</title>
 <meta name="description" content="For Houston home service companies doing $150k+ a year: booking system, ads and 60-second lead response, with a booked-appointment guarantee. Apply for a free Growth Audit.">
-<meta property="og:title" content="Unplanned Holdings: more booked jobs in 90 days"><meta property="og:description" content="Free 15-minute Growth Audit for Houston home service companies doing $150k+ a year."><meta property="og:type" content="website">
+<meta property="og:title" content="Unplanned &amp; Co.: more booked jobs in 90 days"><meta property="og:description" content="Free 15-minute Growth Audit for Houston home service companies doing $150k+ a year."><meta property="og:type" content="website">
 
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800&display=swap">
@@ -53,6 +53,7 @@ section{padding-block:96px}
 .top .wrap{display:flex;align-items:center;gap:24px;min-height:64px}
 .logo{display:inline-flex;align-items:center;gap:10px;font:700 17px/1 var(--display);letter-spacing:-.01em;text-decoration:none}
 .logo svg{width:28px;height:28px}
+.logo .amp{font-family:"Iowan Old Style","Palatino Linotype",Georgia,"Times New Roman",serif;font-style:italic;font-weight:400;font-size:1.12em;letter-spacing:0;margin:0 .04em}
 .top nav{display:flex;gap:26px;margin-left:auto}
 .top nav a{text-decoration:none;color:var(--soft);font-size:15px;font-weight:500}
 .top nav a:hover{color:var(--text)}
@@ -310,7 +311,7 @@ html.modal-open{overflow:hidden}
 </head><body>
 <header class="top" id="hdr">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="Unplanned Holdings, top of page"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="8" fill="#15171C"/><path d="M10.5 10v7.5a5.5 5.5 0 0 0 11 0V10" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round"/></svg>Unplanned Holdings</a>
+    <a class="logo" href="#top" aria-label="Unplanned &amp; Co., top of page"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="8" fill="#15171C"/><path d="M10.5 10v7.5a5.5 5.5 0 0 0 11 0V10" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round"/></svg><span class="wm">Unplanned <i class="amp">&amp;</i> Co.</span></a>
     <nav aria-label="Sections"><a href="#product">Product</a><a href="#work">Work</a><a href="#packages">Packages</a><a href="#faq">FAQ</a></nav>
     <a class="btn btn-main" href="#demo">Growth audit<span>&nbsp;(free)</span></a>
   </div>
@@ -538,8 +539,8 @@ html.modal-open{overflow:hidden}
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Unplanned Holdings · Houston, TX</span>
-    <nav aria-label="Legal"><a href="privacy.html">Privacy policy</a><a href="#demo">Free demo</a></nav>
+    <span>© 2026 Unplanned &amp; Co. · Houston, TX</span>
+    <nav aria-label="Legal"><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms</a><a href="#demo">Free demo</a></nav>
   </div>
 </footer>
 
@@ -558,7 +559,7 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',
 // VSL: mp4 → <video controls>, anything else → embed (works on the live site, not in previews that block frames)
 (function vsl(){const box=$('#vsl');const src=VSL_SRC||box.dataset.src;if(!src){box.hidden=true;return}box.hidden=false;
   if(/\.mp4($|\?)/i.test(src)){box.insertAdjacentHTML('beforeend',`<video src="${esc(src)}" controls playsinline preload="metadata"></video>`)}
-  else{box.insertAdjacentHTML('beforeend',`<iframe src="${esc(src)}" title="Unplanned Holdings video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`)}
+  else{box.insertAdjacentHTML('beforeend',`<iframe src="${esc(src)}" title="Unplanned &amp; Co. video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`)}
   })();
 
 // Meta Pixel (only when an ID is set)
@@ -591,7 +592,7 @@ const S=[
    <div class="field"><label for="fEmail">Email</label><input id="fEmail" type="email" autocomplete="email" value="${esc(D.email)}"></div></div>
    <div class="two"><div class="field"><label for="fBest">Best way to reach you</label><select id="fBest">${['Text','Call','Email'].map(o=>`<option ${D.best===o?'selected':''}>${o}</option>`).join('')}</select></div>
    <div class="field"><label for="fTime">Best time</label><select id="fTime">${['Anytime','Morning','Afternoon','Evening'].map(o=>`<option ${D.time===o?'selected':''}>${o}</option>`).join('')}</select></div></div>
-   <label class="consent"><input type="checkbox" id="fSms" ${D.sms?'checked':''}><span>Text me about my audit (optional). Unplanned Holdings sends texts about your request only, usually 1–4 messages. Msg & data rates may apply. Reply STOP to opt out, HELP for help. Not required to apply. <a href="privacy.html">Privacy policy</a>.</span></label>
+   <label class="consent"><input type="checkbox" id="fSms" ${D.sms?'checked':''}><span>Text me about my audit (optional). Unplanned &amp; Co. sends texts about your request only, usually 1–4 messages. Msg & data rates may apply. Reply STOP to opt out, HELP for help. Not required to apply. <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a>.</span></label>
    <p class="note">If you stop before sending, Ryan may reach out once about your application.</p>`
 ];
 const SITE=3,CONTACT=4;

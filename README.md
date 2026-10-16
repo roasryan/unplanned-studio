@@ -1,5 +1,5 @@
-# Unplanned Studio
+# Unplanned & Co.
 
-Landing page for Unplanned Studio: growth systems for Houston home service companies.
+Landing page for Unplanned & Co.: growth systems for Houston home service companies.
 
 Live: https://roasryan.github.io/unplanned-studio/
