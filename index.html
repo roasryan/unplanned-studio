@@ -308,6 +308,14 @@ html.modal-open{overflow:hidden}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 
+<script>
+/* Tracking: paste IDs here. Loads only on unplannedco.com, never in previews. */
+window.TRACK={META_PIXEL:'',GA4:''};
+(function(){var T=window.TRACK;if(!/(^|\.)unplannedco\.com$/.test(location.hostname))return;
+if(T.META_PIXEL){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init',T.META_PIXEL);fbq('track','PageView')}
+if(T.GA4){var g=document.createElement('script');g.async=1;g.src='https://www.googletagmanager.com/gtag/js?id='+T.GA4;document.head.appendChild(g);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config',T.GA4)}})();
+window.tk=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{})}catch(e){}};
+</script>
 </head><body>
 <header class="top" id="hdr">
   <div class="wrap">
@@ -597,8 +605,8 @@ const S=[
 ];
 const SITE=3,CONTACT=4;
 let NF=false;
-function notFit(){NF=true;$('#lfSteps').innerHTML=`<div class="done" style="text-align:left;justify-items:start"><p class="steph">Thanks for your interest</p><h3 style="margin:0;font:700 22px/1.25 var(--display)">We’re not the right fit yet.</h3><p class="lede" style="margin:0">Right now we only work with home service companies doing $150k+ a year. Nothing you entered was sent.</p><p class="conf" style="margin:0"><b>Free tip while you grow:</b> answer every new lead within 5 minutes and ask every happy customer for a Google review. Those two habits win more jobs than any ad.</p></div>`;$('#lfNext').hidden=true;$('#lfNext').style.display='none';$('#lfBack').hidden=false;$('#lfErr').hidden=true}
-function paint(){$('#lfNext').hidden=false;$('#lfNext').style.display='';$('#lfSteps').innerHTML=S[step]();$('#lfBar').style.width=((step+1)/S.length*100)+'%';$('#lfBack').hidden=step===0;$('#lfNext').textContent=step===S.length-1?'Apply for my audit':'Next';$('#lfErr').hidden=true}
+function notFit(){NF=true;tk('not_fit');$('#lfSteps').innerHTML=`<div class="done" style="text-align:left;justify-items:start"><p class="steph">Thanks for your interest</p><h3 style="margin:0;font:700 22px/1.25 var(--display)">We’re not the right fit yet.</h3><p class="lede" style="margin:0">Right now we only work with home service companies doing $150k+ a year. Nothing you entered was sent.</p><p class="conf" style="margin:0"><b>Free tip while you grow:</b> answer every new lead within 5 minutes and ask every happy customer for a Google review. Those two habits win more jobs than any ad.</p></div>`;$('#lfNext').hidden=true;$('#lfNext').style.display='none';$('#lfBack').hidden=false;$('#lfErr').hidden=true}
+function paint(){tk('form_step',{step:step+1});$('#lfNext').hidden=false;$('#lfNext').style.display='';$('#lfSteps').innerHTML=S[step]();$('#lfBar').style.width=((step+1)/S.length*100)+'%';$('#lfBack').hidden=step===0;$('#lfNext').textContent=step===S.length-1?'Apply for my audit':'Next';$('#lfErr').hidden=true}
 function err(m){const e=$('#lfErr');e.textContent=m;e.hidden=false}
 function read(){if(step===SITE&&$('#fSite')){D.site=$('#fSite').value.trim();D.noSite=$('#fNoSite').checked;if(D.noSite)D.site='N/A'}if(step===CONTACT&&$('#fName')){D.name=$('#fName').value.trim();D.mobile=$('#fMobile').value.trim();D.email=$('#fEmail').value.trim();D.best=$('#fBest').value;D.time=$('#fTime').value;D.sms=$('#fSms').checked}}
 function ok(){if(step===0&&!D.trade)return 'Pick your type of business.';const need={1:['want','avgJob'],2:['capacity','bottleneck'],3:['size','timeline']}[step];if(need&&need.some(k=>!D[k]))return 'Pick one answer for each question.';if(step===2&&!D.sources.length)return 'Pick where your customers come from.';if(step===SITE&&!D.site&&!D.noSite)return 'Add your website, or tick “I don’t have a website yet.”';
@@ -613,7 +621,7 @@ function sendPartial(beacon){if(!LEAD_ENDPOINT||finished||!D.email)return;partia
 addEventListener('pagehide',()=>{if(finished)return;read();if(D.email)sendPartial(true)});
 // modal
 const dlg=$('#applyDlg');
-function openApply(){if(!dlg.open){dlg.showModal();document.documentElement.classList.add('modal-open');const f=dlg.querySelector('.opt,input');if(f)f.focus()}}
+let tkOpen=false;function openApply(){if(!dlg.open){if(!tkOpen){tkOpen=true;tk('form_open');if(window.fbq)try{fbq('trackCustom','StartApplication')}catch(x){}}dlg.showModal();document.documentElement.classList.add('modal-open');const f=dlg.querySelector('.opt,input');if(f)f.focus()}}
 dlg.addEventListener('close',()=>{document.documentElement.classList.remove('modal-open');if(finished)return;read();if(D.email)sendPartial()});
 $('#applyX').addEventListener('click',()=>dlg.close());
 dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
@@ -631,8 +639,8 @@ $('#lf').addEventListener('submit',async e=>{e.preventDefault();read();const m=o
   let sent=false;
   if(LEAD_ENDPOINT){try{await fetch(LEAD_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(lead)});sent=true}catch(x){sent=false}}
   if(sent)finished=true;
-  if(window.fbq)try{fbq('track','Lead',{content_name:D.trade})}catch(x){}
-  if(!sent){btn.disabled=false;btn.textContent='Apply for my audit';const live=/github\.io|unplannedstudio\.com/.test(location.hostname);return err(!LEAD_ENDPOINT?'Preview only: the form sends once the live page is connected.':live?'That didn’t go through. Check your connection and try again.':'This preview can’t send applications. Apply on the live page: roasryan.github.io/unplanned-studio')}
+  if(sent){tk('generate_lead',{trade:D.trade});if(window.fbq)try{fbq('track','Lead',{content_name:D.trade})}catch(x){}}
+  if(!sent){btn.disabled=false;btn.textContent='Apply for my audit';const live=/github\.io|unplannedco\.com/.test(location.hostname);return err(!LEAD_ENDPOINT?'Preview only: the form sends once the live page is connected.':live?'That didn’t go through. Check your connection and try again.':'This preview can’t send applications. Apply on the live page: unplannedco.com')}
   $('#lf').innerHTML=`<div class="done"><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="#7FD1A8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span><h3>You're in, ${esc(D.name.split(' ')[0])}.</h3><p class="conf">Confirmation sent to ${esc(D.email)}${D.sms&&D.mobile?' and '+esc(D.mobile):''}.</p><p class="lede">${D.capacity.startsWith('No')?'Thanks! Since your team is already full, we\'ll start with systems that free up your time, not more leads. We\'ll be in touch within 1 business hour, and we\'ll send you a free plan based on your answers.':`We'll ${D.best==='Call'?'call':D.best==='Email'?'email':'text'} you within 1 business hour to book your 15-minute audit. We\'ll also send you a free plan based on your answers.`}</p>${D.want==='Under $150k a year'?'':`<p style="margin-top:16px"><a class="btn btn-main" href="${BOOK_URL}" target="_blank" rel="noopener">Pick your call time now</a></p><p class="conf">15-minute phone call with Ryan. Any day, any time that works for you.</p>`}${PRECALL_VSL&&D.want!=='Under $150k a year'?`<div class="precall"><b>Before your call: watch this short video</b><p>How it works, how it’s priced, contract length, how much of your time it takes, and what happens if we miss the target.</p><a class="btn btn-line" href="${esc(PRECALL_VSL)}" target="_blank" rel="noopener">Watch before our call</a></div>`:''}</div>`});
 paint();
 })();
