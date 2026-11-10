@@ -122,11 +122,22 @@ section{padding-block:96px}
 @media (prefers-reduced-motion:no-preference){.tour:not([hidden]) .shot{animation:fade .35s ease both}@keyframes fade{from{opacity:0;transform:translateY(6px)}}}
 
 
-.rpt .rg{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
-.rpt .rg div{background:#F7F5F1;border-radius:12px;padding:12px}
-.rpt .rg b{display:block;font:700 24px/1.1 var(--body)}
-.rpt .rg span{display:block;font-size:13px;line-height:1.3;color:var(--soft)}
+.stuck{display:grid;gap:10px;margin:20px 0 22px}
+.stuck a{display:grid;padding:14px 16px;border:1px solid var(--line2);border-radius:14px;background:var(--paper);text-decoration:none;color:var(--text);transition:border-color .15s,transform .15s}
+.stuck a:hover{border-color:var(--text);transform:translateY(-1px)}
+.stuck b{font-size:17px}.stuck span{font-size:15px;color:var(--soft)}
+.rpt{max-width:560px}
+.rpt .rb{padding:22px;display:grid;gap:14px}
+.rpt .rg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.rpt .rg div{background:#F7F5F1;border-radius:12px;padding:12px 14px}
+.rpt .rg span{display:block;font-size:13px;color:var(--soft)}
+.rpt .rg b{display:block;font:700 26px/1.15 var(--body);margin-top:2px}
+.rpt .rg em{font-style:normal;font-size:12.5px;font-weight:600;color:var(--ok)}
+.rpt .bars{display:flex;align-items:flex-end;gap:8px;height:110px;padding:10px 4px 0;border-bottom:1px solid var(--line)}
+.rpt .bars i{flex:1;background:linear-gradient(var(--ok),#5FAE83);border-radius:6px 6px 0 0;opacity:.85}
 .rpt .rl{font-size:14.5px;color:var(--soft)}.rpt .rl b{color:var(--text)}
+.rpt .rn{font-size:12px;color:var(--mute)}
+@media (max-width:600px){.rpt .rb{padding:14px}.rpt .rg{gap:6px}.rpt .rg div{padding:10px 8px}.rpt .rg b{font-size:21px;white-space:nowrap}.rpt .rg span,.rpt .rg em{font-size:11.5px;white-space:nowrap}.rpt .bars{height:80px}}
 
 /* address demo */
 .demo{width:100%;max-width:440px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow);display:grid;gap:10px;text-align:left}
@@ -359,7 +370,7 @@ window.tk=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{})}catch(e){}};
     <div class="wrap">
       <p class="eyebrow">What you get</p>
       <h2 id="productH">We don't just build your site. We help you book more jobs.</h2>
-      <p class="lede">Growth is how we work with you. The other tabs are the tools, all live in our demo catalog and built around your services, photos and prices.</p>
+      <p class="lede">Growth is the goal. The other tabs are the tools.</p>
       <div class="tour-tabs" role="tablist" aria-label="Product tour">
         <button type="button" role="tab" id="t0" aria-controls="p0" aria-selected="true">Growth</button>
         <button type="button" role="tab" id="t1" aria-controls="p1" aria-selected="false" tabindex="-1">Website</button>
@@ -369,15 +380,14 @@ window.tk=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{})}catch(e){}};
       </div>
       <p class="tour-hint">Tap a tab to see each part of the system.</p>
       <div class="tour" role="tabpanel" id="p0" aria-labelledby="t0">
-        <div class="copy"><h3>More booked jobs from the people already finding you.</h3><p>Most Houston service companies don't need more traffic. They're losing the calls, forms and after-hours visitors they already get. We find those leaks, fix them, and keep fixing them.</p><ul><li>A leak audit: missed calls, slow replies, dead buttons, long forms</li><li>Fixes that plug into what you already run, like Housecall Pro or Jobber</li><li>Every lead tracked: where it came from, how fast you replied, if it booked</li><li>A monthly report: jobs booked, revenue, and what we fix next</li><li>As you grow, we grow with you. Our pay is tied to your results.</li></ul></div>
-        <div class="shot sand"><div class="demo rpt" aria-label="Sample monthly growth report">
-          <p class="demo-k">Monthly growth report</p>
-          <p class="demo-l">October · sample numbers</p>
-          <div class="rg"><div><b>142</b><span>Calls and forms in</span></div><div><b>38</b><span>Missed calls texted back</span></div><div><b>1 min</b><span>Average reply time</span></div><div><b>61</b><span>Jobs booked</span></div></div>
-          <p class="rl"><b>Leak we fixed:</b> weekend calls going unanswered</p>
-          <p class="rl"><b>Next up:</b> cut the estimate form from 7 boxes to 3</p>
-          <p class="demo-n">Sample report for demonstration purposes. Yours shows your real numbers.</p>
-        </div></div>
+        <div class="copy"><h3>We help you grow. Where are you stuck?</h3><div class="stuck"><a href="#demo"><b>Not enough leads</b><span>The phone's too quiet.</span></a><a href="#demo"><b>Leads don't book</b><span>Calls and forms go nowhere.</span></a><a href="#demo"><b>Booked out</b><span>More work than crew.</span></a></div><a class="btn btn-main" href="#demo">Get your free audit</a></div>
+        <div class="shot sand"><div class="win rpt"><div class="chrome"><i></i><i></i><i></i><span>Growth report · October</span></div>
+          <div class="rb">
+            <div class="rg"><div><span>Leads in</span><b>142</b><em>+18%</em></div><div><span>Reply time</span><b>1 min</b><em>was 3 hrs</em></div><div><span>Jobs booked</span><b>61</b><em>+24%</em></div></div>
+            <div class="bars" aria-hidden="true"><i style="height:38%"></i><i style="height:46%"></i><i style="height:52%"></i><i style="height:61%"></i><i style="height:58%"></i><i style="height:72%"></i><i style="height:80%"></i><i style="height:92%"></i></div>
+            <p class="rl"><b>Fixed:</b> weekend missed calls</p><p class="rl"><b>Next:</b> 7-box form down to 3</p>
+            <p class="rn">Sample numbers for demonstration purposes.</p>
+          </div></div></div>
       </div>
       <div class="tour" role="tabpanel" id="p1" aria-labelledby="t1" hidden>
         <div class="copy"><h3>A website that books jobs, not one that just informs.</h3><p>Fast on phones, built around your services and cities, with one interaction that makes people stop scrolling.</p><ul><li>Booking card above the fold, on every page</li><li>A page for every service and 5 city pages for local search</li><li>Text-us button and service question forms</li></ul></div>
@@ -405,7 +415,7 @@ window.tk=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{})}catch(e){}};
       <div class="feats" id="features">
         <div class="feats-h"><h3>Everything included</h3><p>25 features across both packages. <span class="tagc">Concierge</span> marks the ones only in Concierge.</p></div>
         <div class="fgrid">
-          <div class="fcol"><p class="fg">Get found</p><ul><li><b>Website built for your business</b><span>Your services, photos and brand, fast on phones.</span></li><li><b>A page for every service</b><span>Plus 5 city pages so you show up in more searches.</span></li><li><b>Google Business Profile tune-up</b><span>Photos, services and posts that help you rank in Maps.</span></li><li><b>Review requests after every job</b><span>More 5-star reviews without asking by hand.</span></li><li><b>Ads run for you <span class=tagc>Concierge</span></b><span>Google and Meta, with a monthly cost-per-job report.</span></li><li><b>Spanish site</b><span>Every page in Spanish for Houston’s Spanish speakers.</span></li></ul></div>
+          <div class="fcol"><p class="fg">Get found</p><ul><li><b>Website built for your business</b><span>Your services, photos and brand, fast on phones.</span></li><li><b>A page for every service</b><span>Plus 5 city pages so you show up in more searches.</span></li><li><b>Google Business Profile tune-up</b><span>Services, hours and posts that help you rank in Maps.</span></li><li><b>Review requests after every job</b><span>More 5-star reviews without asking by hand.</span></li><li><b>Ads run for you <span class=tagc>Concierge</span></b><span>Google and Meta, with a monthly cost-per-job report.</span></li><li><b>Spanish site</b><span>Every page in Spanish for Houston’s Spanish speakers.</span></li></ul></div>
           <div class="fcol"><p class="fg">Win the lead</p><ul><li><b>60-second lead alerts</b><span>Name, mobile, address and best time, straight to your phone.</span></li><li><b>Text-us button</b><span>Customers text you from any page.</span></li><li><b>Missed-call text back <span class=tagc>Concierge</span></b><span>Anyone you miss gets a text within 1 minute.</span></li><li><b>AI receptionist <span class=tagc>Concierge</span></b><span>Answers calls 24/7 and books the visit.</span></li><li><b>AI website chat <span class=tagc>Concierge</span></b><span>Answers questions about your services and books.</span></li><li><b>Instant price tool</b><span>Roofing: a quote from the satellite roof outline. Other trades: price ranges.</span></li></ul></div>
           <div class="fcol"><p class="fg">Book and run jobs</p><ul><li><b>Online booking</b><span>Real open times, synced both ways with Google Calendar.</span></li><li><b>Address check</b><span>Satellite “Is this your place?” plus service-area check.</span></li><li><b>Owner app</b><span>Leads, jobs, schedule, photos, notes and numbers.</span></li><li><b>Crew app</b><span>Today’s jobs, steps and photos for each tech.</span></li><li><b>Customer portal</b><span>Progress, next visit and a live “on the way” update.</span></li><li><b>Change orders</b><span>Customers approve extra work with a signature.</span></li></ul></div>
           <div class="fcol"><p class="fg">Get paid and keep them</p><ul><li><b>Branded invoices</b><span>With your Stripe, Square or QuickBooks pay link.</span></li><li><b>Thank-you screen</b><span>Receipt, warranty start and one plan offer.</span></li><li><b>Memberships</b><span>Maintenance or club plans that bring them back.</span></li><li><b>Past-customer comebacks <span class=tagc>Concierge</span></b><span>A reactivation campaign every quarter.</span></li><li><b>Affiliate program <span class=tagc>Concierge</span></b><span>Referral links for realtors, inspectors and past customers, with payouts tracked.</span></li><li><b>Numbers you can trust</b><span>Cost per lead, close rate and revenue by source.</span></li><li><b>You own it all</b><span>Domain, site, ad accounts and customer list.</span></li></ul></div>
