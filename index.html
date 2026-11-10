@@ -122,6 +122,12 @@ section{padding-block:96px}
 @media (prefers-reduced-motion:no-preference){.tour:not([hidden]) .shot{animation:fade .35s ease both}@keyframes fade{from{opacity:0;transform:translateY(6px)}}}
 
 
+.rpt .rg{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+.rpt .rg div{background:#F7F5F1;border-radius:12px;padding:12px}
+.rpt .rg b{display:block;font:700 24px/1.1 var(--body)}
+.rpt .rg span{display:block;font-size:13px;line-height:1.3;color:var(--soft)}
+.rpt .rl{font-size:14.5px;color:var(--soft)}.rpt .rl b{color:var(--text)}
+
 /* address demo */
 .demo{width:100%;max-width:440px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow);display:grid;gap:10px;text-align:left}
 .demo-k{font:600 12.5px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--ok)}
@@ -352,18 +358,28 @@ window.tk=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{})}catch(e){}};
   <section id="product" aria-labelledby="productH">
     <div class="wrap">
       <p class="eyebrow">What you get</p>
-      <h2 id="productH">One system, from the first click to the final payment.</h2>
-      <p class="lede">Every piece below is live in our demo catalog. Yours is built around your services, crews, photos and prices.</p>
+      <h2 id="productH">We don't just build your site. We help you book more jobs.</h2>
+      <p class="lede">Growth is how we work with you. The other tabs are the tools, all live in our demo catalog and built around your services, photos and prices.</p>
       <div class="tour-tabs" role="tablist" aria-label="Product tour">
-        <button type="button" role="tab" id="t1" aria-controls="p1" aria-selected="true">Website</button>
+        <button type="button" role="tab" id="t0" aria-controls="p0" aria-selected="true">Growth</button>
+        <button type="button" role="tab" id="t1" aria-controls="p1" aria-selected="false" tabindex="-1">Website</button>
         <button type="button" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1">Booking</button>
         <button type="button" role="tab" id="t6" aria-controls="p6" aria-selected="false" tabindex="-1">Address check</button>
-        <button type="button" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1">Owner app</button>
-        <button type="button" role="tab" id="t4" aria-controls="p4" aria-selected="false" tabindex="-1">Customer portal</button>
         <button type="button" role="tab" id="t5" aria-controls="p5" aria-selected="false" tabindex="-1">Payments</button>
       </div>
       <p class="tour-hint">Tap a tab to see each part of the system.</p>
-      <div class="tour" role="tabpanel" id="p1" aria-labelledby="t1">
+      <div class="tour" role="tabpanel" id="p0" aria-labelledby="t0">
+        <div class="copy"><h3>More booked jobs from the people already finding you.</h3><p>Most Houston service companies don't need more traffic. They're losing the calls, forms and after-hours visitors they already get. We find those leaks, fix them, and keep fixing them.</p><ul><li>A leak audit: missed calls, slow replies, dead buttons, long forms</li><li>Fixes that plug into what you already run, like Housecall Pro or Jobber</li><li>Every lead tracked: where it came from, how fast you replied, if it booked</li><li>A monthly report: jobs booked, revenue, and what we fix next</li><li>As you grow, we grow with you. Our pay is tied to your results.</li></ul></div>
+        <div class="shot sand"><div class="demo rpt" aria-label="Sample monthly growth report">
+          <p class="demo-k">Monthly growth report</p>
+          <p class="demo-l">October · sample numbers</p>
+          <div class="rg"><div><b>142</b><span>Calls and forms in</span></div><div><b>38</b><span>Missed calls texted back</span></div><div><b>1 min</b><span>Average reply time</span></div><div><b>61</b><span>Jobs booked</span></div></div>
+          <p class="rl"><b>Leak we fixed:</b> weekend calls going unanswered</p>
+          <p class="rl"><b>Next up:</b> cut the estimate form from 7 boxes to 3</p>
+          <p class="demo-n">Sample report for demonstration purposes. Yours shows your real numbers.</p>
+        </div></div>
+      </div>
+      <div class="tour" role="tabpanel" id="p1" aria-labelledby="t1" hidden>
         <div class="copy"><h3>A website that books jobs, not one that just informs.</h3><p>Fast on phones, built around your services and cities, with one interaction that makes people stop scrolling.</p><ul><li>Booking card above the fold, on every page</li><li>A page for every service and 5 city pages for local search</li><li>Text-us button and service question forms</li></ul></div>
         <div class="shot sand"><div class="win"><div class="chrome"><i></i><i></i><i></i><span>ridgeline-demo</span></div><img src="img/site-ridgeline.webp" width="1600" height="1000" alt="Demo roofing homepage" loading="lazy"></div></div>
       </div>
@@ -380,14 +396,6 @@ window.tk=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{})}catch(e){}};
           <figure class="dmap" id="dMap" hidden><div class="dmapf" id="dFrame"></div><figcaption><b>Is this the right place?</b><span id="dArea"></span></figcaption></figure>
           <p class="demo-n" id="dNote">Demo only: nothing you type here is saved. Map by Google, address search by Esri.</p>
         </div></div>
-      </div>
-      <div class="tour" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
-        <div class="copy"><h3>Every lead and job in one app on your phone.</h3><p>What needs you today, who's waiting on an estimate, who hasn't paid. One tap to text, invoice or mark a job won.</p><ul><li>Jobs, schedule, photos, notes and invoices</li><li>"Needs you" list so nothing slips</li><li>Numbers: cost per lead, close rate, revenue by source</li></ul></div>
-        <div class="shot sage pair" style="grid-template-columns:2.2fr 1fr"><div class="win"><div class="chrome"><i></i><i></i><i></i><span>Owner app</span></div><img src="img/owner-jobs.webp" width="1600" height="1000" alt="Owner app jobs list with sample customers" loading="lazy"></div><div class="phone"><img src="img/m-owner.webp" width="640" height="1385" alt="Owner app home on a phone" loading="lazy"></div></div>
-      </div>
-      <div class="tour" role="tabpanel" id="p4" aria-labelledby="t4" hidden>
-        <div class="copy"><h3>Customers see their job without calling you.</h3><p>A private link with progress, next visit, who's coming and a live "on the way" update. Fewer "any update?" calls.</p><ul><li>Approve estimates and changes with a signature</li><li>English or Spanish</li><li>Add-ons and plans offered at the right moment</li></ul></div>
-        <div class="shot sand"><div class="phone"><img src="img/m-portal.webp" width="640" height="1385" alt="Customer portal showing the next visit and on-the-way status" loading="lazy"></div></div>
       </div>
       <div class="tour" role="tabpanel" id="p5" aria-labelledby="t5" hidden>
         <div class="copy"><h3>Get paid, then get the next job.</h3><p>Branded invoices with your pay link, a clean thank-you screen, and one membership offer while they're happy.</p><ul><li>Works with your Stripe, Square or QuickBooks link</li><li>Receipt and warranty start automatically</li><li>Review request after every job</li></ul></div>
