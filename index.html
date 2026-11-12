@@ -231,7 +231,7 @@ section{padding-block:96px}
 .qs details p{padding:0 20px 18px;color:var(--soft);font-size:16px}
 
 /* final cta */
-.formsec .end{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:40px;align-items:center;background:var(--text);color:#fff;border-radius:28px;padding:56px;overflow:hidden}
+.formsec .end{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:40px;align-items:center;background:var(--text);color:#fff;border-radius:28px;padding:56px;overflow:hidden}
 .formsec .eyebrow{color:#E2B95A}
 .formsec h2{color:#fff}
 .formsec .startcard{margin-top:26px;display:grid;gap:22px}
@@ -241,7 +241,17 @@ section{padding-block:96px}
 .mini b{font-weight:600}.mini span{color:#B7BCC5;font-size:15px}
 .formsec .btn-main{background:#fff;color:var(--text);justify-self:start}
 .formsec .btn-main:hover{background:#F1EEE8}
-.formsec .phone{width:100%;max-width:260px;justify-self:center;background:#2A2D34;transform:rotate(3deg)}
+.formsec .call{color:var(--text);width:100%;max-width:400px;justify-self:center}
+.call .cb{padding:18px;display:grid;gap:10px}
+.call .ck{font:600 11.5px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.call .ch{font:700 19px/1.2 var(--display)}
+.call .cl{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.call .cl li{display:flex;justify-content:space-between;align-items:center;gap:10px;background:#F7F5F1;border-radius:10px;padding:9px 12px;font-size:14px;font-weight:600}
+.call .cl small{display:block;font-size:12.5px;font-weight:400;color:var(--soft)}
+.call .cl em{font-style:normal;font-size:12px;font-weight:700;border-radius:99px;padding:3px 9px;white-space:nowrap}
+.call .bad{background:#FBE9E7;color:#B3261E}.call .good{background:#E4F3EA;color:var(--ok)}
+.call .cf{font-size:13.5px;color:var(--soft)}.call .cf b{color:var(--text)}
+.call .cn{font-size:12px;color:var(--mute)}
 
 footer{padding-block:34px 44px;border-top:1px solid var(--line);color:var(--mute);font-size:14px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center}
@@ -312,7 +322,7 @@ html.modal-open{overflow:hidden}
   .tiers,.guars,.steps,.faq{grid-template-columns:1fr}
   .faq{gap:24px}
   .formsec .end{grid-template-columns:1fr;padding:32px 22px}
-  .formsec .phone{display:none}
+  .formsec .call{max-width:none}
 }
 @media (max-width:560px){
   .pill .pl-long{display:none}.pill .pl-short{display:inline}.pill{font-size:13.5px}
@@ -528,7 +538,16 @@ window.tk=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{})}catch(e){}};
             <button type="button" class="btn btn-main" data-apply>Start my application</button>
           </div>
         </div>
-        <div class="phone"><img src="img/m-audit.webp" width="640" height="1385" alt="Sample Growth Audit results on a phone: test call missed, slow form reply, no online booking" loading="lazy"></div>
+        <div class="win call" role="img" aria-label="Sample of what Ryan shares on screen during the audit call: a test call that was not answered, a slow form reply, no online booking, and the three fixes to make first">
+          <div class="chrome"><i></i><i></i><i></i><span>Video call · Ryan is sharing his screen</span></div>
+          <div class="cb">
+            <p class="ck">Your Growth Audit · sample</p>
+            <p class="ch">We tested you like a customer would.</p>
+            <ul class="cl"><li><span>Test call, 7:42 PM<small>Not answered, no text back</small></span><em class="bad">Lost</em></li><li><span>Test form<small>Reply came 3 hrs 12 min later</small></span><em class="bad">Slow</em></li><li><span>Book online<small>No way to pick a time</small></span><em class="bad">Missing</em></li><li><span>Google profile<small>Hours and services match</small></span><em class="good">Good</em></li></ul>
+            <p class="cf"><b>Fix first:</b> text back missed calls in 1 min, add a book-a-time button, track every lead to a job.</p>
+            <p class="cn">Sample audit for demonstration purposes. Ryan walks you through yours on the call.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
