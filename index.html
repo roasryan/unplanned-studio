@@ -595,11 +595,11 @@ window.tk=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{})}catch(e){}};
 /* ===== settings: fill these in ===== */
 const BOOK_URL = 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ1dP2UvYGF_hURWCwoYjehDTUThB3KfwMC7xpq7az9r3xcgpwGPqYTB7olytC6KNYIKPYPuPner';
 
-/* Booking preview: shows this week's audit times. Times that can't be booked (closed days, the 24-hour notice window, blocked dates) are labeled Booked. Open times go to the Google booking page. */
+/* Booking preview: shows this week's audit times. Times that can't be booked (closed days, next-day cutoff at 9:45 PM, blocked dates) are labeled Booked. Open times go to the Google booking page. */
 const SLOT_TIMES={wk:['8:00 AM','8:45 AM','9:30 AM','10:15 AM','4:00 PM','4:45 PM','5:30 PM','6:15 PM'],sat:['8:45 AM','9:30 AM','10:15 AM','11:00 AM','11:45 AM','12:30 PM','1:15 PM','2:00 PM','2:45 PM','3:30 PM','4:15 PM','5:00 PM','5:45 PM','6:30 PM']};
 const SLOT_BLOCKS=[['2026-11-13T00:00','2026-11-13T23:59'],['2026-11-17T00:00','2026-11-17T18:00']];
 function slotGrid(){
-  const now=new Date(),min=new Date(now.getTime()+24*3600e3),out=[];
+  const now=new Date(),late=now.getHours()*60+now.getMinutes()>21*60+45,min=new Date(now.getFullYear(),now.getMonth(),now.getDate()+(late?2:1)),out=[];
   const toD=(day,lab)=>{const m=lab.match(/(\d+):(\d+) (AM|PM)/);let h=+m[1]%12+(m[3]==='PM'?12:0);const d=new Date(day);d.setHours(h,+m[2],0,0);return d};
   for(let i=0;out.length<5&&i<10;i++){const day=new Date(now);day.setDate(now.getDate()+i);const w=day.getDay();
     const times=(w===5||w===6||w===0?SLOT_TIMES.sat:SLOT_TIMES.wk).map(lab=>{const d=toD(day,lab);const blocked=d<min||SLOT_BLOCKS.some(([a,b])=>d>=new Date(a)&&d<=new Date(b));return{lab,blocked}});
