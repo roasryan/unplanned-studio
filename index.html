@@ -100,7 +100,14 @@ section{padding-block:96px}
 .trades{padding-block:28px 8px}
 .trades p{color:var(--mute);font-size:14px;text-align:center}
 .trades ul{list-style:none;padding:0;margin:14px 0 0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
-.trades li{padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:var(--paper);font-size:14px;color:var(--soft)}
+.trades li{padding:0;border:0;background:none}
+.tcat{text-align:center;max-width:760px;margin:8px auto 0;padding:28px 20px;border:1px solid var(--line);border-radius:20px;background:var(--paper)}
+.tcat .eyebrow{margin-bottom:8px}.tch{font:700 clamp(22px,3.2vw,30px)/1.15 var(--display,inherit);margin:0 0 8px}
+.trades .tcat .tcl{color:var(--soft);font-size:15.5px;margin:0}
+.tcat ul{margin:16px 0 20px}
+.trades li a{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 16px;border:1px solid var(--line2);border-radius:999px;background:#fff;font-size:15px;font-weight:600;color:var(--text);text-decoration:none;transition:border-color .15s,transform .15s}
+.trades li a span{font-size:12px;color:var(--mute)}
+.trades li a:hover{border-color:var(--text);transform:translateY(-1px)}
 
 /* product tour */
 .tour-tabs{display:flex;gap:6px;margin-top:34px;padding:5px;background:#F0EDE7;border-radius:14px;width:max-content;max-width:100%;overflow-x:auto;scrollbar-width:none}
@@ -395,7 +402,13 @@ window.tk=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{})}catch(e){}};
     </div>
   </section>
 
-  <div class="trades"><div class="wrap"><p>Built for Houston trades</p><ul><li>Roofing</li><li>HVAC</li><li>Plumbing</li><li>Foundation</li><li>Remodeling</li><li>Pools</li><li>Electrical</li><li>Landscaping</li><li>Med spa</li></ul></div></div>
+  <div class="trades" id="tryit"><div class="wrap"><div class="tcat">
+      <p class="eyebrow">Try it before you call</p>
+      <h2 class="tch">Click around a live site for your trade.</h2>
+      <p class="tcl">Book a visit like your customers would, then see the owner side. Pick your trade:</p>
+      <ul><li><a href="https://roasryan.github.io/ridgeline-demo/" target="_blank" rel="noopener">Roofing<span aria-hidden="true">↗</span></a></li><li><a href="https://catalog.unplannedco.com/hvac/" target="_blank" rel="noopener">HVAC<span aria-hidden="true">↗</span></a></li><li><a href="https://catalog.unplannedco.com/plumbing/" target="_blank" rel="noopener">Plumbing<span aria-hidden="true">↗</span></a></li><li><a href="https://catalog.unplannedco.com/foundation-repair/" target="_blank" rel="noopener">Foundation<span aria-hidden="true">↗</span></a></li><li><a href="https://catalog.unplannedco.com/remodeling/" target="_blank" rel="noopener">Remodeling<span aria-hidden="true">↗</span></a></li><li><a href="https://catalog.unplannedco.com/pool-service/" target="_blank" rel="noopener">Pools<span aria-hidden="true">↗</span></a></li><li><a href="https://catalog.unplannedco.com/electrical/" target="_blank" rel="noopener">Electrical<span aria-hidden="true">↗</span></a></li><li><a href="https://catalog.unplannedco.com/landscaping/" target="_blank" rel="noopener">Landscaping<span aria-hidden="true">↗</span></a></li><li><a href="https://catalog.unplannedco.com/fencing-concrete/" target="_blank" rel="noopener">Fencing<span aria-hidden="true">↗</span></a></li><li><a href="https://catalog.unplannedco.com/med-spa/" target="_blank" rel="noopener">Med spa<span aria-hidden="true">↗</span></a></li></ul>
+      <a class="btn btn-main" href="https://catalog.unplannedco.com/" target="_blank" rel="noopener">See all 27 trades</a>
+    </div></div></div>
 
   <section id="product" aria-labelledby="productH">
     <div class="wrap">
