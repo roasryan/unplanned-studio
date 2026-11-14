@@ -337,6 +337,23 @@ html.modal-open{overflow:hidden}
   .cta-row .btn{width:100%}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* application form: same look and feel as the service-site templates (bottom sheet, eyebrow + heading, step bar, pill choices, required *) */
+.apply{border-radius:22px 22px 0 0}
+@media(min-width:720px){.apply{border-radius:22px}}
+.apply-h{border-radius:22px 22px 0 0}
+.apply .bar{height:6px!important;border-radius:999px!important;background:#EDE7DC!important;overflow:hidden;margin:6px 0 14px}
+.apply .bar i{background:var(--accent)!important;border-radius:999px}
+#lfSteps .steph{margin:0 0 2px;font:700 13px var(--body,inherit);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+#lfSteps .stepq{margin:0 0 12px;font:700 clamp(22px,5.4vw,28px)/1.15 var(--display);color:#1d1a15}
+#lfSteps .opts{display:flex!important;flex-wrap:wrap;gap:9px}
+#lfSteps .opt{width:auto!important;min-height:46px;padding:0 16px!important;border:2px solid #DDD6CA!important;border-radius:12px!important;background:#fff!important;font:600 16px var(--body,inherit)!important;color:#1d1a15!important;text-align:left;cursor:pointer}
+#lfSteps .opt:hover{border-color:var(--accent)!important}
+#lfSteps .opt[aria-pressed="true"]{background:#1d1a15!important;border-color:#1d1a15!important;color:#fff!important}
+#lfSteps .field label{font:700 15px var(--body,inherit);color:#1d1a15}
+#lfSteps .field input,#lfSteps .field select,#lfSteps .field textarea{min-height:52px;border:2px solid #DDD6CA;border-radius:12px;font-size:17px;padding:0 14px}
+#lfSteps .field input:focus{outline:3px solid rgba(181,130,31,.3);border-color:var(--accent)}
+label[for=fName]::after,label[for=fEmail]::after,label[for=fMobile]::after{content:" *";color:#B3261E;font-weight:700}
 </style>
 
 <meta name="facebook-domain-verification" content="5otbl9z5dt8py9v1zjsnpwu7d1vvd3">
