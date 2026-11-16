@@ -151,7 +151,7 @@ def page(slug, d):
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>{e(title)} · Unplanned &amp; Co.</title>
-<meta name="description" content="A free, step-by-step growth plan for Houston {e(who)} under $150k a year: Google profile, reviews, fast replies, quote follow-up and tracking.">
+<meta name="description" content="A free, step-by-step growth plan for Houston {e(who)}: Google profile, reviews, fast replies, quote follow-up and tracking.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Inter+Tight:wght@700;800&display=swap">
@@ -160,7 +160,7 @@ def page(slug, d):
 <main class="wrap">
 <p class="eyebrow">Free growth plan · {e(name)}</p>
 <h1>Your growth plan for {e(name if slug=='hvac' else name.lower()) if slug!='other' else 'home service'} in Houston.</h1>
-<p class="lede">Made for {e(who)} doing under $150k a year. Six steps, in order. Most cost nothing but a few hours. Do one a week.</p>
+<p class="lede">Made for Houston {e(who)}. Six steps, in order. Most cost nothing but a few hours. Do one a week.</p>
 <div class="note"><b>From Ryan:</b> these are the same basics I check first for bigger companies. Get these right and the phone gets busier. When it does, reply to the email this came in and tell me what you're stuck on. I may have an option for you.</div>
 <ol class="steps">
 {li}
@@ -174,7 +174,7 @@ def page(slug, d):
 </ul>
 <p class="note"><b>Timing tip:</b> {e(d['week'])}</p>
 <div class="cta"><h2 style="color:#fff">Want help with this?</h2>
-<p>Reply to the email this plan came in. Tell me your trade and what's holding you back. I read every reply myself. Once you pass $150k a year, apply for the full growth audit.</p>
+<p>Reply to the email this plan came in. Tell me your trade and what's holding you back. I read every reply myself.</p>
 <a class="btn" href="/">See how it works</a></div>
 <p class="src">Sources: {src}</p>
 </main>
