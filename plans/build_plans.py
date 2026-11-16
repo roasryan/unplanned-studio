@@ -159,7 +159,7 @@ def page(slug, d):
 <header><div class="wrap"><a class="brand" href="/"><i>U</i>Unplanned &amp; Co.</a><a class="btn line" href="/">Main site</a></div></header>
 <main class="wrap">
 <p class="eyebrow">Free growth plan · {e(name)}</p>
-<h1>Your growth plan for {e(name.lower()) if slug!='other' else 'home service'} in Houston.</h1>
+<h1>Your growth plan for {e(name if slug=='hvac' else name.lower()) if slug!='other' else 'home service'} in Houston.</h1>
 <p class="lede">Made for {e(who)} doing under $150k a year. Six steps, in order. Most cost nothing but a few hours. Do one a week.</p>
 <div class="note"><b>From Ryan:</b> these are the same basics I check first for bigger companies. Get these right and the phone gets busier. When it does, reply to the email this came in and tell me what you're stuck on. I may have an option for you.</div>
 <ol class="steps">
