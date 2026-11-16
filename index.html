@@ -719,7 +719,6 @@ dlg.addEventListener('close',()=>{document.documentElement.classList.remove('mod
 $('#applyX').addEventListener('click',()=>dlg.close());
 dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
 document.addEventListener('click',e=>{const a=e.target.closest('a[href="#demo"],[data-apply]');if(!a)return;e.preventDefault();openApply()});
-if(/^#(apply|demo)$/.test(location.hash))setTimeout(openApply,300);
 $('#lfSteps').addEventListener('change',e=>{if(e.target.id==='fNoSite'){D.noSite=e.target.checked;const f=$('#fSite');f.disabled=D.noSite;if(D.noSite)f.value=''}});
 $('#lfSteps').addEventListener('click',e=>{const b=e.target.closest('.opt');if(!b)return;if(step===SITE){D.site=$('#fSite').value.trim()}if(b.dataset.m){const a=D[b.dataset.k],i=a.indexOf(b.dataset.v);i<0?a.push(b.dataset.v):a.splice(i,1);b.setAttribute('aria-pressed',String(i<0));return}D[b.dataset.k]=b.dataset.v;paint();
   if(step===0)setTimeout(()=>{step=1;paint()},180)});
