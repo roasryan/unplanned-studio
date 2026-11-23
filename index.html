@@ -8,7 +8,7 @@
 
 <meta property="og:image" content="https://unplannedco.com/img/og-home.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:url" content="https://unplannedco.com/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://unplannedco.com/img/og-home.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800&family=Anton&display=swap">
 <style>
 /* v2 (Oct 15): light, product-first. Real screenshots of our demo sites, owner app and portal carry every section. */
 :root{
@@ -358,8 +358,55 @@ html.modal-open{overflow:hidden}
 #lfSteps .field input,#lfSteps .field select,#lfSteps .field textarea{min-height:52px;border:2px solid #DDD6CA;border-radius:12px;font-size:17px;padding:0 14px}
 #lfSteps .field input:focus{outline:3px solid rgba(181,130,31,.3);border-color:var(--accent)}
 label[for=fName]::after,label[for=fEmail]::after,label[for=fMobile]::after{content:" *";color:#B3261E;font-weight:700}
-</style>
 
+/* v3 (Nov 23): Hormozi short page. Headline, sub, form, hero shot, 3 objections, CTA. */
+.lp-hero{background:#0E0F12;color:#F4F1EA;padding:96px 0 64px;position:relative;overflow:hidden}
+.lp-hero:before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 80% 30%,rgba(181,130,31,.22),transparent 70%);pointer-events:none}
+.lp-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;position:relative}
+.lp-pill{display:inline-block;margin:0 0 18px;padding:7px 14px;border:1px solid rgba(255,255,255,.2);border-radius:999px;font:600 13px var(--body);letter-spacing:.04em;color:#D8D2C6}
+.lp-h1{font:400 clamp(50px,6.6vw,92px)/.92 Anton,var(--display);text-transform:uppercase;letter-spacing:-.5px;margin:0}
+.lp-h1 span{display:block;color:#E3B04B}
+.lp-sub{font:500 clamp(17px,1.8vw,21px)/1.45 var(--body);color:#CFC9BD;max-width:560px;margin:18px 0 22px}
+.top .wrap>.btn{margin-left:auto}
+.lp-form{background:#FAF9F6;color:#15171C;border-radius:22px;padding:22px 22px 18px;max-width:600px;box-shadow:0 30px 70px -20px rgba(0,0,0,.6)}
+.lp-fk{margin:0;font:700 12px var(--body);letter-spacing:.1em;text-transform:uppercase;color:#B5821F}
+.lp-fq{margin:4px 0 14px;font:700 clamp(21px,2.6vw,26px)/1.15 var(--display)}
+.lp-trades{display:flex;flex-wrap:wrap;gap:8px}
+.lp-trade{min-height:46px;padding:0 15px;border:2px solid #DDD6CA;border-radius:12px;background:#fff;font:600 15.5px var(--body);color:#15171C;cursor:pointer}
+.lp-trade:hover,.lp-trade:focus-visible{border-color:#B5821F;background:#FFF8EA}
+.lp-fn{margin:12px 0 0;font:500 14px var(--body);color:#8A8F98}
+.lp-shot{position:relative;justify-self:center;width:min(330px,80vw);padding:30px 0}
+.lp-phone{border:10px solid #000;border-radius:44px;overflow:hidden;box-shadow:0 40px 80px -20px rgba(0,0,0,.7),0 0 0 2px rgba(255,255,255,.08)}
+.lp-phone img{display:block;width:100%;height:auto}
+.lp-n{position:absolute;display:flex;gap:12px;align-items:center;background:rgba(255,255,255,.97);color:#15171C;border-radius:18px;padding:12px 16px;box-shadow:0 18px 40px rgba(0,0,0,.45);width:max-content;max-width:330px}
+.lp-n i{width:38px;height:38px;border-radius:11px;color:#fff;display:grid;place-items:center;font-style:normal;font-weight:900;flex:none}
+.lp-n b{display:block;font:800 15px var(--body)}.lp-n span{font:500 13px var(--body);color:#5B616C}
+.lp-n.n1{left:-70px;top:90px}.lp-n.n2{right:-60px;bottom:110px}
+.lp-cap{text-align:center;font:500 12px var(--body);color:#8A8F98;margin:14px 0 0}
+@media (prefers-reduced-motion:no-preference){.lp-n{animation:pop .6s cubic-bezier(.2,.8,.2,1) both}.lp-n.n1{animation-delay:.5s}.lp-n.n2{animation-delay:1.2s}}
+.lp-obj{background:#FAF9F6;padding:80px 0 70px}
+.lp-h2{font:400 clamp(36px,5.4vw,64px)/.98 Anton,var(--display);text-transform:uppercase;margin:0 0 30px;color:#15171C}
+.lp-h2 span{color:#B5821F}
+.lp-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:o}
+.lp-list li{background:#fff;border:1px solid #E6E2DA;border-radius:20px;padding:26px 24px;counter-increment:o;position:relative}
+.lp-list li:before{content:"0" counter(o);font:400 44px Anton,var(--display);color:#E6E2DA;position:absolute;right:20px;top:14px}
+.lp-q{display:block;font:800 21px/1.2 var(--display);margin:0 40px 10px 0}
+.lp-list p{margin:0;font:500 16.5px/1.5 var(--body);color:#5B616C}
+.lp-demo{margin:28px 0 0;font:600 15px var(--body);color:#5B616C;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.lp-demo a{padding:8px 13px;border:1px solid #E6E2DA;border-radius:999px;background:#fff;color:#15171C;text-decoration:none}
+.lp-demo a:hover{border-color:#B5821F}
+.lp-end{background:#0E0F12;color:#F4F1EA;padding:80px 0;text-align:center}
+.lp-end .lp-h2{color:#F4F1EA;max-width:900px;margin:0 auto 28px}.lp-end .lp-h2 span{color:#E3B04B;display:block}
+.lp-btn{min-height:62px;padding:0 34px;border:0;border-radius:16px;background:#E3B04B;color:#15171C;font:800 19px var(--body);cursor:pointer;box-shadow:0 14px 34px -10px rgba(227,176,75,.6)}
+.lp-btn:hover{background:#F0C366}
+.lp-end .lp-fn{color:#A9A398}
+@media (max-width:900px){
+  .lp-hero{padding:76px 0 44px}.lp-pill{font-size:12px;margin-bottom:14px}.lp-grid{grid-template-columns:1fr;gap:20px}
+  .lp-shot{width:min(250px,64vw)}.lp-n{max-width:240px;padding:10px 12px}.lp-n b{font-size:14px}.lp-n span{font-size:12px}
+  .lp-n.n1{left:-48px;top:60px}.lp-n.n2{right:-46px;bottom:80px}
+  .lp-list{grid-template-columns:1fr}.lp-form{padding:18px 16px 14px}
+}
+</style>
 <meta name="facebook-domain-verification" content="5otbl9z5dt8py9v1zjsnpwu7d1vvd3">
 <script>
 /* Tracking: paste IDs here. Loads only on unplannedco.com, never in previews. */
@@ -373,207 +420,51 @@ window.tk=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{})}catch(e){}};
 <header class="top" id="hdr">
   <div class="wrap">
     <a class="logo" href="#top" aria-label="Unplanned &amp; Co., top of page"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="8" fill="#15171C"/><path d="M10.5 10v7.5a5.5 5.5 0 0 0 11 0V10" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round"/></svg><span class="wm">Unplanned <i class="amp">&amp;</i> Co.</span></a>
-    <nav aria-label="Sections"><a href="#product">Product</a><a href="#work">Work</a><a href="#packages">Packages</a><a href="#faq">FAQ</a></nav>
     <a class="btn btn-main" href="#demo">Growth audit<span>&nbsp;(free)</span></a>
   </div>
 </header>
 
 <main id="top">
-  <section class="hero">
-    <div class="wrap">
-      <p class="pill"><b>Houston</b><span class="pl-long">Home service companies doing $150k+ a year</span><span class="pl-short">Home services · $150k+ a year</span></p>
-      <h1>More booked jobs in 60 days, <em>or your setup fee back.</em></h1>
-      <p class="sub">A free 15-minute Growth Audit for Houston home service companies. You keep the plan either way.</p>
-      <div class="cta-row"><a class="btn btn-main" href="#demo">Get my free Growth Audit</a><a class="btn btn-line" href="#product">See the system</a></div>
-      <small>Takes about a minute to apply. Pick your call time right after.</small>
-      <div class="vsl" id="vsl" data-src="" hidden><div class="ph" id="vslPh"></div></div>
-
-      <div class="stage" aria-label="Screenshots of a demo Houston foundation repair site and its booking screen">
-        <div class="win main"><div class="chrome"><i></i><i></i><i></i><span>clayline-demo · your website</span></div><img src="img/site-foundation.webp" width="1600" height="1000" alt="Demo Houston foundation repair website: a free foundation check booking card next to a photo of a cracked brick corner" fetchpriority="high"></div>
-        <div class="phone side"><img src="img/m-booking-fdn.webp" width="640" height="1386" alt="Free foundation check booking calendar on a phone"></div>
-        <div class="chip c3"><span class="dot" style="background:#FCE8E6"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D23A2E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><div><b>"Never mind, we found someone."</b><span>Text after 3 missed calls</span></div></div>
-        <div class="chip c1"><span class="dot" style="background:var(--sage)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2F8A5B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span><div><b>Free foundation check booked</b><span>Katy · 8:00 AM · owner alerted in 60 sec</span></div></div>
-        <div class="chip c2"><span class="dot" style="background:var(--sky)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><div><b>Missed call → text sent</b><span>in under 60 seconds</span></div></div>
-      </div>
-      <p class="cap">Real screens from our demo Houston foundation repair system. Names, reviews and numbers are samples.</p>
-      <ul class="ticks"><li>Only a few companies per trade per area</li><li>Hit the target or your setup fee back</li><li>You own your site, ads and data</li></ul>
-    </div>
-  </section>
-
-  <div class="trades"><div class="wrap"><p>Built for Houston trades</p><ul><li>Roofing</li><li>HVAC</li><li>Plumbing</li><li>Foundation</li><li>Remodeling</li><li>Pools</li><li>Electrical</li><li>Landscaping</li><li>Fencing</li></ul><a class="tryb" href="#work">Try a live demo site for your trade <span aria-hidden="true">↓</span></a></div></div>
-
-  <section id="product" aria-labelledby="productH">
-    <div class="wrap">
-      <p class="eyebrow">What you get</p>
-      <h2 id="productH">We don't just build your site. We help you book more jobs.</h2>
-      <p class="lede">Growth is the goal. The other tabs are the tools.</p>
-      <div class="tour-tabs" role="tablist" aria-label="Product tour">
-        <button type="button" role="tab" id="t0" aria-controls="p0" aria-selected="true">Growth</button>
-        <button type="button" role="tab" id="t1" aria-controls="p1" aria-selected="false" tabindex="-1">Website</button>
-        <button type="button" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1">Booking</button>
-        <button type="button" role="tab" id="t6" aria-controls="p6" aria-selected="false" tabindex="-1">Address check</button>
-        <button type="button" role="tab" id="t5" aria-controls="p5" aria-selected="false" tabindex="-1">Payments</button>
-      </div>
-      <p class="tour-hint">Tap a tab to see each part of the system.</p>
-      <div class="tour" role="tabpanel" id="p0" aria-labelledby="t0">
-        <div class="copy"><h3>We help you grow. Where are you stuck?</h3><div class="stuck"><a href="#demo"><b>Not enough leads</b><span>The phone's too quiet.</span></a><a href="#demo"><b>Leads don't book</b><span>Calls and forms go nowhere.</span></a><a href="#demo"><b>Booked out</b><span>More work than crew.</span></a></div><a class="btn btn-main" href="#demo">Get your free audit</a></div>
-        <div class="shot sand"><div class="win rpt"><div class="chrome"><i></i><i></i><i></i><span>Growth report · October</span></div>
-          <div class="rb">
-            <div class="rg"><div><span>Leads in</span><b>142</b><em>+18%</em></div><div><span>Reply time</span><b>1 min</b><em>was 3 hrs</em></div><div><span>Jobs booked</span><b>61</b><em>+24%</em></div></div>
-            <div class="bars" aria-hidden="true"><i style="height:38%"></i><i style="height:46%"></i><i style="height:52%"></i><i style="height:61%"></i><i style="height:58%"></i><i style="height:72%"></i><i style="height:80%"></i><i style="height:92%"></i></div>
-            <p class="rl"><b>Fixed:</b> weekend missed calls</p><p class="rl"><b>Next:</b> 7-box form down to 3</p>
-            <p class="rn">Sample numbers for demonstration purposes.</p>
-          </div></div></div>
-      </div>
-      <div class="tour" role="tabpanel" id="p1" aria-labelledby="t1" hidden>
-        <div class="copy"><h3>A website that books jobs, not one that just informs.</h3><p>Fast on phones, built around your services and cities, with one interaction that makes people stop scrolling.</p><ul><li>Booking card above the fold, on every page</li><li>A page for every service and 5 city pages for local search</li><li>Text-us button and service question forms</li></ul></div>
-        <div class="shot sand"><div class="win"><div class="chrome"><i></i><i></i><i></i><span>ridgeline-demo</span></div><img src="img/site-ridgeline.webp" width="1600" height="1000" alt="Demo roofing homepage" loading="lazy"></div></div>
-      </div>
-      <div class="tour" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
-        <div class="copy"><h3>Customers pick a day and time in 60 seconds.</h3><p>Real open times from your calendar. You get the lead on your phone with name, mobile, address and best time to reach them.</p><ul><li>"Is this your place?" satellite check and service-area check on the address</li><li>Two-way Google Calendar sync</li><li>Confirmation and reminder texts</li><li>Missed calls get a text back within 1 minute</li></ul></div>
-        <div class="shot sky pair"><div class="phone"><img src="img/m-site.webp" width="640" height="1385" alt="Demo roofing site on a phone" loading="lazy"></div><div class="phone"><img src="img/m-booking.webp" width="640" height="1385" alt="Booking calendar on a phone" loading="lazy"></div></div>
-      </div>
-      <div class="tour" role="tabpanel" id="p6" aria-labelledby="t6" hidden>
-        <div class="copy"><h3>"Is this your place?" Customers confirm the address on a satellite map.</h3><p>Pick the address from the list and the real satellite view comes up, with a check that the job is inside your service area. Fewer wrong addresses, fewer wasted drives. On roofing it powers the instant roof quote.</p><ul><li>Address suggestions as they type</li><li>Satellite view to confirm the right house or building</li><li>Inside or outside your service area, in miles</li></ul></div>
-        <div class="shot sage"><div class="demo" id="mapDemo">
-          <p class="demo-k">Try it live</p>
-          <label for="dAddr" class="demo-l">Type any Houston-area address</label>
-          <div class="demo-f"><input id="dAddr" autocomplete="off" placeholder="e.g. 1001 Avenida de las Americas" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="dList"><ul id="dList" role="listbox" hidden></ul></div>
-          <figure class="dmap" id="dMap" hidden><div class="dmapf" id="dFrame"></div><figcaption><b>Is this the right place?</b><span id="dArea"></span></figcaption></figure>
-          <p class="demo-n" id="dNote">Demo only: nothing you type here is saved. Map by Google, address search by Esri.</p>
-        </div></div>
-      </div>
-      <div class="tour" role="tabpanel" id="p5" aria-labelledby="t5" hidden>
-        <div class="copy"><h3>Get paid, then get the next job.</h3><p>Branded invoices with your pay link, a clean thank-you screen, and one membership offer while they're happy.</p><ul><li>Works with your Stripe, Square or QuickBooks link</li><li>Receipt and warranty start automatically</li><li>Review request after every job</li></ul></div>
-        <div class="shot sky"><div class="phone"><img src="img/m-paid.webp" width="640" height="1385" alt="Payment received screen with a plan offer" loading="lazy"></div></div>
-      </div>
-    
-      <div class="feats" id="features">
-        <div class="feats-h"><h3>What we can build</h3><p>Your package is built from these, based on your audit. You only pay for what you need.</p></div>
-        <div class="fgrid">
-          <div class="fcol"><p class="fg">Get found</p><ul><li><b>Website built for your business</b><span>Your services, photos and brand, fast on phones.</span></li><li><b>A page for every service</b><span>Plus 5 city pages so you show up in more searches.</span></li><li><b>Google Business Profile tune-up</b><span>Services, hours and categories set up to rank in Maps.</span></li><li><b>Review requests after every job</b><span>More 5-star reviews without asking by hand.</span></li><li><b>Ads managed for you</b><span>Google and Meta. You film the clips, we handle setup, targeting and tracking.</span></li><li><b>Spanish site</b><span>Every page in Spanish for Houston’s Spanish speakers.</span></li></ul></div>
-          <div class="fcol"><p class="fg">Win the lead</p><ul><li><b>60-second lead alerts</b><span>Name, mobile, address and best time, straight to your phone.</span></li><li><b>Text-us button</b><span>Customers text you from any page.</span></li><li><b>Missed-call text back</b><span>Anyone you miss gets a text within 1 minute.</span></li><li><b>AI receptionist</b><span>Answers calls 24/7 and books the visit.</span></li><li><b>AI website chat</b><span>Answers questions about your services and books.</span></li><li><b>Instant price tool</b><span>Roofing: a quote from the satellite roof outline. Other trades: price ranges.</span></li></ul></div>
-          <div class="fcol"><p class="fg">Book and run jobs</p><ul><li><b>Online booking</b><span>Real open times, synced both ways with Google Calendar.</span></li><li><b>Address check</b><span>Satellite “Is this your place?” plus service-area check.</span></li><li><b>Crew app</b><span>Today’s jobs, steps and photos for each tech.</span></li><li><b>Change orders</b><span>Customers approve extra work with a signature.</span></li></ul></div>
-          <div class="fcol"><p class="fg">Get paid and keep them</p><ul><li><b>Branded invoices</b><span>With your Stripe, Square or QuickBooks pay link.</span></li><li><b>Thank-you screen</b><span>Receipt, warranty start and one plan offer.</span></li><li><b>Memberships</b><span>Maintenance or club plans that bring them back.</span></li><li><b>Past-customer comebacks</b><span>A reactivation campaign every quarter.</span></li><li><b>Affiliate program</b><span>Referral links for realtors, inspectors and past customers, with payouts tracked.</span></li><li><b>Pixels and funnels</b><span>Meta and Google tracking, so every lead ties back to its ad.</span></li><li><b>Numbers you can trust</b><span>Cost per lead, close rate and revenue by source.</span></li><li><b>You own it all</b><span>Domain, site, ad accounts and customer list.</span></li></ul></div>
+  <section class="lp-hero">
+    <div class="wrap lp-grid">
+      <div class="lp-copy">
+        <p class="lp-pill">Houston home service · $150K+ a year</p>
+        <h1 class="lp-h1">More booked jobs in 60 days. <span>Or your setup fee back.</span></h1>
+        <p class="lp-sub">You already pay for the leads. I make sure they turn into booked jobs. Get a free 15-minute Growth Audit and keep the plan either way.</p>
+        <div class="lp-form" id="demo">
+          <p class="lp-fk">Start your free audit</p>
+          <p class="lp-fq">What kind of business do you run?</p>
+          <div class="lp-trades"><button type="button" class="lp-trade" data-v="Roofing">Roofing</button><button type="button" class="lp-trade" data-v="HVAC">HVAC</button><button type="button" class="lp-trade" data-v="Plumbing">Plumbing</button><button type="button" class="lp-trade" data-v="Foundation">Foundation</button><button type="button" class="lp-trade" data-v="Remodeling">Remodeling</button><button type="button" class="lp-trade" data-v="Pools">Pools</button><button type="button" class="lp-trade" data-v="Fencing / concrete">Fencing / concrete</button><button type="button" class="lp-trade" data-v="Electrical / generators">Electrical / generators</button><button type="button" class="lp-trade" data-v="Landscaping">Landscaping</button><button type="button" class="lp-trade" data-v="Something else">Something else</button></div>
+          <p class="lp-fn">About 2 minutes. Pick your call time right after.</p>
         </div>
-        <button type="button" class="btn btn-line fmore" id="fMore" aria-expanded="false" aria-controls="features">Show all 24 features</button>
+        <div class="vsl" id="vsl" data-src="" hidden><div class="ph" id="vslPh"></div></div>
       </div>
-</div>
-  </section>
-
-  <section aria-labelledby="leakH" style="padding-top:24px">
-    <div class="wrap">
-      <p class="eyebrow">Where jobs leak out</p>
-      <h2 id="leakH">Most companies don't need more leads first. They need to stop losing the ones they pay for.</h2>
-      <ul class="leaks">
-        <li><span class="n">01</span><b>Calls you can't answer</b><span>You're on a roof, under a sink or with a client. They call the next name on Google.</span></li>
-        <li><span class="n">02</span><b>Ad leads nobody answers fast</b><span>A paid lead sits in an inbox for hours, and they book the company that called first.</span></li>
-        <li><span class="n">03</span><b>A site that only "informs"</b><span>No way to book, no price range, no text button. People leave to find one that does.</span></li>
-        <li><span class="n">04</span><b>Jobs scattered everywhere</b><span>Texts, notebooks, three apps. Things slip and reviews never get asked for.</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="work" class="proof" aria-labelledby="proofH" style="background:var(--paper);border-block:1px solid var(--line)">
-    <div class="wrap">
-      <p class="eyebrow">Proof you can click</p>
-      <h2 id="proofH">Working demo sites for your trade. Try one on your phone.</h2>
-      <p class="lede">Book a visit, send a question, then see how the owner side works. These are demo businesses.</p>
-      <ul class="cat">
-        <li><a href="https://catalog.unplannedco.com/hvac/" target="_blank" rel="noopener"><div class="win"><div class="chrome"><i></i><i></i><i></i></div><img src="img/cat-hvac.webp" width="900" height="562" alt="HVAC demo site" loading="lazy"></div><div class="meta"><b>HVAC</b><span>Same-day repair booking</span></div></a></li>
-        <li><a href="https://catalog.unplannedco.com/plumbing/" target="_blank" rel="noopener"><div class="win"><div class="chrome"><i></i><i></i><i></i></div><img src="img/cat-plumbing.webp" width="900" height="562" alt="Plumbing demo site" loading="lazy"></div><div class="meta"><b>Plumbing</b><span>Emergency calls, text back</span></div></a></li>
-        <li><a href="https://catalog.unplannedco.com/foundation-repair/" target="_blank" rel="noopener"><div class="win"><div class="chrome"><i></i><i></i><i></i></div><img src="img/cat-foundation.webp" width="900" height="562" alt="Foundation repair demo site" loading="lazy"></div><div class="meta"><b>Foundation repair</b><span>Free inspections</span></div></a></li>
-        <li><a href="https://catalog.unplannedco.com/remodeling/" target="_blank" rel="noopener"><div class="win"><div class="chrome"><i></i><i></i><i></i></div><img src="img/cat-remodeling.webp" width="900" height="562" alt="Remodeling demo site" loading="lazy"></div><div class="meta"><b>Remodeling</b><span>Design visits</span></div></a></li>
-        <li><a href="https://catalog.unplannedco.com/generators/" target="_blank" rel="noopener"><div class="win"><div class="chrome"><i></i><i></i><i></i></div><img src="img/cat-generators.webp" width="900" height="562" alt="Standby generator demo site" loading="lazy"></div><div class="meta"><b>Standby generators</b><span>Site surveys, care plans</span></div></a></li>
-        <li><a href="https://catalog.unplannedco.com/landscaping/" target="_blank" rel="noopener"><div class="win"><div class="chrome"><i></i><i></i><i></i></div><img src="img/cat-landscaping.webp" width="900" height="562" alt="Landscaping demo site" loading="lazy"></div><div class="meta"><b>Landscaping</b><span>Yard estimates</span></div></a></li>
-      </ul>
-      <p class="catnote">In the catalog, texts, emails, reminders and the owner CRM are switched off, so nothing is sent. <a href="https://catalog.unplannedco.com/" target="_blank" rel="noopener">See all 27 demos</a> · <a href="https://roasryan.github.io/ridgeline-demo/" target="_blank" rel="noopener">Roofing demo</a></p>
-    </div>
-  </section>
-
-  <section id="packages" aria-labelledby="pkgH">
-    <div class="wrap">
-      <p class="eyebrow">One package, built for you</p>
-      <h2 id="pkgH">No tiers. We build around where you're stuck.</h2>
-      <div class="tiers one">
-        <article class="tier pro">
-          <span class="name">Your growth package</span>
-          <p class="for">After your audit, we pick the pieces that fix your biggest leak and send one price in writing.</p>
-          <ul>
-            <li>Not enough leads: ads managed for you, pixels and a funnel that books</li>
-            <li>Leads don't book: missed-call text back, fast alerts, online booking</li>
-            <li>Booked out: better-paying jobs first, memberships and price tools</li>
-            <li>Every lead tracked, with a monthly report on what booked</li>
-          </ul>
-          <a class="btn btn-main" href="#demo">Get your free audit</a>
-        </article>
-      </div>
-      <p class="price-note">Rather not pay monthly? Ask about <b>Growth Partner</b>: a one-time setup, then a share of only the tracked jobs we bring in. Ad spend is paid by you, straight to Google and Meta on your own accounts. We take 2 new partners a month, and only a few companies per trade per area.</p>
-    </div>
-  </section>
-
-  <section aria-labelledby="guarH" style="padding-top:24px">
-    <div class="wrap">
-      <p class="eyebrow">Our guarantees, in writing</p>
-      <h2 id="guarH">We take the risk, so you don't have to.</h2>
-      <div class="guars">
-        <div class="guar"><svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="#B5821F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="8" width="28" height="26" rx="3"/><path d="M6 15h28M13 4v7M27 4v7M14 24l4 4 8-8"/></svg><div><b>Setup fee back guarantee</b><span>We set a booked-appointment target together for your first 60 days, based on your ad budget and your trade's real cost per lead. Miss it and you get your full setup fee back, in writing.</span></div></div>
-        <div class="guar"><svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="#B5821F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 34s-12-7-12-17a7 7 0 0 1 12-5 7 7 0 0 1 12 5c0 10-12 17-12 17z"/></svg><div><b>Beats your old site, or we rebuild it</b><span>Within 60 days your new site turns more visitors into leads than your old one did. We measure both. If it doesn't win, we rebuild the booking flow free.</span></div></div>
-        <div class="guar"><svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="#B5821F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="21" r="13"/><path d="M20 13v8l5 4M15 4h10"/></svg><div><b>Live in 21 days</b><span>Or $100 off for every day we're late, counted from the day we have your info.</span></div></div>
-        <div class="guar"><svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="#B5821F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="17" width="24" height="18" rx="3"/><path d="M13 17v-5a7 7 0 0 1 14 0v5"/></svg><div><b>You own it</b><span>Your domain, site, ad accounts and customer list stay yours. If you leave, we hand it all over.</span></div></div>
+      <div class="lp-shot" aria-label="Demo booking screen on a phone">
+        <div class="lp-phone"><img src="img/m-booking-fdn.webp" width="640" height="1386" alt="Free foundation check booking calendar on a phone" fetchpriority="high"></div>
+        <div class="lp-n n1"><i style="background:#2F8A5B">&#10003;</i><div><b>New job booked</b><span>Free foundation check · Katy · 8:00 AM</span></div></div>
+        <div class="lp-n n2"><i style="background:#2563EB">&#9990;</i><div><b>Missed call → text sent</b><span>in under 60 seconds</span></div></div>
+        <p class="lp-cap">Demo screens. Names and times are samples.</p>
       </div>
     </div>
   </section>
 
-  <section aria-labelledby="howH" style="padding-top:24px">
+  <section class="lp-obj" aria-labelledby="objH">
     <div class="wrap">
-      <p class="eyebrow">How it works</p>
-      <h2 id="howH">Audit first. Decide after.</h2>
-      <ol class="steps">
-        <li><b>Apply (2 minutes)</b><span>Tell us your trade, your size and your ad budget. If we're a fit, we book your audit within <em>2 business days</em>.</span></li>
-        <li><b>15-minute Growth Audit</b><span>We show how fast your business answered our test lead and call, where jobs leak out, and a demo of your new system.</span></li>
-        <li><b>Live in 21 days</b><span>We build it around your services, crews and prices, you approve the preview, and the ads go live.</span></li>
+      <h2 id="objH" class="lp-h2">The three things every owner asks first.</h2>
+      <ol class="lp-list">
+        <li><span class="lp-q">“What if it doesn’t work?”</span><p>We set a booked-appointment target for your first 60 days. Miss it and your setup fee comes back, in writing. The one condition: your team answers new leads within an hour.</p></li>
+        <li><span class="lp-q">“I’ve been burned by agencies.”</span><p>You text me directly, not a ticket system. You own your site, ad accounts and customer list. And I only take a few companies per trade in each part of Houston.</p></li>
+        <li><span class="lp-q">“I don’t have time for this.”</span><p>Live in 21 days, or $100 off for every day I’m late. I build it around your services and crews. You approve the preview.</p></li>
       </ol>
+      <p class="lp-demo">See it working: <a href="https://catalog.unplannedco.com/hvac/" target="_blank" rel="noopener">HVAC</a><a href="https://catalog.unplannedco.com/plumbing/" target="_blank" rel="noopener">Plumbing</a><a href="https://catalog.unplannedco.com/foundation-repair/" target="_blank" rel="noopener">Foundation</a><a href="https://roasryan.github.io/ridgeline-demo/" target="_blank" rel="noopener">Roofing</a><a href="https://catalog.unplannedco.com/remodeling/" target="_blank" rel="noopener">Remodeling</a><a href="https://catalog.unplannedco.com/" target="_blank" rel="noopener">All 27 demos →</a></p>
     </div>
   </section>
 
-  <section id="faq" aria-labelledby="faqH" style="padding-top:24px">
-    <div class="wrap faq">
-      <div><p class="eyebrow">Questions owners ask</p><h2 id="faqH">Straight answers.</h2><p class="lede" style="font-size:17px">Anything else? Ask in your audit meeting. It's 15 minutes on video, and there's nothing to sign.</p></div>
-      <div class="qs">
-        <details><summary>What does it cost?</summary><p>One custom package, priced after your free audit, in writing, before you decide anything. Or Growth Partner: a setup, then a share of only the tracked jobs we bring in. Either way, if we miss the 60-day target, your setup fee comes back. Ad spend is separate and goes straight to Google and Meta on your accounts.</p></details>
-        <details><summary>I already have a website. Do I need a new one?</summary><p>Usually yes, because most sites only show information. We keep what works (your name, photos, reviews link) and add booking, alerts and tracking. Your domain stays yours.</p></details>
-        <details><summary>I already use a CRM or invoicing tool.</summary><p>Keep it. We plug into what you use (QuickBooks, Square, Jobber, Google Calendar, Slack). We don't replace your invoicing, payments or accounting.</p></details>
-        <details><summary>Do I need to be good with tech?</summary><p>No. If you can read a text message you can run it. We set everything up and show you on a short call.</p></details>
-        <details><summary>Is there a contract?</summary><p>Yes, a simple one. The first 6 months are set, because ads need about 90 days to learn what a good lead looks like. After that it's month to month with 30 days' notice. Leave and you keep your site, ad accounts and data.</p></details>
-        <details><summary>Who is this not for?</summary><p>Companies doing under $150k a year. The system pays off once you have steady jobs and a budget for ads, so we’d rather tell you that now than take your money.</p></details>
-        <details><summary>Can you promise I'll rank #1 on Google?</summary><p>No one honest can. We build every page by Google's rules, set up your Google tools and help you get more reviews. Rankings follow over time.</p></details>
-      </div>
-    </div>
-  </section>
-
-  <section class="formsec" id="demo" aria-labelledby="demoH" style="padding-top:24px">
+  <section class="lp-end">
     <div class="wrap">
-      <div class="end">
-        <div>
-          <p class="eyebrow">Free Growth Audit</p>
-          <h2 id="demoH">Apply for your 15-minute Growth Audit.</h2>
-          <div class="startcard">
-            <ol class="mini"><li><b>Answer a few quick taps</b><span>About your business. About 2 minutes.</span></li><li><b>Pick a meeting time</b><span>15-minute video call with Ryan, so he can show you the system on screen.</span></li><li><b>Get your free plan</b><span>Yours to keep, either way.</span></li></ol>
-            <button type="button" class="btn btn-main" data-apply>Start my application</button>
-          </div>
-        </div>
-        <div class="win call" role="img" aria-label="Sample of what Ryan shares on screen during the audit call: a call button that dials the wrong number, a long quote form, no online booking, and the fixes to make first">
-          <div class="chrome"><i></i><i></i><i></i><span>Video call · Ryan is sharing his screen</span></div>
-          <div class="cb">
-            <p class="ck">Your Growth Audit · sample</p>
-            <p class="ch">Your site, the way your customers see it.</p>
-            <ul class="cl"><li><span>Call button on mobile<small>Dials a different number</small></span><em class="bad">Lost</em></li><li><span>Quote form<small>11 fields, phone not required</small></span><em class="bad">Leak</em></li><li><span>Book online<small>No way to pick a time</small></span><em class="bad">Missing</em></li><li><span>Google profile<small>Hours and services match</small></span><em class="good">Good</em></li></ul>
-            <p class="cf"><b>Fix first:</b> fix the call button, shorten the form, add a book-a-time button, track every lead to a job.</p>
-            <p class="cn">Sample audit for demonstration purposes. Ryan walks you through yours on the call.</p>
-          </div>
-        </div>
-      </div>
+      <h2 class="lp-h2">Stop paying for leads <span>that book your competitor.</span></h2>
+      <button type="button" class="lp-btn" data-apply>Apply for my free Growth Audit</button>
+      <p class="lp-fn">Under $150K a year? Still apply. I’ll email you a growth plan for your trade.</p>
     </div>
   </section>
 </main>
@@ -741,6 +632,7 @@ $('#lf').addEventListener('submit',async e=>{e.preventDefault();read();const m=o
   if(sent){tk('generate_lead',{trade:D.trade});if(window.fbq)try{fbq('track','Lead',{content_name:D.trade})}catch(x){}}
   if(!sent){btn.disabled=false;btn.textContent='Apply for my audit';const live=/github\.io|unplannedco\.com/.test(location.hostname);return err(!LEAD_ENDPOINT?'Preview only: the form sends once the live page is connected.':live?'That didn’t go through. Check your connection and try again.':'This preview can’t send applications. Apply on the live page: unplannedco.com')}
   $('#lf').innerHTML=`<div class="done"><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="#7FD1A8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span><h3>You're in, ${esc(D.name.split(' ')[0])}.</h3><p class="conf">Confirmation sent to ${esc(D.email)}.</p><p class="lede">${D.want==='Under $150k a year'?'Thanks! Check your email for a few free tips that help most at your stage.':D.capacity.startsWith('No')?'Thanks! Since your team is already full, we\'ll start with systems that free up your time, not more leads. Pick a time below for your 15-minute call, and we\'ll send you a free plan based on your answers.':'Next step: pick a time below for your free 15-minute audit. We\'ll also send you a free plan based on your answers.'}</p>${D.want==='Under $150k a year'?'':`<div id="bkFlow"></div>`}${PRECALL_VSL&&D.want!=='Under $150k a year'?`<div class="precall"><b>Before your call: watch this short video</b><p>How it works, how it’s priced, contract length, how much of your time it takes, and what happens if we miss the target.</p>${ytId(PRECALL_VSL)?`<div class="vsl" style="margin:4px 0 0;width:100%"><iframe src="${esc(ytEmbed(PRECALL_VSL))}" title="Before your call" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div>`:`<a class="btn btn-line" href="${esc(PRECALL_VSL)}" target="_blank" rel="noopener">Watch before our call</a>`}</div>`:''}</div>`;if(document.getElementById('bkFlow'))bkStart(D)});
+document.addEventListener('click',e=>{const b=e.target.closest('.lp-trade');if(!b)return;D.trade=b.dataset.v;step=1;paint();openApply()});
 paint();
 })();
 </script>
