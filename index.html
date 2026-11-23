@@ -89,9 +89,10 @@ section{padding-block:96px}
 .chip span{color:var(--mute);font-size:12.5px}
 .chip.c1{left:24px;bottom:44px}
 .chip.c2{right:30%;bottom:110px}
+.chip.c3{left:24px;top:56px}
 @media (prefers-reduced-motion:no-preference){
   .chip{animation:pop .6s cubic-bezier(.2,.8,.2,1) both}
-  .chip.c1{animation-delay:.6s}.chip.c2{animation-delay:1.3s}
+  .chip.c3{animation-delay:.3s}.chip.c1{animation-delay:1s}.chip.c2{animation-delay:1.6s}
   @keyframes pop{from{opacity:0;transform:translateY(10px) scale(.97)}}
 }
 .cap{font-size:13px;color:var(--mute);margin-top:12px;text-align:center}
@@ -317,7 +318,7 @@ html.modal-open{overflow:hidden}
   .stage{padding:20px 16px 0;margin-top:40px;border-radius:20px}
   .stage .main{width:100%}
   .stage .side{position:relative;right:auto;top:auto;width:52%;margin:-120px 0 0 auto}
-  .chip.c2{display:none}.chip.c1{left:14px;bottom:20px}
+  .chip.c2{display:none}.chip.c1{left:14px;bottom:20px}.chip.c3{left:14px;top:40px}
   .tour{grid-template-columns:1fr;gap:24px}
   .tour-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%;overflow:visible}
   .tour-tabs button{white-space:normal;padding:10px 6px;font-size:14px;line-height:1.2}
@@ -390,6 +391,7 @@ window.tk=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{})}catch(e){}};
       <div class="stage" aria-label="Screenshots of a demo Houston foundation repair site and its booking screen">
         <div class="win main"><div class="chrome"><i></i><i></i><i></i><span>clayline-demo · your website</span></div><img src="img/site-foundation.webp" width="1600" height="1000" alt="Demo Houston foundation repair website: a free foundation check booking card next to a photo of a cracked brick corner" fetchpriority="high"></div>
         <div class="phone side"><img src="img/m-booking-fdn.webp" width="640" height="1386" alt="Free foundation check booking calendar on a phone"></div>
+        <div class="chip c3"><span class="dot" style="background:#FCE8E6"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D23A2E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><div><b>"Never mind, we found someone."</b><span>Text after 3 missed calls</span></div></div>
         <div class="chip c1"><span class="dot" style="background:var(--sage)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2F8A5B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span><div><b>Free foundation check booked</b><span>Katy · 8:00 AM · owner alerted in 60 sec</span></div></div>
         <div class="chip c2"><span class="dot" style="background:var(--sky)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><div><b>Missed call → text sent</b><span>in under 60 seconds</span></div></div>
       </div>
