@@ -1,0 +1,57 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#111}
+.ad{width:1080px;height:1350px;position:relative;overflow:hidden;font-family:Inter,sans-serif;color:#fff;display:flex;flex-direction:column;padding:80px 76px 0}
+.h{font-family:Anton,sans-serif;text-transform:uppercase;line-height:.95;letter-spacing:-1px}
+.foot{position:absolute;left:0;right:0;bottom:0;padding:34px 76px;font-size:30px;font-weight:500;background:rgba(0,0,0,.55);border-top:2px solid rgba(255,255,255,.15)}
+.foot b{color:#ffd23f;font-weight:900}
+.notif{background:rgba(255,255,255,.95);color:#111;border-radius:34px;padding:30px 36px;display:flex;gap:26px;align-items:center;margin-bottom:22px;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.ic{width:84px;height:84px;border-radius:20px;background:#e5342b;display:flex;align-items:center;justify-content:center;font-size:48px;color:#fff;flex:none}
+.nt{font-size:34px;font-weight:900}.ns{font-size:28px;color:#555;margin-top:4px}
+.tm{margin-left:auto;font-size:26px;color:#777;align-self:flex-start}
+/* A */
+#a{background:radial-gradient(circle at 50% 30%,#2a2a2a,#050505)}
+#a .clock{font-family:Anton;font-size:250px;text-align:center;line-height:1;margin-top:10px;color:#fff}
+#a .date{text-align:center;font-size:36px;color:#bbb;margin-bottom:46px}
+#a .h{font-size:92px;margin-top:56px}
+#a .h span{color:#ff3b30}
+/* B */
+#b{background:#ffd23f;color:#111}
+#b .h{font-size:150px;margin-top:10px}
+#b .sub{font-size:44px;font-weight:700;line-height:1.2;margin-top:40px;max-width:560px}
+#b .stamp{position:absolute;right:70px;top:930px;transform:rotate(-12deg);border:10px solid #e5342b;color:#e5342b;font-family:Anton;font-size:96px;padding:6px 30px;text-transform:uppercase}
+#b .foot{background:#111;color:#fff}
+/* C */
+#c{background:#0b0b0b}
+#c .h{font-size:150px;margin-top:90px}
+#c .h .red{color:#ff3b30;text-decoration:line-through;text-decoration-thickness:14px}
+#c .sub{font-size:52px;font-weight:700;line-height:1.25;margin-top:56px;color:#ddd}
+#c .sub b{color:#ffd23f}
+#c .not{font-size:34px;color:#999;margin-top:50px}
+</style></head><body>
+
+<div class="ad" id="a">
+  <div class="clock">2:07</div>
+  <div class="date">Saturday</div>
+  <div class="notif"><div class="ic">&#9990;</div><div><div class="nt">Missed call (3)</div><div class="ns">Unknown · Katy, TX</div></div><div class="tm">now</div></div>
+  <div class="notif"><div class="ic" style="background:#34c759">&#9993;</div><div><div class="nt">"Never mind, we found someone."</div><div class="ns">New message</div></div><div class="tm">2m</div></div>
+  <div class="h">You didn't lose that job.<br><span>Your voicemail did.</span></div>
+  <div class="foot">Don't trust me? Good. Look at <b>unplannedco.com</b> and see what I'm about.</div>
+</div>
+
+<div class="ad" id="b">
+  <div class="h">I'm one guy.<br>If I miss,<br>you get<br>paid back.</div>
+  <div class="stamp">60-day target</div>
+  <div class="sub">Miss your booked-appointment target in 60 days? Your setup fee comes back.</div>
+  <div class="foot">Don't trust me? Good. Look at <b>unplannedco.com</b> and see what I'm about.</div>
+</div>
+
+<div class="ad" id="c">
+  <div class="h"><span class="red">More leads</span><br>won't fix<br>your business.</div>
+  <div class="sub">You already pay for leads that never become jobs.<br><b>I book the ones you're losing.</b></div>
+  <div class="not">Houston home-service companies, $150K+/yr only.</div>
+  <div class="foot">Don't trust me? Good. Look at <b>unplannedco.com</b> and see what I'm about.</div>
+</div>
+</body></html>

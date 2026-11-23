@@ -1,0 +1,1 @@
+const {chromium}=require('playwright');(async()=>{const b=await chromium.launch();const p=await b.newPage({viewport:{width:1080,height:1350}});await p.goto('file:///home/claude/ads/ads.html');await p.waitForTimeout(1500);for(const id of ['a','b','c']){await (await p.$('#'+id)).screenshot({path:`/home/claude/ads/ad-${id}.png`});}await b.close();})();

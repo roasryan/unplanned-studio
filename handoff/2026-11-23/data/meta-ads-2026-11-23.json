@@ -1,0 +1,40 @@
+{
+  "pulled_at": "2026-11-23T06:01Z (00:01 America/Chicago)",
+  "ad_account_id": "279018720625731",
+  "account_amount_spent_this_month_usd": 152.23,
+  "account_amount_spent_today_usd": 0,
+  "campaign": {
+    "id": "120272399628620362",
+    "name": "Static test - $3/day per ad - FB+IG - Houston $150k+",
+    "effective_status": "ACTIVE",
+    "lifetime_amount_spent_usd": 150.00,
+    "cap_usd": 150,
+    "stop_date": "2026-11-25",
+    "optimization": "OFFSITE_CONVERSIONS, event offsite_conversion.lead, prospecting"
+  },
+  "ads_lifetime": [
+    {"name":"S5c Static - 10 more booked jobs - growth report visual","id":"120272551046900362","spend":28.69,"impressions":568,"link_clicks":8,"ctr":"1.58%","leads":1,"landing_page_views":3,"status_today":"PAUSED"},
+    {"name":"S8 One guy - Ryan edits - main page","id":"120272631654970362","spend":22.26,"impressions":399,"link_clicks":6,"ctr":"3.51%","leads":0,"landing_page_views":null,"status_today":"ACTIVE"},
+    {"name":"S3 27 trades catalog","id":"120272399660530362","spend":20.44,"impressions":454,"link_clicks":13,"ctr":"3.30%","leads":0,"landing_page_views":10,"status_today":"PAUSED"},
+    {"name":"S2 Owner app + portal","id":"120272399659760362","spend":19.66,"impressions":548,"link_clicks":12,"ctr":"4.20%","leads":0,"landing_page_views":11,"status_today":"PAUSED"},
+    {"name":"S1 Free catalog - build it for you","id":"120272399658810362","spend":18.33,"impressions":386,"link_clicks":5,"ctr":"2.07%","leads":1,"landing_page_views":4,"status_today":"PAUSED"},
+    {"name":"S4 Try my catalog free","id":"120272399657010362","spend":15.00,"impressions":1334,"link_clicks":29,"ctr":"2.47%","leads":0,"landing_page_views":29,"status_today":"PAUSED"},
+    {"name":"S3b 20+ trades - unplannedco.com","id":"120272498847870362","spend":7.13,"impressions":134,"link_clicks":1,"ctr":"2.24%","leads":0,"landing_page_views":null,"status_today":"ADSET_PAUSED"},
+    {"name":"S2b See a lead get booked - unplannedco.com","id":"120272498847010362","spend":6.54,"impressions":147,"link_clicks":null,"ctr":"0.68%","leads":0,"landing_page_views":null,"status_today":"ADSET_PAUSED"},
+    {"name":"S4b Try it free - unplannedco.com","id":"120272498927050362","spend":6.28,"impressions":490,"link_clicks":7,"ctr":"2.24%","leads":0,"landing_page_views":7,"status_today":"ADSET_PAUSED"},
+    {"name":"S1b Site that books jobs - unplannedco.com","id":"120272498847300362","spend":5.67,"impressions":101,"link_clicks":9,"ctr":"7.92%","leads":0,"landing_page_views":7,"status_today":"ADSET_PAUSED"},
+    {"name":"S7 One guy - 2 AM Monday - main page","id":"120272630653300362","spend":0,"impressions":0,"status_today":"PAUSED"},
+    {"name":"S6 V5 Not more leads - guarantee","id":"120272630183830362","spend":0,"impressions":0,"status_today":"PAUSED"},
+    {"name":"S6 V4 Which ad booked Tuesday","id":"120272630183000362","spend":0,"impressions":0,"status_today":"PAUSED"},
+    {"name":"S6 V3 Form at 9 PM","id":"120272630181520362","spend":0,"impressions":0,"status_today":"PAUSED"},
+    {"name":"S6 V2 On the job - missed call","id":"120272630180010362","spend":0,"impressions":0,"status_today":"PAUSED"},
+    {"name":"S6 V1 One guy - one company per trade","id":"120272630178570362","spend":0,"impressions":0,"status_today":"PAUSED"},
+    {"name":"S5b Static - 10 more booked jobs - growth plan (fixed image)","id":"120272550996070362","spend":0,"impressions":0,"status_today":"PAUSED"},
+    {"name":"S5 Static - 10 more booked jobs - growth plan","id":"120272550812680362","spend":0,"impressions":0,"status_today":"PAUSED"}
+  ],
+  "today_all_ads": "0 impressions, 0 clicks, 0 leads (campaign cap reached)",
+  "s8_creative": {"call_to_action":"APPLY_NOW","image_hash":"a8b9536218f9772b1ff93a72b6fe8e47","image_name":"S5c growth plan report 4x5_105","size":"1080x1350"},
+  "s8_trend_from_meta": "CTR 54.23% change, trend BAD; CVR 0.00% change; cost per link click 76.56% change, trend GOOD; CPM 61.85% change, trend GOOD",
+  "industry_benchmark": "No industry benchmark data available for the given criteria.",
+  "totals_computed_by_claude": "about 71 landing page views, 2 leads, roughly 3% page-to-application"
+}
