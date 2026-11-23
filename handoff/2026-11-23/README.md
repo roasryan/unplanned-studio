@@ -57,7 +57,7 @@ Everything from the Nov 23 session: the ad drafts, the data behind them, the lan
 
 This run was at 06:01 UTC (00:01 Chicago), so I ran the new lead check and the ad spend update. The daily outreach leads job only runs at 6 AM Chicago, so it was skipped.
 
-- **New lead check:** No new applications. Both real rows in the sheet (Josh Almanza and Chris Smith) are already on the dashboard, so no alert went out. The November spend figure on the dashboard is up to date at $152.23, dated Nov 23.
+- **New lead check:** No new applications. Both real rows in the sheet (the Nov 5 and Nov 12 applicants) are already on the dashboard, so no alert went out. The November spend figure on the dashboard is up to date at $152.23, dated Nov 23.
 - **Ad spend update (sent to your phone):**
   - $152.23 spent this month and $0 so far today.
   - The static test campaign has hit its $150 cap. It had 0 views, clicks and leads today.
