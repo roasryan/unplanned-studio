@@ -64,7 +64,7 @@ E = html.escape
 
 HEAD = '''<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0E0F12">
+<meta name="theme-color" content="#FAF9F6">
 <title>{title}</title>
 <meta name="description" content="{desc}">
 <link rel="canonical" href="{url}">
@@ -74,7 +74,7 @@ HEAD = '''<!doctype html><html lang="en"><head><meta charset="utf-8">
 <link rel="stylesheet" href="/areas/area.css">
 <script type="application/ld+json">{ld}</script>
 </head><body>
-<header class="top"><div class="wrap"><a class="logo" href="/"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="8" fill="#F4F1EA"/><path d="M10.5 10v7.5a5.5 5.5 0 0 0 11 0V10" fill="none" stroke="#0E0F12" stroke-width="2.8" stroke-linecap="round"/></svg>Unplanned &amp; Co.</a><details class="nav-menu"><summary>Services <span aria-hidden="true">▾</span></summary><div class="nav-pop"><a href="/services/"><b>All services</b><span>Everything I can set up and run for you</span></a><a href="/services/#now"><b>Start right now (free)</b><span>Audit, growth plan for your trade, demo sites</span></a><a href="/#demo"><b>Free 15-minute Growth Audit</b><span>Apply in about 2 minutes</span></a><a href="https://catalog.unplannedco.com/" target="_blank" rel="noopener"><b>Demo sites</b><span>Try one built for your trade</span></a><a href="/areas/"><b>Areas we serve</b><span>Houston and nearby cities</span></a><a href="/#faq"><b>Questions owners ask</b><span>Cost, contracts, guarantees</span></a></div></details><a class="btn" href="/#demo">Free audit</a></div></header>
+<header class="top"><div class="wrap"><a class="logo" href="/"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="8" fill="#15171C"/><path d="M10.5 10v7.5a5.5 5.5 0 0 0 11 0V10" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round"/></svg>Unplanned &amp; Co.</a><details class="nav-menu"><summary>Services <span aria-hidden="true">▾</span></summary><div class="nav-pop"><a href="/services/"><b>All services</b><span>Everything I can set up and run for you</span></a><a href="/services/#now"><b>Start right now (free)</b><span>Audit, growth plan for your trade, demo sites</span></a><a href="/#demo"><b>Free 15-minute Growth Audit</b><span>Apply in about 2 minutes</span></a><a href="https://catalog.unplannedco.com/" target="_blank" rel="noopener"><b>Demo sites</b><span>Try one built for your trade</span></a><a href="/areas/"><b>Areas we serve</b><span>Houston and nearby cities</span></a><a href="/#faq"><b>Questions owners ask</b><span>Cost, contracts, guarantees</span></a></div></details><a class="btn" href="/#demo">Apply now</a></div></header>
 <main class="wrap">
 '''
 FOOT = '''</main>

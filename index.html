@@ -408,31 +408,29 @@ label[for=fName]::after,label[for=fEmail]::after,label[for=fMobile]::after{conte
   .lp-list{grid-template-columns:1fr}.lp-form{padding:18px 16px 14px}
 }
 
-/* v3.1 (Nov 24): whole page dark to match the new top */
-:root{--bg:#0E0F12;--paper:#16181D;--line:#2A2D34;--line2:#363A42;--text:#F4F1EA;--soft:#BDB7AB;--mute:#8E929A;--sand:#1B1915;--sage:#15201A;--sky:#141B25;--accent:#E3B04B}
-html,body{background:#0E0F12;color:var(--text)}
-.top{background:rgba(14,15,18,.92)!important;border-bottom:1px solid var(--line)}
-.top .wm,.top .logo{color:#F4F1EA}
-.lp-obj{background:#121418}.lp-obj .lp-h2{color:#F4F1EA}
-.lp-list li{background:var(--paper);border-color:var(--line)}.lp-list li:before{color:#2A2D34}.lp-list p{color:var(--soft)}
-.lp-demo{color:var(--soft)}.lp-demo a{background:var(--paper);border-color:var(--line);color:#F4F1EA}
-.btn-main,.tryb,.end .btn-main{background:#E3B04B!important;color:#15171C!important}
-.btn-line{color:#F4F1EA;border-color:#3A3D45}
-.rg div,.cl li{background:#22252C!important}
-.steps li::before{background:#E3B04B;color:#15171C}
-.end{background:#16181D!important;color:#F4F1EA!important;border:1px solid var(--line)}
-.apply .btn-main{background:#15171C!important;color:#fff!important}
+/* v3.2 (Nov 25): back to company colors (cream, ink, brass) like the catalog */
+.lp-hero{background:var(--bg);color:var(--text)}
+.lp-hero:before{background:radial-gradient(60% 50% at 80% 30%,rgba(181,130,31,.14),transparent 70%)}
+.lp-pill{border-color:var(--line2);color:var(--soft)}
+.lp-h1 span,.lp-h2 span{color:#B5821F}
+.lp-sub{color:var(--soft)}
+.lp-form{border:1px solid var(--line);box-shadow:0 30px 70px -30px rgba(20,22,28,.28)}
+.lp-cap{color:var(--mute)}
+.lp-obj{background:var(--sand)}
+.lp-end{background:#15171C}
+.lp-areas h2{color:var(--text)}
 .lp-areas{padding:50px 0 10px;border-top:1px solid var(--line)}.lp-areas h2{font:400 clamp(28px,3.6vw,40px)/1 Anton,var(--display);text-transform:uppercase;margin:0 0 8px}.lp-areas p{color:var(--soft);margin:0 0 6px}
-.nav-menu{position:relative;margin-left:auto}.nav-menu summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px;border:1px solid #363A42;border-radius:12px;font:600 15px Inter,system-ui,sans-serif;color:#F4F1EA}
-.nav-menu summary::-webkit-details-marker{display:none}.nav-menu[open] summary{border-color:#E3B04B}
-.nav-pop{position:absolute;right:0;top:calc(100% + 8px);width:min(320px,86vw);background:#16181D;border:1px solid #2A2D34;border-radius:16px;padding:8px;box-shadow:0 24px 60px rgba(0,0,0,.6);z-index:50}
-.nav-pop a{display:block;padding:10px 12px;border-radius:10px;text-decoration:none;color:#F4F1EA}.nav-pop a:hover{background:#22252C}
-.nav-pop b{display:block;font:700 15px Inter,system-ui,sans-serif}.nav-pop span{font:500 13px Inter,system-ui,sans-serif;color:#9A9EA6}
+.nav-menu{position:relative;margin-left:auto}.nav-menu summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px;border:1px solid var(--line2);border-radius:12px;font:600 15px Inter,system-ui,sans-serif;color:var(--text);background:var(--paper)}
+.nav-menu summary::-webkit-details-marker{display:none}.nav-menu[open] summary{border-color:#B5821F}
+.nav-pop{position:absolute;right:0;top:calc(100% + 8px);width:min(320px,86vw);background:#fff;border:1px solid var(--line);border-radius:16px;padding:8px;box-shadow:0 24px 60px -12px rgba(20,22,28,.25);z-index:50}
+.nav-pop a{display:block;padding:10px 12px;border-radius:10px;text-decoration:none;color:var(--text)}.nav-pop a:hover{background:var(--sand)}
+.nav-pop b{display:block;font:700 15px Inter,system-ui,sans-serif}.nav-pop span{font:500 13px Inter,system-ui,sans-serif;color:var(--soft)}
 .nav-menu+.btn,.nav-menu~.btn{margin-left:10px!important}
 @media(max-width:480px){.nav-menu summary{padding:0 10px;font-size:14px}}
 .top .wrap>.btn{margin-left:0}
 @media(max-width:700px){.nav-pop{position:fixed;left:12px;right:12px;top:68px;width:auto;max-height:calc(100vh - 90px);overflow:auto}}
-@media(max-width:560px){.top .btn-main{display:none}.nav-menu{margin-left:auto}}
+@media(max-width:560px){.top .btn-main{min-height:40px;padding:0 12px;font-size:14px}.top .wm{font-size:15px;white-space:nowrap}.top .wrap{gap:8px}}
+@media(max-width:380px){.top .wm{display:none}}
 .apply{--bg:#FAF9F6;--paper:#FFFFFF;--line:#E6E2DA;--line2:#D9D4CA;--text:#15171C;--soft:#5B616C;--mute:#8A8F98;--accent:#B5821F;--sand:#F3EEE5;--sage:#E7EFE9;--sky:#E6EDF6;background:#fff;color:#15171C}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Unplanned & Co.", "url": "https://unplannedco.com/", "description": "Growth partner for Houston home service companies: fast lead response, online booking, follow-up and lead tracking, with a setup-fee-back guarantee.", "areaServed": [{"@type": "City", "name": "Houston, TX"}, {"@type": "City", "name": "Katy, TX"}, {"@type": "City", "name": "Sugar Land, TX"}, {"@type": "City", "name": "The Woodlands, TX"}, {"@type": "City", "name": "Cypress, TX"}, {"@type": "City", "name": "Pearland, TX"}, {"@type": "City", "name": "Spring, TX"}, {"@type": "City", "name": "League City, TX"}, {"@type": "City", "name": "Conroe, TX"}, {"@type": "City", "name": "Pasadena, TX"}, {"@type": "City", "name": "Humble, TX"}]}</script>
@@ -457,7 +455,7 @@ window.tk=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{})}catch(e){}};
 <a href="/areas/"><b>Areas we serve</b><span>Houston and nearby cities</span></a>
 <a href="/#faq"><b>Questions owners ask</b><span>Cost, contracts, guarantees</span></a>
 </div></details>
-    <a class="btn btn-main" href="#demo">Growth audit<span>&nbsp;(free)</span></a>
+    <a class="btn btn-main" href="#demo" data-apply>Apply now</a>
   </div>
 </header>
 
@@ -615,7 +613,6 @@ window.tk=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{})}catch(e){}};
       <h2 id="guarH">We take the risk, so you don't have to.</h2>
       <div class="guars">
         <div class="guar"><svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="#B5821F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="8" width="28" height="26" rx="3"/><path d="M6 15h28M13 4v7M27 4v7M14 24l4 4 8-8"/></svg><div><b>Setup fee back guarantee</b><span>We set a booked-appointment target together for your first 60 days, based on your ad budget and your trade's real cost per lead. Miss it and you get your full setup fee back, in writing.</span></div></div>
-        <div class="guar"><svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="#B5821F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 34s-12-7-12-17a7 7 0 0 1 12-5 7 7 0 0 1 12 5c0 10-12 17-12 17z"/></svg><div><b>Beats your old site, or we rebuild it</b><span>Within 60 days your new site turns more visitors into leads than your old one did. We measure both. If it doesn't win, we rebuild the booking flow free.</span></div></div>
         <div class="guar"><svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="#B5821F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="21" r="13"/><path d="M20 13v8l5 4M15 4h10"/></svg><div><b>Live in 21 days</b><span>Or $100 off for every day we're late, counted from the day we have your info.</span></div></div>
         <div class="guar"><svg viewBox="0 0 40 40" aria-hidden="true" fill="none" stroke="#B5821F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="17" width="24" height="18" rx="3"/><path d="M13 17v-5a7 7 0 0 1 14 0v5"/></svg><div><b>You own it</b><span>Your domain, site, ad accounts and customer list stay yours. If you leave, we hand it all over.</span></div></div>
       </div>

@@ -1,10 +1,10 @@
-:root{--bg:#0E0F12;--paper:#16181D;--line:#2A2D34;--text:#F4F1EA;--soft:#BDB7AB;--gold:#E3B04B}
+:root{--bg:#FAF9F6;--paper:#FFFFFF;--line:#E6E2DA;--text:#15171C;--soft:#5B616C;--gold:#B5821F;--sand:#F3EEE5}
 *{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.6 Inter,system-ui,sans-serif}
 a{color:var(--gold)}.wrap{max-width:860px;margin:0 auto;padding:0 20px}
-.top{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(14,15,18,.94);z-index:5}
+.top{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(250,249,246,.94);z-index:5}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;min-height:64px;max-width:1120px}
 .logo{display:flex;gap:10px;align-items:center;color:var(--text);text-decoration:none;font-weight:700}.logo svg{width:28px;height:28px}
-.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:12px;background:var(--gold);color:#15171C;font-weight:800;text-decoration:none}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:12px;background:var(--text);color:#fff;font-weight:800;text-decoration:none}
 .btn.big{min-height:56px;padding:0 28px;font-size:18px;margin-top:8px}
 .crumb{font-size:14px;color:var(--soft);margin:22px 0 0}.crumb a{color:var(--soft)}
 .hero{padding:34px 0 20px}.pill{display:inline-block;margin:0 0 14px;padding:6px 13px;border:1px solid var(--line);border-radius:999px;font-size:13px;font-weight:600;color:var(--soft)}
@@ -25,14 +25,16 @@ footer{border-top:1px solid var(--line);padding:24px 0;color:var(--soft);font-si
 .logo,.top .btn{white-space:nowrap}
 @media(max-width:480px){.top .btn{min-height:40px;padding:0 12px;font-size:14px}.logo{font-size:15px}}
 
-.nav-menu{position:relative;margin-left:auto}.nav-menu summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px;border:1px solid #363A42;border-radius:12px;font:600 15px Inter,system-ui,sans-serif;color:#F4F1EA}
-.nav-menu summary::-webkit-details-marker{display:none}.nav-menu[open] summary{border-color:#E3B04B}
-.nav-pop{position:absolute;right:0;top:calc(100% + 8px);width:min(320px,86vw);background:#16181D;border:1px solid #2A2D34;border-radius:16px;padding:8px;box-shadow:0 24px 60px rgba(0,0,0,.6);z-index:50}
-.nav-pop a{display:block;padding:10px 12px;border-radius:10px;text-decoration:none;color:#F4F1EA}.nav-pop a:hover{background:#22252C}
-.nav-pop b{display:block;font:700 15px Inter,system-ui,sans-serif}.nav-pop span{font:500 13px Inter,system-ui,sans-serif;color:#9A9EA6}
+.nav-menu{position:relative;margin-left:auto}.nav-menu summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px;border:1px solid #D9D4CA;border-radius:12px;font:600 15px Inter,system-ui,sans-serif;color:var(--text);background:#fff}
+.nav-menu summary::-webkit-details-marker{display:none}.nav-menu[open] summary{border-color:#B5821F}
+.nav-pop{position:absolute;right:0;top:calc(100% + 8px);width:min(320px,86vw);background:#fff;border:1px solid var(--line);border-radius:16px;padding:8px;box-shadow:0 24px 60px -12px rgba(20,22,28,.25);z-index:50}
+.nav-pop a{display:block;padding:10px 12px;border-radius:10px;text-decoration:none;color:var(--text)}.nav-pop a:hover{background:var(--sand)}
+.nav-pop b{display:block;font:700 15px Inter,system-ui,sans-serif}.nav-pop span{font:500 13px Inter,system-ui,sans-serif;color:var(--soft)}
 .nav-menu+.btn,.nav-menu~.btn{margin-left:10px!important}
 @media(max-width:480px){.nav-menu summary{padding:0 10px;font-size:14px}}
 .top .wrap{gap:10px}.top .wrap>.logo{margin-right:auto}.nav-menu{margin-left:0}
 .svc{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}.svc li{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px}.svc b{display:block;font-size:17px;margin-bottom:4px}.svc span{color:var(--soft);font-size:15px;line-height:1.45}
 @media(max-width:700px){.nav-pop{position:fixed;left:12px;right:12px;top:68px;width:auto;max-height:calc(100vh - 90px);overflow:auto}}
-@media(max-width:560px){.top .btn{display:none}}
+@media(max-width:560px){.top .btn{min-height:40px;padding:0 12px;font-size:14px}}
+.cta{background:var(--sand);border-radius:20px;padding:40px 20px;margin:20px 0}
+.top details.nav-menu{background:none;border:0;padding:0;border-radius:0}
