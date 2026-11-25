@@ -38,3 +38,4 @@ footer{border-top:1px solid var(--line);padding:24px 0;color:var(--soft);font-si
 @media(max-width:560px){.top .btn{min-height:40px;padding:0 12px;font-size:14px}}
 .cta{background:var(--sand);border-radius:20px;padding:40px 20px;margin:20px 0}
 .top details.nav-menu{background:none;border:0;padding:0;border-radius:0}
+.svc .ask{display:block;margin-top:10px;font-style:normal;font-size:13px;font-weight:600;color:var(--gold)}

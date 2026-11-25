@@ -173,11 +173,11 @@ def services():
           "areaServed": [{"@type": "City", "name": "Houston, TX"}],
           "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Services", "itemListElement": [
               {"@type": "Offer", "itemOffered": {"@type": "Service", "name": n, "description": d}} for _, items in SERVICES for n, d in items]}}
-    groups = ''.join(f'<section><h2>{E(g)}</h2><ul class="svc">' + ''.join(f'<li><b>{E(n)}</b><span>{E(d)}</span></li>' for n, d in items) + '</ul></section>' for g, items in SERVICES)
+    groups = ''.join(f'<section><h2>{E(g)}</h2><ul class="svc">' + ''.join(f'<li><b>{E(n)}</b><span>{E(d)}</span><em class="ask">Interested? Mention it on your call with Unplanned &amp; Co.</em></li>' for n, d in items) + '</ul></section>' for g, items in SERVICES)
     plans = ''.join(f'<a href="/plans/{k}.html">{E(v)}</a>' for k, v in PLANS)
     body = (f'<nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> › Services</nav>\n'
       '<section class="hero"><p class="pill">Houston home service companies</p><h1>Services.</h1>\n'
-      '<p class="sub">Everything I can set up and run for you. Your package is built from your audit, and you can ask for any of these on its own.</p></section>\n'
+      '<p class="sub">Everything I can set up and run for you. Your plan is custom built from your audit, so not every service goes in every plan. See something you want? Mention it on your call and I\'ll tell you if it fits.</p></section>\n'
       '<section id="now"><h2>Start right now (free)</h2>\n<ul class="grid">\n'
       '<li><a href="/#demo"><b>Free 15-minute Growth Audit</b><span>Apply in about 2 minutes, pick your call time right after. Keep the plan either way.</span></a></li>\n'
       '<li><a href="https://catalog.unplannedco.com/" target="_blank" rel="noopener"><b>Try a demo site</b><span>Book a visit on a working site built for your trade.</span></a></li>\n'
