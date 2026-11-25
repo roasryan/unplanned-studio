@@ -74,11 +74,11 @@ HEAD = '''<!doctype html><html lang="en"><head><meta charset="utf-8">
 <link rel="stylesheet" href="/areas/area.css">
 <script type="application/ld+json">{ld}</script>
 </head><body>
-<header class="top"><div class="wrap"><a class="logo" href="/"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="8" fill="#F4F1EA"/><path d="M10.5 10v7.5a5.5 5.5 0 0 0 11 0V10" fill="none" stroke="#0E0F12" stroke-width="2.8" stroke-linecap="round"/></svg>Unplanned &amp; Co.</a><a class="btn" href="/">Free Growth Audit</a></div></header>
+<header class="top"><div class="wrap"><a class="logo" href="/"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="8" fill="#F4F1EA"/><path d="M10.5 10v7.5a5.5 5.5 0 0 0 11 0V10" fill="none" stroke="#0E0F12" stroke-width="2.8" stroke-linecap="round"/></svg>Unplanned &amp; Co.</a><details class="nav-menu"><summary>Services <span aria-hidden="true">▾</span></summary><div class="nav-pop"><a href="/services/"><b>All services</b><span>Everything I can set up and run for you</span></a><a href="/services/#now"><b>Start right now (free)</b><span>Audit, growth plan for your trade, demo sites</span></a><a href="/#demo"><b>Free 15-minute Growth Audit</b><span>Apply in about 2 minutes</span></a><a href="https://catalog.unplannedco.com/" target="_blank" rel="noopener"><b>Demo sites</b><span>Try one built for your trade</span></a><a href="/areas/"><b>Areas we serve</b><span>Houston and nearby cities</span></a><a href="/#faq"><b>Questions owners ask</b><span>Cost, contracts, guarantees</span></a></div></details><a class="btn" href="/#demo">Free audit</a></div></header>
 <main class="wrap">
 '''
 FOOT = '''</main>
-<footer><div class="wrap"><span>© 2026 Unplanned &amp; Co. · Serving Houston and the surrounding areas</span><nav><a href="/areas/">Areas we serve</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav></div></footer>
+<footer><div class="wrap"><span>© 2026 Unplanned &amp; Co. · Serving Houston and the surrounding areas</span><nav><a href="/services/">Services</a><a href="/areas/">Areas we serve</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav></div></footer>
 </body></html>
 '''
 
@@ -129,11 +129,72 @@ def hub():
 '''
     return HEAD.format(title=E(title), desc=E(desc), url=url, ld=json.dumps(ld)) + body + FOOT
 
+
+SERVICES = [
+ ("Win the lead", [
+  ("Missed-call text back", "Anyone you miss gets a text within a minute, so they wait for you instead of calling the next company."),
+  ("60-second lead alerts", "Name, mobile, address and best time to call, straight to your phone."),
+  ("Online booking", "Customers pick a real open time, synced both ways with your Google Calendar."),
+  ("Text-us button", "Customers text you from any page instead of filling out a long form."),
+  ("Instant price tool", "Price ranges for your services, or an instant roof quote from the satellite outline."),
+  ("AI receptionist and website chat", "Optional. Answers after hours and books the visit when nobody can pick up."),
+ ]),
+ ("Follow up and close", [
+  ("Estimate follow-up", "Every quote gets checked on until it's won or lost, so jobs stop going quiet."),
+  ("Reminders that cut no-shows", "Confirmation and reminder texts before every visit."),
+  ("Change orders", "Customers approve extra work with a signature on their phone."),
+ ]),
+ ("Bring them back", [
+  ("Referral program", "Referral links for realtors, inspectors and past customers, with payouts tracked."),
+  ("Past-customer comebacks", "A reactivation campaign every quarter to customers you already served."),
+  ("Review requests", "A review request after every job, without asking by hand."),
+  ("Memberships", "Maintenance or club plans that bring customers back every year."),
+ ]),
+ ("Get found", [
+  ("Website built to book jobs", "Your services, photos and brand, fast on phones, with booking on every page."),
+  ("Service and city pages", "A page for every service and the areas you cover, so you show up in more searches."),
+  ("Google Business Profile tune-up", "Services, hours and categories set up to show in Maps."),
+  ("Ads managed for you", "Google and Meta. You film the clips, I handle setup, targeting and tracking."),
+  ("Spanish site", "Every page in Spanish for Houston's Spanish-speaking customers."),
+ ]),
+ ("Know what's working", [
+  ("Tracking on every lead", "Meta and Google tracking, so each lead ties back to the ad or search it came from."),
+  ("One simple monthly report", "Cost per lead, close rate and booked jobs by source."),
+  ("You own it all", "Domain, site, ad accounts and customer list stay yours."),
+ ]),
+]
+PLANS = [("roofing","Roofing"),("hvac","HVAC"),("plumbing","Plumbing"),("foundation","Foundation"),("remodeling","Remodeling"),("pools","Pools"),("fencing-concrete","Fencing / concrete"),("electrical","Electrical"),("landscaping","Landscaping"),("med-spa","Med spa"),("other","Other trades")]
+
+def services():
+    url = f"{SITE}/services/"
+    title = "Services: Home Service Growth in Houston | Unplanned & Co."
+    desc = "Everything Unplanned & Co. sets up and runs for Houston home service companies: lead response, booking, estimate follow-up, referrals, reviews, SEO, ads and tracking."
+    ld = {"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Unplanned & Co.", "url": SITE + "/",
+          "areaServed": [{"@type": "City", "name": "Houston, TX"}],
+          "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Services", "itemListElement": [
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": n, "description": d}} for _, items in SERVICES for n, d in items]}}
+    groups = ''.join(f'<section><h2>{E(g)}</h2><ul class="svc">' + ''.join(f'<li><b>{E(n)}</b><span>{E(d)}</span></li>' for n, d in items) + '</ul></section>' for g, items in SERVICES)
+    plans = ''.join(f'<a href="/plans/{k}.html">{E(v)}</a>' for k, v in PLANS)
+    body = (f'<nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a> › Services</nav>\n'
+      '<section class="hero"><p class="pill">Houston home service companies</p><h1>Services.</h1>\n'
+      '<p class="sub">Everything I can set up and run for you. Your package is built from your audit, and you can ask for any of these on its own.</p></section>\n'
+      '<section id="now"><h2>Start right now (free)</h2>\n<ul class="grid">\n'
+      '<li><a href="/#demo"><b>Free 15-minute Growth Audit</b><span>Apply in about 2 minutes, pick your call time right after. Keep the plan either way.</span></a></li>\n'
+      '<li><a href="https://catalog.unplannedco.com/" target="_blank" rel="noopener"><b>Try a demo site</b><span>Book a visit on a working site built for your trade.</span></a></li>\n'
+      '<li><a href="/areas/"><b>Areas we serve</b><span>See what this looks like in your part of Houston.</span></a></li>\n</ul>\n'
+      f'<p><b>Free growth plan for your trade:</b></p><p class="near">{plans}</p></section>\n'
+      + groups +
+      '<section class="cta"><h2>Not sure what you need?</h2><p>That\'s what the audit is for. I\'ll show you where your jobs are slipping and which of these fixes it first.</p><a class="btn big" href="/#demo">Get my free Growth Audit</a></section>\n')
+    return HEAD.format(title=E(title), desc=E(desc), url=url, ld=json.dumps(ld)) + body + FOOT
+
+os.makedirs(os.path.join(ROOT, 'services'), exist_ok=True)
+open(os.path.join(ROOT, 'services', 'index.html'), 'w').write(services())
+
 for a in AREAS:
     d = os.path.join(ROOT, 'areas', a['slug']); os.makedirs(d, exist_ok=True)
     open(os.path.join(d, 'index.html'), 'w').write(page(a))
 open(os.path.join(ROOT, 'areas', 'index.html'), 'w').write(hub())
-urls = [SITE + '/', SITE + '/areas/'] + [f"{SITE}/areas/{a['slug']}/" for a in AREAS]
+urls = [SITE + '/', SITE + '/services/', SITE + '/areas/'] + [f"{SITE}/areas/{a['slug']}/" for a in AREAS]
 open(os.path.join(ROOT, 'sitemap.xml'), 'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(f'  <url><loc>{u}</loc></url>\n' for u in urls) + '</urlset>\n')
 open(os.path.join(ROOT, 'robots.txt'), 'w').write(f'User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n')
 print(len(AREAS), 'area pages')
