@@ -443,12 +443,12 @@ label[for=fName]::after,label[for=fEmail]::after,label[for=fMobile]::after{conte
 .lp-all{align-self:center;margin-top:2px;font:600 15px var(--body);color:var(--soft);text-decoration:underline;text-underline-offset:4px}
 .lp-all:hover{color:#15171C}
 #applyH:focus{outline:none}
-.freebox{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px 18px;padding:20px;border-radius:18px;background:#15171C;color:#fff;margin:0 0 6px}
-.freebox .fb-k{margin:0 0 4px;font:700 11.5px var(--body);letter-spacing:.12em;text-transform:uppercase;color:#E3B04B}
-.freebox b{display:block;font:800 19px/1.2 var(--display)}.freebox span{display:block;margin-top:4px;font:500 14px var(--body);color:#C9CDD4}
-.freebox i{font-style:normal;font-weight:800;color:#fff;font-variant-numeric:tabular-nums}
-.freebox button{min-height:50px;padding:0 20px;border:0;border-radius:12px;background:#E3B04B;color:#15171C;font:800 16px var(--body);cursor:pointer}
-@media(max-width:520px){.freebox button{width:100%}}
+.freebox{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px 18px;padding:20px;border-radius:18px;background:#FBF7EE;border:2px solid #B5821F;box-shadow:0 0 0 5px rgba(181,130,31,.10);color:#15171C;margin:0 0 6px}
+.freebox .fb-k{margin:0 0 4px;font:700 11.5px var(--body);letter-spacing:.12em;text-transform:uppercase;color:#B5821F}
+.freebox b{display:block;font:800 19px/1.2 var(--display)}.freebox span{display:block;margin-top:4px;font:500 14px var(--body);color:#5B616C}
+.freebox i{font-style:normal;font-weight:800;color:#B5821F;font-variant-numeric:tabular-nums}
+.freebox button,.freebox a.fb-go{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;min-height:50px;padding:0 20px;border:0;border-radius:12px;background:#15171C;color:#fff;font:800 16px var(--body);cursor:pointer}
+@media(max-width:520px){.freebox button,.freebox a.fb-go{width:100%}}
 .skipfree{display:block;margin:18px auto 0;border:0;background:none;font:600 15px var(--body);color:var(--soft);text-decoration:underline;cursor:pointer;padding:8px}
 .apply :focus:not(:focus-visible){outline:none}
 .apply .opt:focus-visible,.apply .cl-card:focus-visible{outline:3px solid rgba(181,130,31,.45);outline-offset:2px}
@@ -831,7 +831,7 @@ const multi=(k,q)=>`<p class="stepq" style="margin-top:10px;font-size:19px">${q}
 let step=1;
 const S=[
  ()=>`<p class="steph">Only for companies I sign</p><p class="stepq">Pick 1 free service. It goes in your package.</p><div class="m-grid" role="radiogroup" aria-label="Free services">${CLAIMS.map(c=>`<button type="button" class="cl-card" role="radio" data-svc="${esc(c[0])}" aria-checked="${D.claim===c[0]}"><span class="cl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${c[3]}</svg></span><b>${esc(c[0])}</b><em>${c[1]} value</em><span class="cl-d">${esc(c[2])}</span><span class="cl-btn">Include in my package</span></button>`).join('')}</div><p class="note">Free if we work together. One per company.</p><button type="button" class="skipfree" id="skipFree">← Back to my application</button>`,
- ()=>{const c=CLAIMS.find(x=>x[0]===D.claim);return (c?'':(offerOver()?'':`<div class="freebox"><div><p class="fb-k">Free with your application</p><b>Add 1 service worth up to $900</b><span><i id="offT">48:00:00</i> left to pick</span></div><button type="button" id="pickFree">Pick my free service</button></div>`))+(c?`<div class="picked"><div><b>${esc(c[0])}</b><span>${c[1]} value · held 48 hours</span></div>${offerOver()?'':'<button type="button" id="chg">Change</button>'}</div>`:'')+`<p class="stepq" style="margin-top:20px">${c?'Where should I send your hold?':'Where should I send your audit details?'}</p>
+ ()=>{const c=CLAIMS.find(x=>x[0]===D.claim);return (c?'':(offerOver()?`<div class="freebox"><div><p class="fb-k">Free service window ended</p><b>Still want 1 free service?</b><span>Message Ryan and he'll set up your call himself.</span></div><a class="fb-go" href="/claim/?msg=1">Message Ryan</a></div>`:`<div class="freebox"><div><p class="fb-k">Free with your application</p><b>Add 1 service worth up to $900</b><span><i id="offT">48:00:00</i> left to pick</span></div><button type="button" id="pickFree">Pick my free service</button></div>`))+(c?`<div class="picked"><div><b>${esc(c[0])}</b><span>${c[1]} value · held 48 hours</span></div>${offerOver()?'':'<button type="button" id="chg">Change</button>'}</div>`:'')+`<p class="stepq" style="margin-top:20px">${c?'Where should I send your hold?':'Where should I send your audit details?'}</p>
    <div class="field"><label for="fName">Your name</label><input id="fName" autocomplete="name" value="${esc(D.name)}"></div>
    <div class="two"><div class="field"><label for="fMobile">Mobile number</label><input id="fMobile" type="tel" inputmode="tel" autocomplete="tel" placeholder="(713) 555-0100" value="${esc(D.mobile)}"></div>
    <div class="field"><label for="fEmail">Email</label><input id="fEmail" type="email" autocomplete="email" value="${esc(D.email)}"></div></div>
@@ -904,8 +904,7 @@ function claimNow(){startOffer();const t=offerStart();const c={svc:D.claim,val:(
   if(LEAD_ENDPOINT&&!finished){const body=JSON.stringify(Object.assign(payload('studio_partial'),{stage:'Claimed free service: '+c.svc,program:window.PROGRAM}));fetch(LEAD_ENDPOINT,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain;charset=utf-8'},body}).catch(()=>{})}
   if(window.fbq)try{fbq('trackCustom','ClaimFreeService',{content_name:c.svc})}catch(x){}tk('claim_free_service',{service:c.svc});$('#applyH').textContent='Growth Audit application';heroState();startTimer()}
 function heroState(){const c=loadClaim(),a=$('#heroApply'),h=$('#heroClaim');if(finished)return;
-  if(c&&!offerOver()){if(a)a.textContent='Finish my application';if(h)h.textContent='My free service is held'}
-  else if(offerOver()&&h){h.textContent='Free service offer ended';h.href='/claim/'}}
+  if(c&&!offerOver()){if(a)a.textContent='Finish my application';if(h)h.textContent='My free service is held'}}
 const pad2=n=>String(n).padStart(2,'0');let cTmr=null;
 function startTimer(){const t0=offerStart();if(!t0)return;clearInterval(cTmr);const tick=()=>{const c=loadClaim(),left=t0+HOLD-Date.now(),t=$('#applyT');
   if(left<=0){clearInterval(cTmr);t.hidden=true;heroState();return}

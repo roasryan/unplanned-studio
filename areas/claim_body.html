@@ -1,11 +1,26 @@
 <style>
 main.wrap{max-width:980px}
-.cp-box{margin:28px 0 8px;padding:26px 24px;border-radius:22px;background:#15171C;color:#fff;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 28px;border-top:0}
-.cp-box .cp-k{margin:0 0 6px;font:700 12px Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#E3B04B}
+.cp-box{margin:28px 0 8px;padding:26px 24px;border-radius:22px;background:#fff;border:2px solid var(--gold);box-shadow:0 0 0 6px rgba(181,130,31,.10);color:var(--text);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 28px;border-top:0}
+.cp-box .cp-k{margin:0 0 6px;font:700 12px Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
 .cp-box .cp-t{margin:0;font:400 clamp(48px,11vw,72px)/1 Anton,Impact,sans-serif;letter-spacing:1px;font-variant-numeric:tabular-nums}
-.cp-box .cp-s{margin:8px 0 0;font:500 16px/1.4 Inter,sans-serif;color:#C9CDD4}
-.cp-go{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 26px;border-radius:14px;background:#E3B04B;color:#15171C;font:800 17px Inter,sans-serif;text-decoration:none;white-space:nowrap}
+.cp-box .cp-t{color:var(--text)}
+.cp-box .cp-s{margin:8px 0 0;font:500 16px/1.4 Inter,sans-serif;color:var(--soft)}
+.cp-go{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 26px;border-radius:14px;background:#15171C;color:#fff;font:800 17px Inter,sans-serif;text-decoration:none;white-space:nowrap}
 .cp-box.done .cp-t{color:#8A8F98}
+.msg{width:min(560px,calc(100% - 24px));max-height:calc(100dvh - 24px);padding:0;border:1px solid var(--line);border-radius:22px;background:#fff;color:var(--text);overflow:auto}
+.msg::backdrop{background:rgba(20,22,28,.38);backdrop-filter:blur(4px)}
+.msg form{padding:26px 24px 28px;display:grid;gap:16px}
+.msg .mh{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.msg h2{font:800 24px/1.2 Inter,sans-serif;text-transform:none;letter-spacing:-.02em;margin:0}
+.msg .mx{width:40px;height:40px;flex:none;border-radius:10px;border:1px solid var(--line);background:#fff;font-size:24px;cursor:pointer}
+.msg p{margin:0;color:var(--soft);font-size:16px}
+.msg label{display:grid;gap:6px;font:700 15px Inter,sans-serif}
+.msg input,.msg select,.msg textarea{min-height:52px;border:2px solid #DDD6CA;border-radius:12px;font:500 17px Inter,sans-serif;padding:10px 14px;background:#fff;color:var(--text);width:100%}
+.msg textarea{min-height:96px;resize:vertical}
+.msg input:focus,.msg select:focus,.msg textarea:focus{outline:3px solid rgba(181,130,31,.3);border-color:var(--gold)}
+.msg .send{min-height:56px;border:0;border-radius:14px;background:#15171C;color:#fff;font:800 17px Inter,sans-serif;cursor:pointer}
+.msg .merr{color:#B42318;font-weight:600}
+.msg :focus:not(:focus-visible){outline:none}#msgH:focus,.msg h2:focus{outline:none}
 .cp-head{padding:44px 0 10px;border-top:0}
 .cp-head .cp-k{margin:0 0 12px;font:700 13px Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
 .cp-head h1{font:800 clamp(34px,6vw,52px)/1.08 Inter,system-ui,sans-serif;text-transform:none;letter-spacing:-.025em}
@@ -58,6 +73,17 @@ main.wrap{max-width:980px}
     <span class="cl-d">Services, hours, photos and categories set up so you show up better in Maps.</span>
     <span class="cl-btn">Include in my package</span></button>
 </div>
+<dialog class="msg" id="msgDlg" aria-labelledby="msgH"><form id="msgF" novalidate>
+  <div class="mh"><h2 id="msgH" tabindex="-1">Message Ryan</h2><button type="button" class="mx" id="msgX" aria-label="Close">&times;</button></div>
+  <p>Your 48 hours ran out, but it's not too late. Send this and I'll email you myself to set up your call.</p>
+  <label>Your name<input id="mName" autocomplete="name"></label>
+  <label>Mobile number<input id="mMobile" type="tel" inputmode="tel" autocomplete="tel" placeholder="(713) 555-0100"></label>
+  <label>Email<input id="mEmail" type="email" autocomplete="email"></label>
+  <label>Which free service did you want?<select id="mSvc"><option>Referral program</option><option>Past-customer comeback</option><option>Review request system</option><option>Google Business Profile tune-up</option><option>Not sure yet</option></select></label>
+  <label>Anything I should know? <span style="font-weight:500;color:var(--soft)">(optional)</span><textarea id="mNote" placeholder="Your business, your trade, best time to reach you…"></textarea></label>
+  <p class="merr" id="mErr" role="alert" hidden></p>
+  <button type="submit" class="send" id="mSend">Send to Ryan</button>
+</form></dialog>
 <p class="cp-fine">Your 48 hours start the first time you see this offer and never reset.</p>
 <script>
 (function(){
@@ -74,15 +100,27 @@ var box=$('cpBox'),tEl=$('cpT'),sEl=$('cpS'),kEl=$('cpK'),go=$('cpGo');
 function mark(svc){cards.forEach(function(b){b.setAttribute('aria-checked',String(b.dataset.svc===svc))})}
 function pad(n){return String(n).padStart(2,'0')}
 function render(){var left=end-Date.now();
-  if(left<=0){box.classList.add('done');kEl.textContent='Offer ended';tEl.textContent='00:00:00';sEl.textContent='Your 48 hours are up. You can still apply for a free 15-minute Growth Audit.';go.textContent='Apply for my free audit';go.href='/?apply=1';
-    cards.forEach(function(b){b.disabled=true;b.querySelector('.cl-btn').textContent=b.getAttribute('aria-checked')==='true'?'Held':'Offer ended'});return false}
+  if(left<=0){box.classList.add('done');kEl.textContent='Offer ended';tEl.textContent='00:00:00';sEl.textContent='Your 48 hours are up. You can still apply for a free 15-minute Growth Audit.';kEl.textContent='Your 48 hours ran out';sEl.textContent='Still want one? Message me and I\'ll set up your call myself.';go.textContent='Message Ryan';go.href='#';go.onclick=function(e){e.preventDefault();openMsg()};
+    cards.forEach(function(b){b.querySelector('.cl-btn').textContent='Ask Ryan about this'});return false}
   var x=Math.floor(left/1000);tEl.textContent=pad(Math.floor(x/3600))+':'+pad(Math.floor(x%3600/60))+':'+pad(x%60);
   if(c){kEl.textContent=c.svc+' is held for you';sEl.textContent='left to finish your application';go.textContent='Finish my application';go.href='/?apply=1'}
   return true}
 if(c)mark(c.svc);
 if(render()){var iv=setInterval(function(){if(!render())clearInterval(iv)},1000)}
+if(/[?&]msg=1/.test(location.search)&&end<=Date.now())setTimeout(function(){openMsg()},200);
 tk('claim_page_view');
-cards.forEach(function(b){b.addEventListener('click',function(){if(b.disabled)return;mark(b.dataset.svc);tk('claim_pick',{service:b.dataset.svc});
+var EP='https://script.google.com/macros/s/AKfycbw4-sLl7xQb6qJf_CPsw3FKAAG_csUhXF9t_ixW0FPtIBC_E82097yta_QE1-m9hKbo/exec',dlg=$('msgDlg'),sent=false;
+function openMsg(svc){if(sent)return dlg.showModal();if(svc)$('mSvc').value=svc;else if(c)$('mSvc').value=c.svc;if(c){if(c.name)$('mName').value=c.name;if(c.mobile)$('mMobile').value=c.mobile;if(c.email)$('mEmail').value=c.email}dlg.showModal();$('msgH').focus();tk('late_message_open')}
+$('msgX').onclick=function(){dlg.close()};dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+$('msgF').addEventListener('submit',function(e){e.preventDefault();if(sent)return;var n=$('mName').value.trim(),m=$('mMobile').value.trim(),em=$('mEmail').value.trim(),sv=$('mSvc').value,nt=$('mNote').value.trim(),er=$('mErr');
+  if(!n||m.replace(/\D/g,'').length<10||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){er.textContent='Add your name, a 10-digit mobile and your email.';er.hidden=false;return}er.hidden=true;
+  var btn=$('mSend');btn.disabled=true;btn.textContent='Sending…';
+  var id=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2);
+  var body=JSON.stringify({action:'studio_partial',id:id,name:n,mobile:m,email:em,stage:'MESSAGE: offer ended',program:'Late free-service message. Wants: '+sv+(nt?' | Note: '+nt:''),notes:nt,source:'Claim page (offer ended)',page:location.href.split('#')[0],ref:document.referrer||'',utm:location.search||'',at:new Date().toISOString()});
+  fetch(EP,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:body}).then(function(){sent=true;tk('late_message_sent',{service:sv});if(window.fbq)try{fbq('track','Contact')}catch(x){}
+    $('msgF').innerHTML='<div class="mh"><h2 tabindex="-1" id="msgH">Got it, '+n.split(' ')[0].replace(/[<>&"]/g,'')+'.</h2><button type="button" class="mx" id="msgX" aria-label="Close">&times;</button></div><p>I\'ll email you myself to set up your call. Keep an eye on '+em.replace(/[<>&"]/g,'')+'.</p>';$('msgX').onclick=function(){dlg.close()}})
+  .catch(function(){btn.disabled=false;btn.textContent='Send to Ryan';er.textContent='That didn\'t go through. Check your connection and try again.';er.hidden=false})});
+cards.forEach(function(b){b.addEventListener('click',function(){if(end<=Date.now()){openMsg(b.dataset.svc);return}mark(b.dataset.svc);tk('claim_pick',{service:b.dataset.svc});
   setTimeout(function(){location.href='/?claim='+encodeURIComponent(b.dataset.svc)},280)})});
 })();
 </script>
