@@ -432,35 +432,19 @@ label[for=fName]::after,label[for=fEmail]::after,label[for=fMobile]::after{conte
 @media(max-width:560px){.top .btn-main{min-height:40px;padding:0 12px;font-size:14px}.top .wm{font-size:15px;white-space:nowrap}.top .wrap{gap:8px}}
 @media(max-width:380px){.top .wm{display:none}}
 /* Claim 1 free service (Nov 25) */
-.cl-jump{color:#B5821F;font-weight:700;white-space:nowrap}
-.cl-sec{padding:70px 0;background:var(--bg);border-top:1px solid var(--line)}
-.cl-k{margin:0 0 8px;font:700 12px var(--body);letter-spacing:.1em;text-transform:uppercase;color:#B5821F}
-.cl-sec .lp-h2{margin-bottom:10px}.cl-sub{margin:0 0 24px;font:500 18px/1.5 var(--body);color:var(--soft)}
-.cl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.cl-card{display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:6px;padding:20px 18px;background:#fff;border:2px solid var(--line);border-radius:20px;cursor:pointer;color:var(--text);font:inherit;transition:border-color .15s,transform .15s,box-shadow .15s}
-.cl-card:hover{transform:translateY(-2px);box-shadow:0 14px 30px -18px rgba(20,22,28,.35)}
-.cl-card[aria-checked="true"]{border-color:#B5821F;box-shadow:0 0 0 4px rgba(181,130,31,.15)}
-.cl-ico{width:42px;height:42px;border-radius:12px;background:var(--sand);color:#B5821F;display:grid;place-items:center;margin-bottom:6px}.cl-ico svg{width:22px;height:22px}
-.cl-card b{font:800 18px/1.2 var(--display)}.cl-card em{font:700 13px var(--body);font-style:normal;color:#B5821F}
-.cl-d{font:500 14.5px/1.45 var(--body);color:var(--soft);flex:1}
-.cl-btn{margin-top:10px;display:inline-flex;align-items:center;min-height:38px;padding:0 14px;border-radius:10px;border:1.5px solid var(--line2);font:700 14px var(--body)}
-.cl-card[aria-checked="true"] .cl-btn{background:#15171C;border-color:#15171C;color:#fff}
-.cl-card[aria-checked="true"] .cl-btn:before{content:"\2713\00a0"}
-.cl-form,.cl-held{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;max-width:760px}
-.cl-pick{margin:0 0 12px;font:600 16px var(--body)}
-.cl-fields{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px}
-.cl-fields label{display:flex;flex-direction:column;gap:4px;font:600 13px var(--body);color:var(--soft)}
-.cl-fields input{min-height:46px;padding:0 12px;border:1.5px solid var(--line2);border-radius:10px;font:500 16px var(--body);color:var(--text);background:#fff}
-.cl-fields input:focus{outline:2px solid #B5821F;outline-offset:1px}
-.cl-err{min-height:1em;margin:0 0 8px;color:#B3412E;font:600 14px var(--body)}
-.cl-fine{margin:10px 0 0;font:500 13px var(--body);color:var(--mute)}
-.cl-held{text-align:center;margin-left:auto;margin-right:auto}
-.cl-svc{margin:0;font:800 22px var(--display)}
-.cl-timer{margin:8px 0;font:400 64px/1 Anton,var(--display);letter-spacing:1px;color:#15171C;font-variant-numeric:tabular-nums}
-.cl-next{margin:0 0 16px;color:var(--soft);font:500 16px/1.45 var(--body)}
-.cl-held.expired .cl-timer{color:var(--mute)}
-@media (max-width:900px){.cl-grid{grid-template-columns:1fr 1fr}.cl-fields{grid-template-columns:1fr}}
-@media (max-width:520px){.cl-grid{grid-template-columns:1fr}.cl-card{padding:16px}.cl-timer{font-size:52px}}
+/* Claim step + simple hero (Nov 25) */
+.lp-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:6px}
+.lp-hero .lp-btn{min-height:60px;padding:0 30px;font-size:19px;background:#15171C;color:#fff;box-shadow:0 14px 30px -12px rgba(20,22,28,.5)}
+.lp-hero .lp-btn:hover{background:#2A2D34}
+.lp-ghost{display:inline-flex;align-items:center;min-height:60px;padding:0 24px;border:1.5px solid var(--line2);border-radius:16px;font:700 17px var(--body);color:var(--text);text-decoration:none;background:#fff}
+.lp-ghost:hover{border-color:#B5821F}
+#heroNote{color:var(--soft);margin-top:14px}
+.apply-t{margin-left:auto;margin-right:10px;font:700 13px var(--body);color:#B5821F;font-variant-numeric:tabular-nums;white-space:nowrap}
+.claim-opts{display:grid!important;grid-template-columns:1fr 1fr;gap:8px}
+.copt{width:100%;box-sizing:border-box;display:flex!important;flex-direction:column;align-items:flex-start;text-align:left;gap:2px;padding:12px 14px!important;height:auto!important;min-height:0!important;white-space:normal!important}
+.copt b{font:800 15.5px/1.2 var(--display)}.copt em{font:700 12.5px var(--body);font-style:normal;color:#B5821F}.copt span{font:500 13px/1.4 var(--body);color:#5B616C}
+.copt[aria-pressed="true"]{border-color:#B5821F!important;box-shadow:0 0 0 3px rgba(181,130,31,.18)}
+@media(max-width:520px){.claim-opts{grid-template-columns:1fr}.lp-cta .lp-btn,.lp-ghost{width:100%;justify-content:center}.apply-t{font-size:12px}}
 .apply{--bg:#FAF9F6;--paper:#FFFFFF;--line:#E6E2DA;--line2:#D9D4CA;--text:#15171C;--soft:#5B616C;--mute:#8A8F98;--accent:#B5821F;--sand:#F3EEE5;--sage:#E7EFE9;--sky:#E6EDF6;background:#fff;color:#15171C}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Unplanned & Co.", "url": "https://unplannedco.com/", "description": "Growth partner for Houston home service companies: fast lead response, online booking, follow-up and lead tracking, with a setup-fee-back guarantee.", "areaServed": [{"@type": "City", "name": "Houston, TX"}, {"@type": "City", "name": "Katy, TX"}, {"@type": "City", "name": "Sugar Land, TX"}, {"@type": "City", "name": "The Woodlands, TX"}, {"@type": "City", "name": "Cypress, TX"}, {"@type": "City", "name": "Pearland, TX"}, {"@type": "City", "name": "Spring, TX"}, {"@type": "City", "name": "League City, TX"}, {"@type": "City", "name": "Conroe, TX"}, {"@type": "City", "name": "Pasadena, TX"}, {"@type": "City", "name": "Humble, TX"}]}</script>
@@ -496,12 +480,11 @@ window.tk=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{})}catch(e){}};
         <p class="lp-pill">Growth partner for Houston home service companies</p>
         <h1 class="lp-h1">Find the jobs hiding in your business. <span>Then I fix it and run it with you.</span></h1>
         <p class="lp-sub">For Houston home service companies doing $150K+: I win back the jobs lost to missed calls, quiet quotes and forgotten customers, or your setup fee back.</p>
-        <div class="lp-form" id="demo">
-          <p class="lp-fk">Free 15-minute Growth Audit · keep the plan either way</p>
-          <p class="lp-fq">What kind of business do you run?</p>
-          <div class="lp-trades"><button type="button" class="lp-trade" data-v="Roofing">Roofing</button><button type="button" class="lp-trade" data-v="HVAC">HVAC</button><button type="button" class="lp-trade" data-v="Plumbing">Plumbing</button><button type="button" class="lp-trade" data-v="Foundation">Foundation</button><button type="button" class="lp-trade" data-v="Remodeling">Remodeling</button><button type="button" class="lp-trade" data-v="Pools">Pools</button><button type="button" class="lp-trade" data-v="Fencing / concrete">Fencing / concrete</button><button type="button" class="lp-trade" data-v="Electrical / generators">Electrical / generators</button><button type="button" class="lp-trade" data-v="Landscaping">Landscaping</button><button type="button" class="lp-trade" data-v="Something else">Something else</button></div>
-          <p class="lp-fn">About 2 minutes. Pick your call time right after. <a href="#claim" class="cl-jump">Or claim 1 free service first ↓</a></p>
+        <div class="lp-cta" id="demo">
+          <button type="button" class="lp-btn" data-apply id="heroClaim">Claim my free service</button>
+          <a class="lp-ghost" href="/services/">See all services</a>
         </div>
+        <p class="lp-fn" id="heroNote">Free 15-minute Growth Audit, plus 1 free service held for you for 48 hours.</p>
         <div class="vsl" id="vsl" data-src="" hidden><div class="ph" id="vslPh"></div></div>
       </div>
       <div class="lp-shot" aria-label="Demo booking screen on a phone">
@@ -509,54 +492,6 @@ window.tk=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{})}catch(e){}};
         <div class="lp-n n1"><i style="background:#2F8A5B">&#10003;</i><div><b>New job booked</b><span>Free foundation check · Katy · 8:00 AM</span></div></div>
         <div class="lp-n n2"><i style="background:#2563EB">&#9990;</i><div><b>Missed call → text sent</b><span>in under 60 seconds</span></div></div>
         <p class="lp-cap">Demo screens. Names and times are samples.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="cl-sec" id="claim" aria-labelledby="claimH">
-    <div class="wrap">
-      <p class="cl-k">Only for companies I sign</p>
-      <h2 id="claimH" class="lp-h2">Claim 1 free service. <span>I'll hold it for 48 hours.</span></h2>
-      <p class="cl-sub">Pick one to add to your custom package. It's free if we work together.</p>
-      <div class="cl-grid" role="radiogroup" aria-label="Free services">
-        <button type="button" class="cl-card" role="radio" aria-checked="false" data-svc="Referral program" data-val="$900">
-          <span class="cl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14.5 20c.2-2.3 1.4-4 3.5-4 1.9 0 3 1.3 3 4"/></svg></span>
-          <b>Referral program</b><em>$900 value</em>
-          <span class="cl-d">Realtors, inspectors and past customers sending you jobs, with every payout tracked.</span>
-          <span class="cl-btn">Include in my package</span></button>
-        <button type="button" class="cl-card" role="radio" aria-checked="false" data-svc="Past-customer comeback campaign" data-val="$750">
-          <span class="cl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/><path d="M12 8v4l3 2"/></svg></span>
-          <b>Past-customer comeback</b><em>$750 value</em>
-          <span class="cl-d">A campaign to customers you already served, so they book their next job with you.</span>
-          <span class="cl-btn">Include in my package</span></button>
-        <button type="button" class="cl-card" role="radio" aria-checked="false" data-svc="Review request system" data-val="$400">
-          <span class="cl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg></span>
-          <b>Review request system</b><em>$400 value</em>
-          <span class="cl-d">A review request after every job, so 5-star reviews come in without asking by hand.</span>
-          <span class="cl-btn">Include in my package</span></button>
-        <button type="button" class="cl-card" role="radio" aria-checked="false" data-svc="Google Business Profile tune-up" data-val="$400">
-          <span class="cl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11.5A7 7 0 0 1 19 9.5C19 14.7 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
-          <b>Google Business Profile tune-up</b><em>$400 value</em>
-          <span class="cl-d">Services, hours, photos and categories set up so you show up better in Maps.</span>
-          <span class="cl-btn">Include in my package</span></button>
-      </div>
-      <form class="cl-form" id="clForm" hidden novalidate>
-        <p class="cl-pick">You picked: <b id="clPicked"></b></p>
-        <div class="cl-fields">
-          <label>Your name<input id="clName" autocomplete="name" required></label>
-          <label>Mobile<input id="clMobile" type="tel" inputmode="tel" autocomplete="tel" placeholder="(281) 555-0123" required></label>
-          <label>Email<input id="clEmail" type="email" autocomplete="email" placeholder="you@business.com" required></label>
-        </div>
-        <p class="cl-err" id="clErr" role="alert"></p>
-        <button type="submit" class="lp-btn" id="clSubmit">Hold my free service</button>
-        <p class="cl-fine">Free only if we work together. Mention it on your audit call. One per company.</p>
-      </form>
-      <div class="cl-held" id="clHeld" hidden aria-live="polite">
-        <p class="cl-k" id="clHeldK">Held for you</p>
-        <p class="cl-svc" id="clHeldSvc"></p>
-        <p class="cl-timer" id="clTimer">48:00:00</p>
-        <p class="cl-next" id="clNext">Next step: apply for your free 15-minute Growth Audit to lock it in. It takes about 2 minutes.</p>
-        <button type="button" class="lp-btn" id="clApply" data-apply>Apply and lock it in</button>
       </div>
     </div>
   </section>
@@ -759,7 +694,7 @@ window.tk=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{})}catch(e){}};
 </main>
 
 <dialog class="apply" id="applyDlg" aria-labelledby="applyH">
-  <div class="apply-h"><b id="applyH">Growth Audit application</b><button type="button" class="apply-x" id="applyX" aria-label="Close">&times;</button></div>
+  <div class="apply-h"><b id="applyH">Claim your free service</b><span class="apply-t" id="applyT" hidden></span><button type="button" class="apply-x" id="applyX" aria-label="Close">&times;</button></div>
   <form class="card" id="lf" novalidate>
     <div class="bar" aria-hidden="true"><i id="lfBar"></i></div>
     <div id="lfSteps"></div>
@@ -849,9 +784,9 @@ const ytEmbed=u=>ytId(u)?`https://www.youtube-nocookie.com/embed/${ytId(u)}?rel=
 if(PIXEL_ID){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init',PIXEL_ID);fbq('track','PageView')}
 
 // multi-step form: easy questions first
-const D={trade:'',want:'',size:'',capacity:'',bottleneck:'',avgJob:'',timeline:'',sources:[],site:'',noSite:false,name:'',mobile:'',email:'',best:'Text',time:'Anytime',sms:false};
+const D={claim:'',trade:'',want:'',size:'',capacity:'',bottleneck:'',avgJob:'',timeline:'',sources:[],site:'',noSite:false,name:'',mobile:'',email:'',best:'Text',time:'Anytime',sms:false};
 const TRADES=['Roofing','HVAC','Remodeling','Pools','Fencing / concrete','Foundation','Plumbing','Electrical / generators','Landscaping','Med spa','Something else'];
-const Q={
+const Q={best:['Text','Call','Email'],time:['Anytime','Morning','Afternoon','Evening'],
  want:['Under $150k a year','$150k–$500k','$500k–$1M','$1M–$3M','$3M+'],
  avgJob:['Under $500','$500–$1,500','$1,500–$5,000','$5,000–$10,000','$10,000+'],
  sources:['Referrals and word of mouth','Google search or Maps','Paid ads (Google or Meta)','Angi, Thumbtack or HomeAdvisor','Door knocking, signs or mail','Repeat customers'],
@@ -863,22 +798,23 @@ const opts=(k,q,first)=>`<p class="stepq"${first?'':' style="margin-top:10px;fon
 const multi=(k,q)=>`<p class="stepq" style="margin-top:10px;font-size:19px">${q} <small style="font-weight:600;opacity:.7">Pick all that apply</small></p><div class="opts">${Q[k].map(t=>`<button type="button" class="opt" data-m="1" data-k="${k}" data-v="${esc(t)}" aria-pressed="${D[k].includes(t)}">${esc(t)}</button>`).join('')}</div>`;
 let step=0;
 const S=[
- ()=>`<p class="stepq">What kind of business do you run?</p><div class="opts">${TRADES.map(t=>`<button type="button" class="opt" data-k="trade" data-v="${esc(t)}" aria-pressed="${D.trade===t}">${esc(t)}</button>`).join('')}</div>`,
+ ()=>`<p class="steph">Only for companies I sign</p><p class="stepq">Pick 1 free service. I'll hold it for 48 hours.</p><div class="opts claim-opts">${CLAIMS.map(c=>`<button type="button" class="opt copt" data-k="claim" data-v="${esc(c[0])}" aria-pressed="${D.claim===c[0]}"><b>${esc(c[0])}</b><em>${c[1]} value</em><span>${esc(c[2])}</span></button>`).join('')}</div>
+   <p class="stepq" style="margin-top:14px;font-size:19px">Where should I send your hold?</p>
+   <div class="field"><label for="fName">Your name</label><input id="fName" autocomplete="name" value="${esc(D.name)}"></div>
+   <div class="two"><div class="field"><label for="fMobile">Mobile number</label><input id="fMobile" type="tel" inputmode="tel" autocomplete="tel" placeholder="(713) 555-0100" value="${esc(D.mobile)}"></div>
+   <div class="field"><label for="fEmail">Email</label><input id="fEmail" type="email" autocomplete="email" value="${esc(D.email)}"></div></div>
+   <label class="consent"><input type="checkbox" id="fSms" ${D.sms?'checked':''}><span>Text me about my free service and audit (optional). Unplanned &amp; Co. sends texts about your request only, usually 1–4 messages. Msg & data rates may apply. Reply STOP to opt out, HELP for help. Not required. <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a>.</span></label>
+   <p class="note">Free only if we work together. One per company.</p>`,
+  ()=>`<p class="stepq">What kind of business do you run?</p><div class="opts">${TRADES.map(t=>`<button type="button" class="opt" data-k="trade" data-v="${esc(t)}" aria-pressed="${D.trade===t}">${esc(t)}</button>`).join('')}</div>`,
  ()=>`<p class="steph">Your business today</p>`+opts('want','About how much does your company do in a year?',1)+opts('avgJob','What’s your average job worth?'),
  ()=>`<p class="steph">Where it gets stuck</p>`+multi('sources','Where do most of your customers come from now?').replace('margin-top:10px;','')+opts('capacity','If we sent you 20 more booked jobs next month, could your team handle them?')+opts('bottleneck','What holds you back most right now?'),
  ()=>`<p class="steph">Getting started</p>`+opts('size','Monthly ad budget you’re comfortable with?',1)+opts('timeline','When would you want to start?')+
    `<div class="field" style="margin-top:12px"><label for="fSite">Your website</label><input id="fSite" inputmode="url" autocomplete="url" placeholder="yourbusiness.com" value="${esc(D.site)}" ${D.noSite?'disabled':''}></div>
    <label class="consent" style="margin-top:6px"><input type="checkbox" id="fNoSite" ${D.noSite?'checked':''}><span>I don’t have a website yet</span></label>`,
- ()=>`<p class="stepq">Where should we send your audit results?</p>
-   <div class="field"><label for="fName">Your name</label><input id="fName" autocomplete="name" value="${esc(D.name)}"></div>
-   <div class="two"><div class="field"><label for="fMobile">Mobile number</label><input id="fMobile" type="tel" inputmode="tel" autocomplete="tel" placeholder="(713) 555-0100" value="${esc(D.mobile)}"></div>
-   <div class="field"><label for="fEmail">Email</label><input id="fEmail" type="email" autocomplete="email" value="${esc(D.email)}"></div></div>
-   <div class="two"><div class="field"><label for="fBest">Best way to reach you</label><select id="fBest">${['Text','Call','Email'].map(o=>`<option ${D.best===o?'selected':''}>${o}</option>`).join('')}</select></div>
-   <div class="field"><label for="fTime">Best time</label><select id="fTime">${['Anytime','Morning','Afternoon','Evening'].map(o=>`<option ${D.time===o?'selected':''}>${o}</option>`).join('')}</select></div></div>
-   <label class="consent"><input type="checkbox" id="fSms" ${D.sms?'checked':''}><span>Text me about my audit (optional). Unplanned &amp; Co. sends texts about your request only, usually 1–4 messages. Msg & data rates may apply. Reply STOP to opt out, HELP for help. Not required to apply. <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a>.</span></label>
-   <p class="note">If you stop before sending, Ryan may reach out once about your application.</p>`
+ ()=>`<p class="steph">Last step</p>`+opts('best','Best way to reach you?',1)+opts('time','Best time?')+`<p class="note" style="margin-top:12px">Then pick your audit call time on the next screen.</p>`
 ];
-const SITE=3,CONTACT=4;
+const SITE=4,CONTACT=0;
+const CLAIMS=[['Referral program','$900','Realtors, inspectors and past customers sending you jobs, with payouts tracked.'],['Past-customer comeback','$750','A campaign that gets customers you already served to book again.'],['Review request system','$400','A review request after every job, without asking by hand.'],['Google Business Profile tune-up','$400','Set up so you show up better in Maps.']];
 let NF=false;
 const PLAN_SLUG={'Roofing':'roofing','HVAC':'hvac','Remodeling':'remodeling','Pools':'pools','Fencing / concrete':'fencing-concrete','Foundation':'foundation','Plumbing':'plumbing','Electrical / generators':'electrical','Landscaping':'landscaping','Med spa':'med-spa'};
 function planUrl(){return 'https://unplannedco.com/plans/'+(PLAN_SLUG[D.trade]||'other')+'.html'}
@@ -888,9 +824,9 @@ $('#pGo').addEventListener('click',async()=>{D.name=$('#pName').value.trim();D.e
  $('#lfSteps').innerHTML=`<div class="done" style="text-align:left;justify-items:start"><p class="steph">Sent</p><h3 style="margin:0;font:700 22px/1.25 var(--display)">Check your inbox, ${esc(D.name.split(' ')[0])}.</h3><p class="lede" style="margin:0">Your growth plan is on its way to ${esc(D.email)}. You can also open it now.</p><a class="btn btn-main" href="${planUrl()}" target="_blank" rel="noopener">Open my growth plan</a></div>`;$('#lfBack').hidden=true})}
 function paint(){tk('form_step',{step:step+1});$('#lfNext').hidden=false;$('#lfNext').style.display='';$('#lfSteps').innerHTML=S[step]();$('#lfBar').style.width=((step+1)/S.length*100)+'%';$('#lfBack').hidden=step===0;$('#lfNext').textContent=step===S.length-1?'Apply for my audit':'Next';$('#lfErr').hidden=true}
 function err(m){const e=$('#lfErr');e.textContent=m;e.hidden=false}
-function read(){if(step===SITE&&$('#fSite')){D.site=$('#fSite').value.trim();D.noSite=$('#fNoSite').checked;if(D.noSite)D.site='N/A'}if(step===CONTACT&&$('#fName')){D.name=$('#fName').value.trim();D.mobile=$('#fMobile').value.trim();D.email=$('#fEmail').value.trim();D.best=$('#fBest').value;D.time=$('#fTime').value;D.sms=$('#fSms').checked}}
-function ok(){if(step===0&&!D.trade)return 'Pick your type of business.';const need={1:['want','avgJob'],2:['capacity','bottleneck'],3:['size','timeline']}[step];if(need&&need.some(k=>!D[k]))return 'Pick one answer for each question.';if(step===2&&!D.sources.length)return 'Pick where your customers come from.';if(step===SITE&&!D.site&&!D.noSite)return 'Add your website, or tick “I don’t have a website yet.”';
-  if(step===CONTACT){if(!D.name)return 'Add your name.';if(D.mobile.replace(/\D/g,'').length<10)return 'Add a 10-digit mobile number.';if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(D.email))return 'Add an email like you@business.com.'}return ''}
+function read(){if(step===SITE&&$('#fSite')){D.site=$('#fSite').value.trim();D.noSite=$('#fNoSite').checked;if(D.noSite)D.site='N/A'}if(step===CONTACT&&$('#fName')){D.name=$('#fName').value.trim();D.mobile=$('#fMobile').value.trim();D.email=$('#fEmail').value.trim();D.sms=$('#fSms').checked}}
+function ok(){if(step===0){if(!D.claim)return 'Pick a free service.';if(!D.name)return 'Add your name.';if(D.mobile.replace(/\D/g,'').length<10)return 'Add a 10-digit mobile number.';if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(D.email))return 'Add an email like you@business.com.'}
+  if(step===1&&!D.trade)return 'Pick your type of business.';const need={2:['want','avgJob'],3:['capacity','bottleneck'],4:['size','timeline']}[step];if(need&&need.some(k=>!D[k]))return 'Pick one answer for each question.';if(step===3&&!D.sources.length)return 'Pick where your customers come from.';if(step===SITE&&!D.site&&!D.noSite)return 'Add your website, or tick “I don’t have a website yet.”';return ''}
 // saved-as-you-go: once we have contact info, unfinished applications reach Ryan's sheet (studio_partial)
 const AID=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2);
 let partial=false,finished=false;
@@ -908,10 +844,11 @@ dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
 document.addEventListener('click',e=>{const a=e.target.closest('a[href="#demo"],[data-apply]');if(!a)return;e.preventDefault();openApply()});
 $('#lfSteps').addEventListener('change',e=>{if(e.target.id==='fNoSite'){D.noSite=e.target.checked;const f=$('#fSite');f.disabled=D.noSite;if(D.noSite)f.value=''}});
 $('#lfSteps').addEventListener('click',e=>{const b=e.target.closest('.opt');if(!b)return;if(step===SITE){D.site=$('#fSite').value.trim()}if(b.dataset.m){const a=D[b.dataset.k],i=a.indexOf(b.dataset.v);i<0?a.push(b.dataset.v):a.splice(i,1);b.setAttribute('aria-pressed',String(i<0));return}D[b.dataset.k]=b.dataset.v;paint();
-  if(step===0)setTimeout(()=>{step=1;paint()},180)});
+  if(step===1&&b.dataset.k==='trade')setTimeout(()=>{step=2;paint()},180)});
 $('#lfBack').addEventListener('click',()=>{if(NF){NF=false;paint();return}read();step=Math.max(0,step-1);paint()});
 $('#lf').addEventListener('submit',async e=>{e.preventDefault();read();const m=ok();if(m)return err(m);
-  if(step===1&&D.want==='Under $150k a year')return notFit();
+  if(step===2&&D.want==='Under $150k a year')return notFit();
+  if(step===0)claimNow();
   if(step<S.length-1){step++;paint();$('#applyDlg').scrollTop=0;return}
   const btn=$('#lfNext');btn.disabled=true;btn.textContent='Sending…';
   const lead=payload('studio_lead');
@@ -921,31 +858,21 @@ $('#lf').addEventListener('submit',async e=>{e.preventDefault();read();const m=o
   if(sent){tk('generate_lead',{trade:D.trade});if(window.fbq)try{fbq('track','Lead',{content_name:D.trade})}catch(x){}}
   if(!sent){btn.disabled=false;btn.textContent='Apply for my audit';const live=/github\.io|unplannedco\.com/.test(location.hostname);return err(!LEAD_ENDPOINT?'Preview only: the form sends once the live page is connected.':live?'That didn’t go through. Check your connection and try again.':'This preview can’t send applications. Apply on the live page: unplannedco.com')}
   $('#lf').innerHTML=`<div class="done"><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="#7FD1A8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span><h3>You're in, ${esc(D.name.split(' ')[0])}.</h3><p class="conf">Confirmation sent to ${esc(D.email)}.</p><p class="lede">${D.want==='Under $150k a year'?'Thanks! Check your email for a few free tips that help most at your stage.':D.capacity.startsWith('No')?'Thanks! Since your team is already full, we\'ll start with systems that free up your time, not more leads. Pick a time below for your 15-minute call, and we\'ll send you a free plan based on your answers.':'Next step: pick a time below for your free 15-minute audit. We\'ll also send you a free plan based on your answers.'}</p>${D.want==='Under $150k a year'?'':`<div id="bkFlow"></div>`}${PRECALL_VSL&&D.want!=='Under $150k a year'?`<div class="precall"><b>Before your call: watch this short video</b><p>How it works, how it’s priced, contract length, how much of your time it takes, and what happens if we miss the target.</p>${ytId(PRECALL_VSL)?`<div class="vsl" style="margin:4px 0 0;width:100%"><iframe src="${esc(ytEmbed(PRECALL_VSL))}" title="Before your call" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div>`:`<a class="btn btn-line" href="${esc(PRECALL_VSL)}" target="_blank" rel="noopener">Watch before our call</a>`}</div>`:''}</div>`;if(document.getElementById('bkFlow'))bkStart(D)});
-// Claim 1 free service: personal 48-hour hold, saved to the leads sheet as a partial lead
-(function(){const KEY='uc_claim',HOLD=48*3600*1000;const cards=[...document.querySelectorAll('.cl-card')];if(!cards.length)return;
-  const form=$('#clForm'),held=$('#clHeld');let pick=null,tmr=null;
-  const load=()=>{try{return JSON.parse(localStorage.getItem(KEY)||'null')}catch(x){return null}};
-  const save=v=>{try{localStorage.setItem(KEY,JSON.stringify(v))}catch(x){}};
-  const pad=n=>String(n).padStart(2,'0');
-  function showHeld(c){form.hidden=true;held.hidden=false;cards.forEach(b=>{const on=b.dataset.svc===c.svc;b.setAttribute('aria-checked',String(on));b.disabled=!on;b.hidden=!on});
-    $('#clHeldSvc').textContent=c.svc+' ('+c.val+' value)';window.PROGRAM='Free service claim: '+c.svc+' (claimed '+new Date(c.t).toLocaleString('en-US',{timeZone:'America/Chicago'})+')';
-    if(!D.name)D.name=c.name||'';if(!D.email)D.email=c.email||'';if(!D.mobile)D.mobile=c.mobile||'';
-    clearInterval(tmr);const tick=()=>{const left=c.t+HOLD-Date.now();if(left<=0){clearInterval(tmr);held.classList.add('expired');$('#clHeldK').textContent='Hold expired';$('#clTimer').textContent='00:00:00';$('#clNext').textContent='This free service is no longer held. You can still apply for your free Growth Audit.';$('#clApply').textContent='Apply for my free Growth Audit';return}
-      const s=Math.floor(left/1000);$('#clTimer').textContent=pad(Math.floor(s/3600))+':'+pad(Math.floor(s%3600/60))+':'+pad(s%60)};tick();tmr=setInterval(tick,1000)}
-  const existing=load();if(existing&&existing.svc)showHeld(existing);
-  cards.forEach(b=>b.addEventListener('click',()=>{if(load())return;pick=b;cards.forEach(x=>x.setAttribute('aria-checked',String(x===b)));$('#clPicked').textContent=b.dataset.svc+' ('+b.dataset.val+' value)';form.hidden=false;
-    if(window.fbq)try{fbq('trackCustom','PickFreeService',{content_name:b.dataset.svc})}catch(x){}
-    setTimeout(()=>{form.scrollIntoView({behavior:'smooth',block:'nearest'});$('#clName').focus({preventScroll:true})},120)}));
-  form.addEventListener('submit',async e=>{e.preventDefault();const name=$('#clName').value.trim(),mobile=$('#clMobile').value.trim(),email=$('#clEmail').value.trim();
-    const bad=!pick?'Pick a free service first.':!name?'Add your name.':mobile.replace(/\D/g,'').length<10?'Add a 10-digit mobile number.':!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)?'Add an email like you@business.com.':'';
-    if(bad){$('#clErr').textContent=bad;return}$('#clErr').textContent='';const btn=$('#clSubmit');btn.disabled=true;btn.textContent='Holding…';
-    const c={svc:pick.dataset.svc,val:pick.dataset.val,t:Date.now(),name,mobile,email};D.name=name;D.mobile=mobile;D.email=email;
-    window.PROGRAM='Free service claim: '+c.svc;
-    if(LEAD_ENDPOINT){const body=JSON.stringify(Object.assign(payload('studio_partial'),{stage:'Claimed free service: '+c.svc,program:window.PROGRAM}));
-      try{await fetch(LEAD_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body})}catch(x){}}
-    if(window.fbq)try{fbq('trackCustom','ClaimFreeService',{content_name:c.svc})}catch(x){}
-    tk('claim_free_service',{service:c.svc});save(c);showHeld(c);held.scrollIntoView({behavior:'smooth',block:'center'})});
-})();
+// Free service claim: step 1 of the application, personal 48-hour hold (never resets)
+const CKEY='uc_claim',HOLD=48*3600*1000;
+const loadClaim=()=>{try{return JSON.parse(localStorage.getItem(CKEY)||'null')}catch(x){return null}};
+function claimNow(){let c=loadClaim();if(!c||c.svc!==D.claim){c={svc:D.claim,val:(CLAIMS.find(x=>x[0]===D.claim)||[])[1]||'',t:(c&&c.t)||Date.now()};try{localStorage.setItem(CKEY,JSON.stringify(c))}catch(x){}}
+  window.PROGRAM='Free service claim: '+c.svc+' (claimed '+new Date(c.t).toLocaleString('en-US',{timeZone:'America/Chicago'})+')';
+  if(LEAD_ENDPOINT&&!finished){const body=JSON.stringify(Object.assign(payload('studio_partial'),{stage:'Claimed free service: '+c.svc,program:window.PROGRAM}));fetch(LEAD_ENDPOINT,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain;charset=utf-8'},body}).catch(()=>{})}
+  if(window.fbq)try{fbq('trackCustom','ClaimFreeService',{content_name:c.svc})}catch(x){}tk('claim_free_service',{service:c.svc});$('#applyH').textContent='Growth Audit application';startTimer()}
+const pad2=n=>String(n).padStart(2,'0');let cTmr=null;
+function startTimer(){const c=loadClaim();if(!c)return;clearInterval(cTmr);const tick=()=>{const left=c.t+HOLD-Date.now(),t=$('#applyT'),h=$('#heroClaim');
+  if(left<=0){clearInterval(cTmr);t.hidden=true;if(h&&!finished)h.textContent='Apply for my free Growth Audit';return}
+  const x=Math.floor(left/1000),str=pad2(Math.floor(x/3600))+':'+pad2(Math.floor(x%3600/60))+':'+pad2(x%60);
+  t.hidden=false;t.textContent=c.svc+' held · '+str;if(h&&!finished)h.textContent='Finish my application · '+str+' left'};tick();cTmr=setInterval(tick,1000)}
+(function(){const c=loadClaim();if(c&&c.t+HOLD>Date.now()){D.claim=c.svc;step=1;$('#applyH').textContent='Growth Audit application';window.PROGRAM='Free service claim: '+c.svc+' (claimed '+new Date(c.t).toLocaleString('en-US',{timeZone:'America/Chicago'})+')';startTimer()}})();
+document.addEventListener('click',e=>{const a=e.target.closest('a[href="#claim"],a[href="/#claim"]');if(!a)return;e.preventDefault();openApply()});
+if(location.hash==='#claim')setTimeout(openApply,300);
 document.addEventListener('click',e=>{const b=e.target.closest('.lp-trade');if(!b)return;D.trade=b.dataset.v;step=1;paint();openApply()});
 paint();
 })();
