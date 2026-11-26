@@ -443,6 +443,7 @@ label[for=fName]::after,label[for=fEmail]::after,label[for=fMobile]::after{conte
 .lp-all{align-self:center;margin-top:2px;font:600 15px var(--body);color:var(--soft);text-decoration:underline;text-underline-offset:4px}
 .lp-all:hover{color:#15171C}
 #applyH:focus{outline:none}
+.apply-free{margin-left:auto;margin-right:8px;border:0;background:none;padding:6px 4px;font:600 13.5px var(--body);color:#B5821F;text-decoration:underline;text-underline-offset:3px;cursor:pointer;white-space:nowrap}.apply-free[hidden]{display:none}
 .freebox{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px 18px;padding:20px;border-radius:18px;background:#FBF7EE;border:2px solid #B5821F;box-shadow:0 0 0 5px rgba(181,130,31,.10);color:#15171C;margin:0 0 6px}
 .freebox .fb-k{margin:0 0 4px;font:700 11.5px var(--body);letter-spacing:.12em;text-transform:uppercase;color:#B5821F}
 .freebox b{display:block;font:800 19px/1.2 var(--display)}.freebox span{display:block;margin-top:4px;font:500 14px var(--body);color:#5B616C}
@@ -726,7 +727,7 @@ window.tk=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{})}catch(e){}};
 </main>
 
 <dialog class="apply" id="applyDlg" aria-labelledby="applyH">
-  <div class="apply-h"><b id="applyH" tabindex="-1">Growth Audit application</b><span class="apply-t" id="applyT" hidden></span><button type="button" class="apply-x" id="applyX" aria-label="Close">&times;</button></div>
+  <div class="apply-h"><b id="applyH" tabindex="-1">Growth Audit application</b><span class="apply-t" id="applyT" hidden></span><button type="button" class="apply-free" id="applyFree">Claim 1 free service</button><button type="button" class="apply-x" id="applyX" aria-label="Close">&times;</button></div>
   <form class="card" id="lf" novalidate>
     <div class="bar" aria-hidden="true"><i id="lfBar"></i></div>
     <div id="lfSteps"></div>
@@ -831,20 +832,24 @@ const multi=(k,q)=>`<p class="stepq" style="margin-top:10px;font-size:19px">${q}
 let step=1;
 const S=[
  ()=>`<p class="steph">Only for companies I sign</p><p class="stepq">Pick 1 free service. It goes in your package.</p><div class="m-grid" role="radiogroup" aria-label="Free services">${CLAIMS.map(c=>`<button type="button" class="cl-card" role="radio" data-svc="${esc(c[0])}" aria-checked="${D.claim===c[0]}"><span class="cl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${c[3]}</svg></span><b>${esc(c[0])}</b><em>${c[1]} value</em><span class="cl-d">${esc(c[2])}</span><span class="cl-btn">Include in my package</span></button>`).join('')}</div><p class="note">Free if we work together. One per company.</p><button type="button" class="skipfree" id="skipFree">← Back to my application</button>`,
- ()=>{const c=CLAIMS.find(x=>x[0]===D.claim);return (c?'':(offerOver()?`<div class="freebox"><div><p class="fb-k">Free service window ended</p><b>Still want 1 free service?</b><span>Message Ryan and he'll set up your call himself.</span></div><a class="fb-go" href="/claim/?msg=1">Message Ryan</a></div>`:`<div class="freebox"><div><p class="fb-k">Free with your application</p><b>Add 1 service worth up to $900</b><span><i id="offT">48:00:00</i> left to pick</span></div><button type="button" id="pickFree">Pick my free service</button></div>`))+(c?`<div class="picked"><div><b>${esc(c[0])}</b><span>${c[1]} value · held 48 hours</span></div>${offerOver()?'':'<button type="button" id="chg">Change</button>'}</div>`:'')+`<p class="stepq" style="margin-top:20px">${c?'Where should I send your hold?':'Where should I send your audit details?'}</p>
-   <div class="field"><label for="fName">Your name</label><input id="fName" autocomplete="name" value="${esc(D.name)}"></div>
-   <div class="two"><div class="field"><label for="fMobile">Mobile number</label><input id="fMobile" type="tel" inputmode="tel" autocomplete="tel" placeholder="(713) 555-0100" value="${esc(D.mobile)}"></div>
-   <div class="field"><label for="fEmail">Email</label><input id="fEmail" type="email" autocomplete="email" value="${esc(D.email)}"></div></div>
-   <label class="consent"><input type="checkbox" id="fSms" ${D.sms?'checked':''}><span>Text me about my ${c?'free service and ':''}audit (optional). Unplanned &amp; Co. sends texts about your request only, usually 1–4 messages. Msg & data rates may apply. Reply STOP to opt out, HELP for help. Not required. <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a>.</span></label>`},
   ()=>`<p class="stepq">What kind of business do you run?</p><div class="opts">${TRADES.map(t=>`<button type="button" class="opt" data-k="trade" data-v="${esc(t)}" aria-pressed="${D.trade===t}">${esc(t)}</button>`).join('')}</div>`,
  ()=>`<p class="steph">Your business today</p>`+opts('want','About how much does your company do in a year?',1)+opts('avgJob','What’s your average job worth?'),
  ()=>`<p class="steph">Where it gets stuck</p>`+multi('sources','Where do most of your customers come from now?').replace('margin-top:10px;','')+opts('capacity','If we sent you 20 more booked jobs next month, could your team handle them?')+opts('bottleneck','What holds you back most right now?'),
  ()=>`<p class="steph">Getting started</p>`+opts('size','Monthly ad budget you’re comfortable with?',1)+opts('timeline','When would you want to start?')+
    `<div class="field" style="margin-top:12px"><label for="fSite">Your website</label><input id="fSite" inputmode="url" autocomplete="url" placeholder="yourbusiness.com" value="${esc(D.site)}" ${D.noSite?'disabled':''}></div>
    <label class="consent" style="margin-top:6px"><input type="checkbox" id="fNoSite" ${D.noSite?'checked':''}><span>I don’t have a website yet</span></label>`,
+ ()=>{const c=CLAIMS.find(x=>x[0]===D.claim);return ''+(c?`<div class="picked"><div><b>${esc(c[0])}</b><span>${c[1]} value · held 48 hours</span></div>${offerOver()?'':'<button type="button" id="chg">Change</button>'}</div>`:'')+`<p class="stepq" style="margin-top:20px">${c?'Where should I send your hold?':'Where should I send your audit details?'}</p>
+   <div class="field"><label for="fName">Your name</label><input id="fName" autocomplete="name" value="${esc(D.name)}"></div>
+   <div class="two"><div class="field"><label for="fMobile">Mobile number</label><input id="fMobile" type="tel" inputmode="tel" autocomplete="tel" placeholder="(713) 555-0100" value="${esc(D.mobile)}"></div>
+   <div class="field"><label for="fEmail">Email</label><input id="fEmail" type="email" autocomplete="email" value="${esc(D.email)}"></div></div>
+   <label class="consent"><input type="checkbox" id="fSms" ${D.sms?'checked':''}><span>Text me about my ${c?'free service and ':''}audit (optional). Unplanned &amp; Co. sends texts about your request only, usually 1–4 messages. Msg & data rates may apply. Reply STOP to opt out, HELP for help. Not required. <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a>.</span></label>`},
  ()=>`<p class="steph">Last step</p>`+opts('best','Best way to reach you?',1)+opts('time','Best time?')+`<p class="note" style="margin-top:12px">Then pick your audit call time on the next screen.</p>`
 ];
-const SITE=5,CONTACT=1;
+const SITE=4,CONTACT=5;let hist=[],ret=1;
+const ORDER=[1,2,3,4,5,6];
+const contactDone=()=>!!(D.name&&D.email&&D.mobile.replace(/\D/g,'').length>=10);
+function firstOpen(){if(!D.trade)return 1;if(!D.want||!D.avgJob)return 2;if(!D.sources.length||!D.capacity||!D.bottleneck)return 3;if(!D.size||!D.timeline||(!D.site&&!D.noSite))return 4;return contactDone()?6:5}
+function go(n){hist.push(step);step=n;paint();dlg.scrollTop=0}
 const CLAIMS=[['Referral program','$900','Realtors, inspectors and past customers sending you jobs, with every payout tracked.'],['Past-customer comeback','$750','A campaign to customers you already served, so they book their next job with you.'],['Review request system','$400','A review request after every job, so 5-star reviews come in without asking by hand.'],['Google Business Profile tune-up','$400','Services, hours, photos and categories set up so you show up better in Maps.']];CLAIMS.forEach((c,i)=>c.push(["<circle cx=\"9\" cy=\"8\" r=\"3\"/><circle cx=\"17\" cy=\"10\" r=\"2.5\"/><path d=\"M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14.5 20c.2-2.3 1.4-4 3.5-4 1.9 0 3 1.3 3 4\"/>", "<path d=\"M3 12a9 9 0 1 0 3-6.7\"/><path d=\"M3 4v5h5\"/><path d=\"M12 8v4l3 2\"/>", "<path d=\"M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z\"/>", "<path d=\"M12 21s-7-6.3-7-11.5A7 7 0 0 1 19 9.5C19 14.7 12 21 12 21z\"/><circle cx=\"12\" cy=\"9.5\" r=\"2.5\"/>"][i]));
 let NF=false;
 const PLAN_SLUG={'Roofing':'roofing','HVAC':'hvac','Remodeling':'remodeling','Pools':'pools','Fencing / concrete':'fencing-concrete','Foundation':'foundation','Plumbing':'plumbing','Electrical / generators':'electrical','Landscaping':'landscaping','Med spa':'med-spa'};
@@ -853,11 +858,11 @@ function notFit(){NF=true;tk('not_fit');const t=D.trade&&D.trade!=='Something el
 $('#pGo').addEventListener('click',async()=>{D.name=$('#pName').value.trim();D.email=$('#pEmail').value.trim();const pe=$('#pErr');if(!D.name||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(D.email)){pe.textContent='Add your name and a valid email.';pe.hidden=false;return}pe.hidden=true;const b=$('#pGo');b.disabled=true;b.textContent='Sending…';tk('plan_request',{trade:D.trade});
  try{await fetch(LEAD_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({action:'plan',id:AID,trade:D.trade,revenue:D.want,avgJob:D.avgJob,name:D.name,email:D.email,plan:planUrl(),source:window.LEAD_SOURCE||'Landing page'})})}catch(x){}
  $('#lfSteps').innerHTML=`<div class="done" style="text-align:left;justify-items:start"><p class="steph">Sent</p><h3 style="margin:0;font:700 22px/1.25 var(--display)">Check your inbox, ${esc(D.name.split(' ')[0])}.</h3><p class="lede" style="margin:0">Your growth plan is on its way to ${esc(D.email)}. You can also open it now.</p><a class="btn btn-main" href="${planUrl()}" target="_blank" rel="noopener">Open my growth plan</a></div>`;$('#lfBack').hidden=true})}
-function paint(){tk('form_step',{step:step+1});$('#lfNext').hidden=false;$('#lfNext').style.display='';$('#lfSteps').innerHTML=S[step]();$('#lfBar').style.width=((step+1)/S.length*100)+'%';$('#lfBack').hidden=step<=minStep();$('#lfNext').textContent=step===S.length-1?'Apply for my audit':'Next';$('#lfErr').hidden=true}
+function paint(){tk('form_step',{step:step+1});$('#lfNext').hidden=false;$('#lfNext').style.display='';$('#lfSteps').innerHTML=S[step]();$('#lfBar').style.width=(step?(ORDER.indexOf(step)+1)/ORDER.length*100:8)+'%';$('#lfBack').hidden=!hist.length;$('#applyFree').hidden=step===0||(!!loadClaim()&&!offerOver());$('#lfNext').textContent=step===S.length-1?'Apply for my audit':'Next';$('#lfErr').hidden=true}
 function err(m){const e=$('#lfErr');e.textContent=m;e.hidden=false}
 function read(){if(step===SITE&&$('#fSite')){D.site=$('#fSite').value.trim();D.noSite=$('#fNoSite').checked;if(D.noSite)D.site='N/A'}if(step===CONTACT&&$('#fName')){D.name=$('#fName').value.trim();D.mobile=$('#fMobile').value.trim();D.email=$('#fEmail').value.trim();D.sms=$('#fSms').checked}}
-function ok(){if(step===0&&!D.claim)return 'Pick a free service.';if(step===1){if(!D.name)return 'Add your name.';if(D.mobile.replace(/\D/g,'').length<10)return 'Add a 10-digit mobile number.';if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(D.email))return 'Add an email like you@business.com.'}
-  if(step===2&&!D.trade)return 'Pick your type of business.';const need={3:['want','avgJob'],4:['capacity','bottleneck'],5:['size','timeline']}[step];if(need&&need.some(k=>!D[k]))return 'Pick one answer for each question.';if(step===4&&!D.sources.length)return 'Pick where your customers come from.';if(step===SITE&&!D.site&&!D.noSite)return 'Add your website, or tick “I don’t have a website yet.”';return ''}
+function ok(){if(step===0&&!D.claim)return 'Pick a free service.';if(step===CONTACT){if(!D.name)return 'Add your name.';if(D.mobile.replace(/\D/g,'').length<10)return 'Add a 10-digit mobile number.';if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(D.email))return 'Add an email like you@business.com.'}
+  if(step===1&&!D.trade)return 'Pick your type of business.';const need={2:['want','avgJob'],3:['capacity','bottleneck'],4:['size','timeline']}[step];if(need&&need.some(k=>!D[k]))return 'Pick one answer for each question.';if(step===3&&!D.sources.length)return 'Pick where your customers come from.';if(step===SITE&&!D.site&&!D.noSite)return 'Add your website, or tick “I don’t have a website yet.”';return ''}
 // saved-as-you-go: once we have contact info, unfinished applications reach Ryan's sheet (studio_partial)
 const AID=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2);
 let partial=false,finished=false;
@@ -875,13 +880,15 @@ dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
 document.addEventListener('click',e=>{const a=e.target.closest('a[href="#demo"],[data-apply]');if(!a)return;e.preventDefault();openApply()});
 $('#lfSteps').addEventListener('change',e=>{if(e.target.id==='fNoSite'){D.noSite=e.target.checked;const f=$('#fSite');f.disabled=D.noSite;if(D.noSite)f.value=''}});
 $('#lfSteps').addEventListener('click',e=>{const b=e.target.closest('.opt');if(!b)return;if(step===SITE){D.site=$('#fSite').value.trim()}if(b.dataset.m){const a=D[b.dataset.k],i=a.indexOf(b.dataset.v);i<0?a.push(b.dataset.v):a.splice(i,1);b.setAttribute('aria-pressed',String(i<0));return}D[b.dataset.k]=b.dataset.v;paint();
-  if(step===2&&b.dataset.k==='trade')setTimeout(()=>{step=3;paint()},180)});
-$('#lfSteps').addEventListener('click',e=>{if(e.target.id==='chg'||e.target.id==='pickFree'){read();step=0;paint();tk('open_free_pick');return}if(e.target.id==='skipFree'){step=1;paint();return}const b=e.target.closest('.cl-card');if(!b||step!==0)return;D.claim=b.dataset.svc;document.querySelectorAll('#lfSteps .cl-card').forEach(x=>x.setAttribute('aria-checked',String(x===b)));setTimeout(()=>{step=1;paint();dlg.scrollTop=0},260)});
-$('#lfBack').addEventListener('click',()=>{if(NF){NF=false;paint();return}read();step=Math.max(0,step-1);paint()});
+  if(step===1&&b.dataset.k==='trade')setTimeout(()=>go(2),180)});
+$('#lfSteps').addEventListener('click',e=>{if(e.target.id==='chg'){read();ret=step;go(0);return}if(e.target.id==='skipFree'){step=hist.length?hist.pop():1;paint();return}const b=e.target.closest('.cl-card');if(!b||step!==0)return;D.claim=b.dataset.svc;document.querySelectorAll('#lfSteps .cl-card').forEach(x=>x.setAttribute('aria-checked',String(x===b)));setTimeout(()=>go(contactDone()?(ret===CONTACT?firstOpen():ret):CONTACT),260)});
+$('#applyFree').addEventListener('click',()=>{if(offerOver()){location.href='/claim/?msg=1';return}read();ret=step;go(0);tk('open_free_pick')});
+$('#lfBack').addEventListener('click',()=>{if(NF){NF=false;paint();return}read();if(hist.length){step=hist.pop();paint()}});
 $('#lf').addEventListener('submit',async e=>{e.preventDefault();read();const m=ok();if(m)return err(m);
-  if(step===3&&D.want==='Under $150k a year')return notFit();
-  if(step===1){if(D.claim)claimNow();else saveContact()}
-  if(step<S.length-1){step++;paint();$('#applyDlg').scrollTop=0;return}
+  if(step===2&&D.want==='Under $150k a year')return notFit();
+  if(step===CONTACT){if(D.claim)claimNow();else saveContact();return go(firstOpen())}
+  if(step===0)return go(contactDone()?ret:CONTACT);
+  if(step<S.length-1){let n=step+1;if(n===CONTACT&&contactDone())n=6;return go(n)}
   const btn=$('#lfNext');btn.disabled=true;btn.textContent='Sending…';
   const lead=payload('studio_lead');
   let sent=false;
@@ -911,8 +918,8 @@ function startTimer(){const t0=offerStart();if(!t0)return;clearInterval(cTmr);co
   const x=Math.floor(left/1000),str=pad2(Math.floor(x/3600))+':'+pad2(Math.floor(x%3600/60))+':'+pad2(x%60);
   t.hidden=!c;t.textContent=c?c.svc+' held · '+str:'';const o=$('#offT');if(o)o.textContent=str};tick();cTmr=setInterval(tick,1000)}
 (function(){const c=loadClaim(),qs=new URLSearchParams(location.search),pick=qs.get('claim'),over=offerOver();
-  if(c){D.claim=c.svc;['name','mobile','email'].forEach(k=>{if(c[k])D[k]=c[k]});D.sms=!!c.sms;window.PROGRAM='Free service claim: '+c.svc+' (offer started '+new Date(c.t).toLocaleString('en-US',{timeZone:'America/Chicago'})+')';$('#applyH').textContent='Growth Audit application';step=D.email?2:1}
-  if(pick&&CLAIMS.some(x=>x[0]===pick)&&!over){D.claim=pick;step=1}
+  if(c){D.claim=c.svc;['name','mobile','email'].forEach(k=>{if(c[k])D[k]=c[k]});D.sms=!!c.sms;window.PROGRAM='Free service claim: '+c.svc+' (offer started '+new Date(c.t).toLocaleString('en-US',{timeZone:'America/Chicago'})+')';$('#applyH').textContent='Growth Audit application';step=contactDone()?firstOpen():CONTACT}
+  if(pick&&CLAIMS.some(x=>x[0]===pick)&&!over){D.claim=pick;step=CONTACT}
   heroState();if(offerStart())startTimer();
   if(pick||qs.has('apply')){history.replaceState(null,'',location.pathname+location.hash);paint();setTimeout(openApply,150)}})();
 if(location.hash==='#claim')location.replace('/claim/');
