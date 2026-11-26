@@ -431,6 +431,36 @@ label[for=fName]::after,label[for=fEmail]::after,label[for=fMobile]::after{conte
 @media(max-width:700px){.nav-pop{position:fixed;left:12px;right:12px;top:68px;width:auto;max-height:calc(100vh - 90px);overflow:auto}}
 @media(max-width:560px){.top .btn-main{min-height:40px;padding:0 12px;font-size:14px}.top .wm{font-size:15px;white-space:nowrap}.top .wrap{gap:8px}}
 @media(max-width:380px){.top .wm{display:none}}
+/* Claim 1 free service (Nov 25) */
+.cl-jump{color:#B5821F;font-weight:700;white-space:nowrap}
+.cl-sec{padding:70px 0;background:var(--bg);border-top:1px solid var(--line)}
+.cl-k{margin:0 0 8px;font:700 12px var(--body);letter-spacing:.1em;text-transform:uppercase;color:#B5821F}
+.cl-sec .lp-h2{margin-bottom:10px}.cl-sub{margin:0 0 24px;font:500 18px/1.5 var(--body);color:var(--soft)}
+.cl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.cl-card{display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:6px;padding:20px 18px;background:#fff;border:2px solid var(--line);border-radius:20px;cursor:pointer;color:var(--text);font:inherit;transition:border-color .15s,transform .15s,box-shadow .15s}
+.cl-card:hover{transform:translateY(-2px);box-shadow:0 14px 30px -18px rgba(20,22,28,.35)}
+.cl-card[aria-checked="true"]{border-color:#B5821F;box-shadow:0 0 0 4px rgba(181,130,31,.15)}
+.cl-ico{width:42px;height:42px;border-radius:12px;background:var(--sand);color:#B5821F;display:grid;place-items:center;margin-bottom:6px}.cl-ico svg{width:22px;height:22px}
+.cl-card b{font:800 18px/1.2 var(--display)}.cl-card em{font:700 13px var(--body);font-style:normal;color:#B5821F}
+.cl-d{font:500 14.5px/1.45 var(--body);color:var(--soft);flex:1}
+.cl-btn{margin-top:10px;display:inline-flex;align-items:center;min-height:38px;padding:0 14px;border-radius:10px;border:1.5px solid var(--line2);font:700 14px var(--body)}
+.cl-card[aria-checked="true"] .cl-btn{background:#15171C;border-color:#15171C;color:#fff}
+.cl-card[aria-checked="true"] .cl-btn:before{content:"\2713\00a0"}
+.cl-form,.cl-held{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;max-width:760px}
+.cl-pick{margin:0 0 12px;font:600 16px var(--body)}
+.cl-fields{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px}
+.cl-fields label{display:flex;flex-direction:column;gap:4px;font:600 13px var(--body);color:var(--soft)}
+.cl-fields input{min-height:46px;padding:0 12px;border:1.5px solid var(--line2);border-radius:10px;font:500 16px var(--body);color:var(--text);background:#fff}
+.cl-fields input:focus{outline:2px solid #B5821F;outline-offset:1px}
+.cl-err{min-height:1em;margin:0 0 8px;color:#B3412E;font:600 14px var(--body)}
+.cl-fine{margin:10px 0 0;font:500 13px var(--body);color:var(--mute)}
+.cl-held{text-align:center;margin-left:auto;margin-right:auto}
+.cl-svc{margin:0;font:800 22px var(--display)}
+.cl-timer{margin:8px 0;font:400 64px/1 Anton,var(--display);letter-spacing:1px;color:#15171C;font-variant-numeric:tabular-nums}
+.cl-next{margin:0 0 16px;color:var(--soft);font:500 16px/1.45 var(--body)}
+.cl-held.expired .cl-timer{color:var(--mute)}
+@media (max-width:900px){.cl-grid{grid-template-columns:1fr 1fr}.cl-fields{grid-template-columns:1fr}}
+@media (max-width:520px){.cl-grid{grid-template-columns:1fr}.cl-card{padding:16px}.cl-timer{font-size:52px}}
 .apply{--bg:#FAF9F6;--paper:#FFFFFF;--line:#E6E2DA;--line2:#D9D4CA;--text:#15171C;--soft:#5B616C;--mute:#8A8F98;--accent:#B5821F;--sand:#F3EEE5;--sage:#E7EFE9;--sky:#E6EDF6;background:#fff;color:#15171C}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Unplanned & Co.", "url": "https://unplannedco.com/", "description": "Growth partner for Houston home service companies: fast lead response, online booking, follow-up and lead tracking, with a setup-fee-back guarantee.", "areaServed": [{"@type": "City", "name": "Houston, TX"}, {"@type": "City", "name": "Katy, TX"}, {"@type": "City", "name": "Sugar Land, TX"}, {"@type": "City", "name": "The Woodlands, TX"}, {"@type": "City", "name": "Cypress, TX"}, {"@type": "City", "name": "Pearland, TX"}, {"@type": "City", "name": "Spring, TX"}, {"@type": "City", "name": "League City, TX"}, {"@type": "City", "name": "Conroe, TX"}, {"@type": "City", "name": "Pasadena, TX"}, {"@type": "City", "name": "Humble, TX"}]}</script>
@@ -450,7 +480,7 @@ window.tk=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{})}catch(e){}};
     <details class="nav-menu"><summary>Services <span aria-hidden="true">▾</span></summary><div class="nav-pop">
 <a href="/services/"><b>All services</b><span>Everything I can set up and run for you</span></a>
 <a href="/services/#now"><b>Start right now (free)</b><span>Audit, growth plan for your trade, demo sites</span></a>
-<a href="/#demo"><b>Free 15-minute Growth Audit</b><span>Apply in about 2 minutes</span></a>
+<a href="/#claim"><b>Claim 1 free service</b><span>Held for you for 48 hours</span></a><a href="/#demo"><b>Free 15-minute Growth Audit</b><span>Apply in about 2 minutes</span></a>
 <a href="https://catalog.unplannedco.com/" target="_blank" rel="noopener"><b>Demo sites</b><span>Try one built for your trade</span></a>
 <a href="/areas/"><b>Areas we serve</b><span>Houston and nearby cities</span></a>
 <a href="/#faq"><b>Questions owners ask</b><span>Cost, contracts, guarantees</span></a>
@@ -470,7 +500,7 @@ window.tk=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{})}catch(e){}};
           <p class="lp-fk">Free 15-minute Growth Audit · keep the plan either way</p>
           <p class="lp-fq">What kind of business do you run?</p>
           <div class="lp-trades"><button type="button" class="lp-trade" data-v="Roofing">Roofing</button><button type="button" class="lp-trade" data-v="HVAC">HVAC</button><button type="button" class="lp-trade" data-v="Plumbing">Plumbing</button><button type="button" class="lp-trade" data-v="Foundation">Foundation</button><button type="button" class="lp-trade" data-v="Remodeling">Remodeling</button><button type="button" class="lp-trade" data-v="Pools">Pools</button><button type="button" class="lp-trade" data-v="Fencing / concrete">Fencing / concrete</button><button type="button" class="lp-trade" data-v="Electrical / generators">Electrical / generators</button><button type="button" class="lp-trade" data-v="Landscaping">Landscaping</button><button type="button" class="lp-trade" data-v="Something else">Something else</button></div>
-          <p class="lp-fn">About 2 minutes. Pick your call time right after.</p>
+          <p class="lp-fn">About 2 minutes. Pick your call time right after. <a href="#claim" class="cl-jump">Or claim 1 free service first ↓</a></p>
         </div>
         <div class="vsl" id="vsl" data-src="" hidden><div class="ph" id="vslPh"></div></div>
       </div>
@@ -479,6 +509,54 @@ window.tk=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{})}catch(e){}};
         <div class="lp-n n1"><i style="background:#2F8A5B">&#10003;</i><div><b>New job booked</b><span>Free foundation check · Katy · 8:00 AM</span></div></div>
         <div class="lp-n n2"><i style="background:#2563EB">&#9990;</i><div><b>Missed call → text sent</b><span>in under 60 seconds</span></div></div>
         <p class="lp-cap">Demo screens. Names and times are samples.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cl-sec" id="claim" aria-labelledby="claimH">
+    <div class="wrap">
+      <p class="cl-k">Only for companies I sign</p>
+      <h2 id="claimH" class="lp-h2">Claim 1 free service. <span>I'll hold it for 48 hours.</span></h2>
+      <p class="cl-sub">Pick one to add to your custom package. It's free if we work together.</p>
+      <div class="cl-grid" role="radiogroup" aria-label="Free services">
+        <button type="button" class="cl-card" role="radio" aria-checked="false" data-svc="Referral program" data-val="$900">
+          <span class="cl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14.5 20c.2-2.3 1.4-4 3.5-4 1.9 0 3 1.3 3 4"/></svg></span>
+          <b>Referral program</b><em>$900 value</em>
+          <span class="cl-d">Realtors, inspectors and past customers sending you jobs, with every payout tracked.</span>
+          <span class="cl-btn">Include in my package</span></button>
+        <button type="button" class="cl-card" role="radio" aria-checked="false" data-svc="Past-customer comeback campaign" data-val="$750">
+          <span class="cl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/><path d="M12 8v4l3 2"/></svg></span>
+          <b>Past-customer comeback</b><em>$750 value</em>
+          <span class="cl-d">A campaign to customers you already served, so they book their next job with you.</span>
+          <span class="cl-btn">Include in my package</span></button>
+        <button type="button" class="cl-card" role="radio" aria-checked="false" data-svc="Review request system" data-val="$400">
+          <span class="cl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg></span>
+          <b>Review request system</b><em>$400 value</em>
+          <span class="cl-d">A review request after every job, so 5-star reviews come in without asking by hand.</span>
+          <span class="cl-btn">Include in my package</span></button>
+        <button type="button" class="cl-card" role="radio" aria-checked="false" data-svc="Google Business Profile tune-up" data-val="$400">
+          <span class="cl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11.5A7 7 0 0 1 19 9.5C19 14.7 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+          <b>Google Business Profile tune-up</b><em>$400 value</em>
+          <span class="cl-d">Services, hours, photos and categories set up so you show up better in Maps.</span>
+          <span class="cl-btn">Include in my package</span></button>
+      </div>
+      <form class="cl-form" id="clForm" hidden novalidate>
+        <p class="cl-pick">You picked: <b id="clPicked"></b></p>
+        <div class="cl-fields">
+          <label>Your name<input id="clName" autocomplete="name" required></label>
+          <label>Mobile<input id="clMobile" type="tel" inputmode="tel" autocomplete="tel" placeholder="(281) 555-0123" required></label>
+          <label>Email<input id="clEmail" type="email" autocomplete="email" placeholder="you@business.com" required></label>
+        </div>
+        <p class="cl-err" id="clErr" role="alert"></p>
+        <button type="submit" class="lp-btn" id="clSubmit">Hold my free service</button>
+        <p class="cl-fine">Free only if we work together. Mention it on your audit call. One per company.</p>
+      </form>
+      <div class="cl-held" id="clHeld" hidden aria-live="polite">
+        <p class="cl-k" id="clHeldK">Held for you</p>
+        <p class="cl-svc" id="clHeldSvc"></p>
+        <p class="cl-timer" id="clTimer">48:00:00</p>
+        <p class="cl-next" id="clNext">Next step: apply for your free 15-minute Growth Audit to lock it in. It takes about 2 minutes.</p>
+        <button type="button" class="lp-btn" id="clApply" data-apply>Apply and lock it in</button>
       </div>
     </div>
   </section>
@@ -843,6 +921,31 @@ $('#lf').addEventListener('submit',async e=>{e.preventDefault();read();const m=o
   if(sent){tk('generate_lead',{trade:D.trade});if(window.fbq)try{fbq('track','Lead',{content_name:D.trade})}catch(x){}}
   if(!sent){btn.disabled=false;btn.textContent='Apply for my audit';const live=/github\.io|unplannedco\.com/.test(location.hostname);return err(!LEAD_ENDPOINT?'Preview only: the form sends once the live page is connected.':live?'That didn’t go through. Check your connection and try again.':'This preview can’t send applications. Apply on the live page: unplannedco.com')}
   $('#lf').innerHTML=`<div class="done"><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="#7FD1A8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span><h3>You're in, ${esc(D.name.split(' ')[0])}.</h3><p class="conf">Confirmation sent to ${esc(D.email)}.</p><p class="lede">${D.want==='Under $150k a year'?'Thanks! Check your email for a few free tips that help most at your stage.':D.capacity.startsWith('No')?'Thanks! Since your team is already full, we\'ll start with systems that free up your time, not more leads. Pick a time below for your 15-minute call, and we\'ll send you a free plan based on your answers.':'Next step: pick a time below for your free 15-minute audit. We\'ll also send you a free plan based on your answers.'}</p>${D.want==='Under $150k a year'?'':`<div id="bkFlow"></div>`}${PRECALL_VSL&&D.want!=='Under $150k a year'?`<div class="precall"><b>Before your call: watch this short video</b><p>How it works, how it’s priced, contract length, how much of your time it takes, and what happens if we miss the target.</p>${ytId(PRECALL_VSL)?`<div class="vsl" style="margin:4px 0 0;width:100%"><iframe src="${esc(ytEmbed(PRECALL_VSL))}" title="Before your call" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div>`:`<a class="btn btn-line" href="${esc(PRECALL_VSL)}" target="_blank" rel="noopener">Watch before our call</a>`}</div>`:''}</div>`;if(document.getElementById('bkFlow'))bkStart(D)});
+// Claim 1 free service: personal 48-hour hold, saved to the leads sheet as a partial lead
+(function(){const KEY='uc_claim',HOLD=48*3600*1000;const cards=[...document.querySelectorAll('.cl-card')];if(!cards.length)return;
+  const form=$('#clForm'),held=$('#clHeld');let pick=null,tmr=null;
+  const load=()=>{try{return JSON.parse(localStorage.getItem(KEY)||'null')}catch(x){return null}};
+  const save=v=>{try{localStorage.setItem(KEY,JSON.stringify(v))}catch(x){}};
+  const pad=n=>String(n).padStart(2,'0');
+  function showHeld(c){form.hidden=true;held.hidden=false;cards.forEach(b=>{const on=b.dataset.svc===c.svc;b.setAttribute('aria-checked',String(on));b.disabled=!on;b.hidden=!on});
+    $('#clHeldSvc').textContent=c.svc+' ('+c.val+' value)';window.PROGRAM='Free service claim: '+c.svc+' (claimed '+new Date(c.t).toLocaleString('en-US',{timeZone:'America/Chicago'})+')';
+    if(!D.name)D.name=c.name||'';if(!D.email)D.email=c.email||'';if(!D.mobile)D.mobile=c.mobile||'';
+    clearInterval(tmr);const tick=()=>{const left=c.t+HOLD-Date.now();if(left<=0){clearInterval(tmr);held.classList.add('expired');$('#clHeldK').textContent='Hold expired';$('#clTimer').textContent='00:00:00';$('#clNext').textContent='This free service is no longer held. You can still apply for your free Growth Audit.';$('#clApply').textContent='Apply for my free Growth Audit';return}
+      const s=Math.floor(left/1000);$('#clTimer').textContent=pad(Math.floor(s/3600))+':'+pad(Math.floor(s%3600/60))+':'+pad(s%60)};tick();tmr=setInterval(tick,1000)}
+  const existing=load();if(existing&&existing.svc)showHeld(existing);
+  cards.forEach(b=>b.addEventListener('click',()=>{if(load())return;pick=b;cards.forEach(x=>x.setAttribute('aria-checked',String(x===b)));$('#clPicked').textContent=b.dataset.svc+' ('+b.dataset.val+' value)';form.hidden=false;
+    if(window.fbq)try{fbq('trackCustom','PickFreeService',{content_name:b.dataset.svc})}catch(x){}
+    setTimeout(()=>{form.scrollIntoView({behavior:'smooth',block:'nearest'});$('#clName').focus({preventScroll:true})},120)}));
+  form.addEventListener('submit',async e=>{e.preventDefault();const name=$('#clName').value.trim(),mobile=$('#clMobile').value.trim(),email=$('#clEmail').value.trim();
+    const bad=!pick?'Pick a free service first.':!name?'Add your name.':mobile.replace(/\D/g,'').length<10?'Add a 10-digit mobile number.':!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)?'Add an email like you@business.com.':'';
+    if(bad){$('#clErr').textContent=bad;return}$('#clErr').textContent='';const btn=$('#clSubmit');btn.disabled=true;btn.textContent='Holding…';
+    const c={svc:pick.dataset.svc,val:pick.dataset.val,t:Date.now(),name,mobile,email};D.name=name;D.mobile=mobile;D.email=email;
+    window.PROGRAM='Free service claim: '+c.svc;
+    if(LEAD_ENDPOINT){const body=JSON.stringify(Object.assign(payload('studio_partial'),{stage:'Claimed free service: '+c.svc,program:window.PROGRAM}));
+      try{await fetch(LEAD_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body})}catch(x){}}
+    if(window.fbq)try{fbq('trackCustom','ClaimFreeService',{content_name:c.svc})}catch(x){}
+    tk('claim_free_service',{service:c.svc});save(c);showHeld(c);held.scrollIntoView({behavior:'smooth',block:'center'})});
+})();
 document.addEventListener('click',e=>{const b=e.target.closest('.lp-trade');if(!b)return;D.trade=b.dataset.v;step=1;paint();openApply()});
 paint();
 })();
