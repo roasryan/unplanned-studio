@@ -443,7 +443,7 @@ label[for=fName]::after,label[for=fEmail]::after,label[for=fMobile]::after{conte
 .lp-all{align-self:center;margin-top:2px;font:600 15px var(--body);color:var(--soft);text-decoration:underline;text-underline-offset:4px}
 .lp-all:hover{color:#15171C}
 #applyH:focus{outline:none}
-.apply-free{margin-left:auto;margin-right:8px;border:0;background:none;padding:6px 4px;font:600 13.5px var(--body);color:#B5821F;text-decoration:underline;text-underline-offset:3px;cursor:pointer;white-space:nowrap}.apply-free[hidden]{display:none}
+.apply-free{margin-left:auto;margin-right:8px;border:0;background:none;padding:6px 4px;font:600 13.5px var(--body);color:#B5821F;text-decoration:underline;text-underline-offset:3px;cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}.apply-free svg{width:18px;height:18px;flex:none}.apply-free span{text-decoration:underline;text-underline-offset:3px}.apply-free{text-decoration:none!important}.apply-free[hidden]{display:none}
 .freebox{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px 18px;padding:20px;border-radius:18px;background:#FBF7EE;border:2px solid #B5821F;box-shadow:0 0 0 5px rgba(181,130,31,.10);color:#15171C;margin:0 0 6px}
 .freebox .fb-k{margin:0 0 4px;font:700 11.5px var(--body);letter-spacing:.12em;text-transform:uppercase;color:#B5821F}
 .freebox b{display:block;font:800 19px/1.2 var(--display)}.freebox span{display:block;margin-top:4px;font:500 14px var(--body);color:#5B616C}
@@ -727,7 +727,7 @@ window.tk=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{})}catch(e){}};
 </main>
 
 <dialog class="apply" id="applyDlg" aria-labelledby="applyH">
-  <div class="apply-h"><b id="applyH" tabindex="-1">Growth Audit application</b><span class="apply-t" id="applyT" hidden></span><button type="button" class="apply-free" id="applyFree">Claim 1 free service</button><button type="button" class="apply-x" id="applyX" aria-label="Close">&times;</button></div>
+  <div class="apply-h"><b id="applyH" tabindex="-1">Growth Audit application</b><span class="apply-t" id="applyT" hidden></span><button type="button" class="apply-free" id="applyFree"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5"/></svg><span>Claim 1 free service</span></button><button type="button" class="apply-x" id="applyX" aria-label="Close">&times;</button></div>
   <form class="card" id="lf" novalidate>
     <div class="bar" aria-hidden="true"><i id="lfBar"></i></div>
     <div id="lfSteps"></div>
