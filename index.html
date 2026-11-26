@@ -443,6 +443,13 @@ label[for=fName]::after,label[for=fEmail]::after,label[for=fMobile]::after{conte
 .lp-all{align-self:center;margin-top:2px;font:600 15px var(--body);color:var(--soft);text-decoration:underline;text-underline-offset:4px}
 .lp-all:hover{color:#15171C}
 #applyH:focus{outline:none}
+.freebox{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px 18px;padding:20px;border-radius:18px;background:#15171C;color:#fff;margin:0 0 6px}
+.freebox .fb-k{margin:0 0 4px;font:700 11.5px var(--body);letter-spacing:.12em;text-transform:uppercase;color:#E3B04B}
+.freebox b{display:block;font:800 19px/1.2 var(--display)}.freebox span{display:block;margin-top:4px;font:500 14px var(--body);color:#C9CDD4}
+.freebox i{font-style:normal;font-weight:800;color:#fff;font-variant-numeric:tabular-nums}
+.freebox button{min-height:50px;padding:0 20px;border:0;border-radius:12px;background:#E3B04B;color:#15171C;font:800 16px var(--body);cursor:pointer}
+@media(max-width:520px){.freebox button{width:100%}}
+.skipfree{display:block;margin:18px auto 0;border:0;background:none;font:600 15px var(--body);color:var(--soft);text-decoration:underline;cursor:pointer;padding:8px}
 .apply :focus:not(:focus-visible){outline:none}
 .apply .opt:focus-visible,.apply .cl-card:focus-visible{outline:3px solid rgba(181,130,31,.45);outline-offset:2px}
 #lfSteps .stepq{margin-bottom:18px}
@@ -719,7 +726,7 @@ window.tk=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{})}catch(e){}};
 </main>
 
 <dialog class="apply" id="applyDlg" aria-labelledby="applyH">
-  <div class="apply-h"><b id="applyH" tabindex="-1">Claim your free service</b><span class="apply-t" id="applyT" hidden></span><button type="button" class="apply-x" id="applyX" aria-label="Close">&times;</button></div>
+  <div class="apply-h"><b id="applyH" tabindex="-1">Growth Audit application</b><span class="apply-t" id="applyT" hidden></span><button type="button" class="apply-x" id="applyX" aria-label="Close">&times;</button></div>
   <form class="card" id="lf" novalidate>
     <div class="bar" aria-hidden="true"><i id="lfBar"></i></div>
     <div id="lfSteps"></div>
@@ -821,10 +828,10 @@ const Q={best:['Text','Call','Email'],time:['Anytime','Morning','Afternoon','Eve
  timeline:['This month','In 1–3 months','Just looking']};
 const opts=(k,q,first)=>`<p class="stepq"${first?'':' style="margin-top:10px;font-size:19px"'}>${q}</p><div class="opts">${Q[k].map(t=>`<button type="button" class="opt" data-k="${k}" data-v="${esc(t)}" aria-pressed="${D[k]===t}">${esc(t)}</button>`).join('')}</div>`;
 const multi=(k,q)=>`<p class="stepq" style="margin-top:10px;font-size:19px">${q} <small style="font-weight:600;opacity:.7">Pick all that apply</small></p><div class="opts">${Q[k].map(t=>`<button type="button" class="opt" data-m="1" data-k="${k}" data-v="${esc(t)}" aria-pressed="${D[k].includes(t)}">${esc(t)}</button>`).join('')}</div>`;
-let step=0;
+let step=1;
 const S=[
- ()=>`<p class="steph">Only for companies I sign</p><p class="stepq">Pick 1 free service. It goes in your package.</p><div class="m-grid" role="radiogroup" aria-label="Free services">${CLAIMS.map(c=>`<button type="button" class="cl-card" role="radio" data-svc="${esc(c[0])}" aria-checked="${D.claim===c[0]}"><span class="cl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${c[3]}</svg></span><b>${esc(c[0])}</b><em>${c[1]} value</em><span class="cl-d">${esc(c[2])}</span><span class="cl-btn">Include in my package</span></button>`).join('')}</div><p class="note">Free if we work together. One per company.</p>`,
- ()=>{const c=CLAIMS.find(x=>x[0]===D.claim);return (c?`<div class="picked"><div><b>${esc(c[0])}</b><span>${c[1]} value · held 48 hours</span></div>${offerOver()?'':'<button type="button" id="chg">Change</button>'}</div>`:'')+`<p class="stepq" style="margin-top:20px">${c?'Where should I send your hold?':'Where should I send your audit details?'}</p>
+ ()=>`<p class="steph">Only for companies I sign</p><p class="stepq">Pick 1 free service. It goes in your package.</p><div class="m-grid" role="radiogroup" aria-label="Free services">${CLAIMS.map(c=>`<button type="button" class="cl-card" role="radio" data-svc="${esc(c[0])}" aria-checked="${D.claim===c[0]}"><span class="cl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${c[3]}</svg></span><b>${esc(c[0])}</b><em>${c[1]} value</em><span class="cl-d">${esc(c[2])}</span><span class="cl-btn">Include in my package</span></button>`).join('')}</div><p class="note">Free if we work together. One per company.</p><button type="button" class="skipfree" id="skipFree">← Back to my application</button>`,
+ ()=>{const c=CLAIMS.find(x=>x[0]===D.claim);return (c?'':(offerOver()?'':`<div class="freebox"><div><p class="fb-k">Free with your application</p><b>Add 1 service worth up to $900</b><span><i id="offT">48:00:00</i> left to pick</span></div><button type="button" id="pickFree">Pick my free service</button></div>`))+(c?`<div class="picked"><div><b>${esc(c[0])}</b><span>${c[1]} value · held 48 hours</span></div>${offerOver()?'':'<button type="button" id="chg">Change</button>'}</div>`:'')+`<p class="stepq" style="margin-top:20px">${c?'Where should I send your hold?':'Where should I send your audit details?'}</p>
    <div class="field"><label for="fName">Your name</label><input id="fName" autocomplete="name" value="${esc(D.name)}"></div>
    <div class="two"><div class="field"><label for="fMobile">Mobile number</label><input id="fMobile" type="tel" inputmode="tel" autocomplete="tel" placeholder="(713) 555-0100" value="${esc(D.mobile)}"></div>
    <div class="field"><label for="fEmail">Email</label><input id="fEmail" type="email" autocomplete="email" value="${esc(D.email)}"></div></div>
@@ -869,7 +876,7 @@ document.addEventListener('click',e=>{const a=e.target.closest('a[href="#demo"],
 $('#lfSteps').addEventListener('change',e=>{if(e.target.id==='fNoSite'){D.noSite=e.target.checked;const f=$('#fSite');f.disabled=D.noSite;if(D.noSite)f.value=''}});
 $('#lfSteps').addEventListener('click',e=>{const b=e.target.closest('.opt');if(!b)return;if(step===SITE){D.site=$('#fSite').value.trim()}if(b.dataset.m){const a=D[b.dataset.k],i=a.indexOf(b.dataset.v);i<0?a.push(b.dataset.v):a.splice(i,1);b.setAttribute('aria-pressed',String(i<0));return}D[b.dataset.k]=b.dataset.v;paint();
   if(step===2&&b.dataset.k==='trade')setTimeout(()=>{step=3;paint()},180)});
-$('#lfSteps').addEventListener('click',e=>{if(e.target.id==='chg'){read();step=0;paint();return}const b=e.target.closest('.cl-card');if(!b||step!==0)return;D.claim=b.dataset.svc;document.querySelectorAll('#lfSteps .cl-card').forEach(x=>x.setAttribute('aria-checked',String(x===b)));setTimeout(()=>{step=1;paint();dlg.scrollTop=0},260)});
+$('#lfSteps').addEventListener('click',e=>{if(e.target.id==='chg'||e.target.id==='pickFree'){read();step=0;paint();tk('open_free_pick');return}if(e.target.id==='skipFree'){step=1;paint();return}const b=e.target.closest('.cl-card');if(!b||step!==0)return;D.claim=b.dataset.svc;document.querySelectorAll('#lfSteps .cl-card').forEach(x=>x.setAttribute('aria-checked',String(x===b)));setTimeout(()=>{step=1;paint();dlg.scrollTop=0},260)});
 $('#lfBack').addEventListener('click',()=>{if(NF){NF=false;paint();return}read();step=Math.max(0,step-1);paint()});
 $('#lf').addEventListener('submit',async e=>{e.preventDefault();read();const m=ok();if(m)return err(m);
   if(step===3&&D.want==='Under $150k a year')return notFit();
@@ -890,7 +897,7 @@ const loadClaim=()=>{try{return JSON.parse(lsGet(CKEY)||'null')}catch(x){return 
 function offerStart(){const v=+lsGet(OKEY);if(v)return v;const c=loadClaim();return c&&c.t?c.t:0}
 function startOffer(){if(!offerStart())lsSet(OKEY,String(Date.now()));else if(!+lsGet(OKEY))lsSet(OKEY,String(offerStart()))}
 const offerOver=()=>{const t=offerStart();return !!t&&t+HOLD<=Date.now()};
-function minStep(){return (loadClaim()||offerOver())?1:0}
+function minStep(){return 1}
 function saveContact(){const c=loadClaim();if(c){Object.assign(c,{name:D.name,mobile:D.mobile,email:D.email,sms:D.sms});lsSet(CKEY,JSON.stringify(c))}if(LEAD_ENDPOINT&&!finished)sendPartial()}
 function claimNow(){startOffer();const t=offerStart();const c={svc:D.claim,val:(CLAIMS.find(x=>x[0]===D.claim)||[])[1]||'',t,name:D.name,mobile:D.mobile,email:D.email,sms:D.sms};lsSet(CKEY,JSON.stringify(c));
   window.PROGRAM='Free service claim: '+c.svc+' (offer started '+new Date(t).toLocaleString('en-US',{timeZone:'America/Chicago'})+')';
@@ -903,11 +910,10 @@ const pad2=n=>String(n).padStart(2,'0');let cTmr=null;
 function startTimer(){const t0=offerStart();if(!t0)return;clearInterval(cTmr);const tick=()=>{const c=loadClaim(),left=t0+HOLD-Date.now(),t=$('#applyT');
   if(left<=0){clearInterval(cTmr);t.hidden=true;heroState();return}
   const x=Math.floor(left/1000),str=pad2(Math.floor(x/3600))+':'+pad2(Math.floor(x%3600/60))+':'+pad2(x%60);
-  t.hidden=false;t.textContent=c?c.svc+' held · '+str:str+' left to claim'};tick();cTmr=setInterval(tick,1000)}
+  t.hidden=!c;t.textContent=c?c.svc+' held · '+str:'';const o=$('#offT');if(o)o.textContent=str};tick();cTmr=setInterval(tick,1000)}
 (function(){const c=loadClaim(),qs=new URLSearchParams(location.search),pick=qs.get('claim'),over=offerOver();
   if(c){D.claim=c.svc;['name','mobile','email'].forEach(k=>{if(c[k])D[k]=c[k]});D.sms=!!c.sms;window.PROGRAM='Free service claim: '+c.svc+' (offer started '+new Date(c.t).toLocaleString('en-US',{timeZone:'America/Chicago'})+')';$('#applyH').textContent='Growth Audit application';step=D.email?2:1}
-  else if(over){step=1;$('#applyH').textContent='Growth Audit application'}
-  if(pick&&CLAIMS.some(x=>x[0]===pick)&&!over){D.claim=pick;step=1;$('#applyH').textContent='Claim your free service'}
+  if(pick&&CLAIMS.some(x=>x[0]===pick)&&!over){D.claim=pick;step=1}
   heroState();if(offerStart())startTimer();
   if(pick||qs.has('apply')){history.replaceState(null,'',location.pathname+location.hash);paint();setTimeout(openApply,150)}})();
 if(location.hash==='#claim')location.replace('/claim/');
