@@ -436,15 +436,40 @@ label[for=fName]::after,label[for=fEmail]::after,label[for=fMobile]::after{conte
 .lp-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:6px}
 .lp-hero .lp-btn{min-height:60px;padding:0 30px;font-size:19px;background:#15171C;color:#fff;box-shadow:0 14px 30px -12px rgba(20,22,28,.5)}
 .lp-hero .lp-btn:hover{background:#2A2D34}
-.lp-ghost{display:inline-flex;align-items:center;min-height:60px;padding:0 24px;border:1.5px solid var(--line2);border-radius:16px;font:700 17px var(--body);color:var(--text);text-decoration:none;background:#fff}
-.lp-ghost:hover{border-color:#B5821F}
-#heroNote{color:var(--soft);margin-top:14px}
+.lp-cta{flex-direction:column;align-items:stretch;gap:14px;max-width:380px;margin-top:14px}
+.lp-cta .lp-btn{width:100%}
+.lp-claim{display:flex;align-items:center;justify-content:center;min-height:58px;padding:0 24px;border:2px solid #15171C;border-radius:16px;font:700 18px var(--body);color:#15171C;text-decoration:none;background:#fff}
+.lp-claim:hover{background:#F3EEE5}
+.lp-all{align-self:center;margin-top:2px;font:600 15px var(--body);color:var(--soft);text-decoration:underline;text-underline-offset:4px}
+.lp-all:hover{color:#15171C}
+#applyH:focus{outline:none}
+.apply :focus:not(:focus-visible){outline:none}
+.apply .opt:focus-visible,.apply .cl-card:focus-visible{outline:3px solid rgba(181,130,31,.45);outline-offset:2px}
+#lfSteps .stepq{margin-bottom:18px}
+#lfSteps .field{margin-top:16px}
+#lfSteps .two{gap:16px;margin-top:16px}#lfSteps .two .field{margin-top:0}
+#lfSteps .consent{margin-top:18px}
+#lfSteps .note{margin-top:14px}
+#lfSteps .opts+.stepq{margin-top:26px!important}
+.apply .nav{margin-top:26px}
+.m-grid{display:grid;gap:16px;margin-top:4px}
+.apply .cl-card{display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:8px;width:100%;padding:24px 22px;background:#fff;border:2px solid var(--line);border-radius:22px;cursor:pointer;color:var(--text);font:inherit;-webkit-tap-highlight-color:transparent;transition:border-color .15s,box-shadow .15s}
+.apply .cl-card[aria-checked="true"]{border-color:#B5821F;box-shadow:0 0 0 6px rgba(181,130,31,.14)}
+.apply .cl-ico{width:52px;height:52px;border-radius:15px;background:#F3EEE5;color:#B5821F;display:grid;place-items:center;margin-bottom:6px}.apply .cl-ico svg{width:26px;height:26px}
+.apply .cl-card b{font:800 21px/1.15 var(--display);letter-spacing:-.02em}
+.apply .cl-card em{font:700 16px var(--body);font-style:normal;color:#B5821F}
+.apply .cl-d{font:500 16px/1.5 var(--body);color:var(--soft)}
+.apply .cl-btn{margin-top:12px;display:inline-flex;align-items:center;min-height:48px;padding:0 18px;border-radius:12px;border:1.5px solid #D9D3C8;font:700 15.5px var(--body);background:#fff}
+.apply .cl-card[aria-checked="true"] .cl-btn{background:#15171C;border-color:#15171C;color:#fff}
+.apply .cl-card[aria-checked="true"] .cl-btn:before{content:"\2713\00a0"}
+.picked{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border:2px solid #B5821F;border-radius:16px;background:#FBF7EE;margin:0 0 8px}
+.picked b{display:block;font:800 17px var(--display)}.picked span{font:600 14px var(--body);color:#B5821F}
+.picked button{border:0;background:none;font:600 14px var(--body);color:var(--soft);text-decoration:underline;cursor:pointer;padding:8px}
 .apply-t{margin-left:auto;margin-right:10px;font:700 13px var(--body);color:#B5821F;font-variant-numeric:tabular-nums;white-space:nowrap}
-.claim-opts{display:grid!important;grid-template-columns:1fr 1fr;gap:8px}
 .copt{width:100%;box-sizing:border-box;display:flex!important;flex-direction:column;align-items:flex-start;text-align:left;gap:2px;padding:12px 14px!important;height:auto!important;min-height:0!important;white-space:normal!important}
 .copt b{font:800 15.5px/1.2 var(--display)}.copt em{font:700 12.5px var(--body);font-style:normal;color:#B5821F}.copt span{font:500 13px/1.4 var(--body);color:#5B616C}
 .copt[aria-pressed="true"]{border-color:#B5821F!important;box-shadow:0 0 0 3px rgba(181,130,31,.18)}
-@media(max-width:520px){.claim-opts{grid-template-columns:1fr}.lp-cta .lp-btn,.lp-ghost{width:100%;justify-content:center}.apply-t{font-size:12px}}
+@media(max-width:520px){.lp-cta{max-width:none}.apply-t{font-size:12px}.apply .cl-card{padding:22px 20px}}
 .apply{--bg:#FAF9F6;--paper:#FFFFFF;--line:#E6E2DA;--line2:#D9D4CA;--text:#15171C;--soft:#5B616C;--mute:#8A8F98;--accent:#B5821F;--sand:#F3EEE5;--sage:#E7EFE9;--sky:#E6EDF6;background:#fff;color:#15171C}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Unplanned & Co.", "url": "https://unplannedco.com/", "description": "Growth partner for Houston home service companies: fast lead response, online booking, follow-up and lead tracking, with a setup-fee-back guarantee.", "areaServed": [{"@type": "City", "name": "Houston, TX"}, {"@type": "City", "name": "Katy, TX"}, {"@type": "City", "name": "Sugar Land, TX"}, {"@type": "City", "name": "The Woodlands, TX"}, {"@type": "City", "name": "Cypress, TX"}, {"@type": "City", "name": "Pearland, TX"}, {"@type": "City", "name": "Spring, TX"}, {"@type": "City", "name": "League City, TX"}, {"@type": "City", "name": "Conroe, TX"}, {"@type": "City", "name": "Pasadena, TX"}, {"@type": "City", "name": "Humble, TX"}]}</script>
@@ -464,7 +489,7 @@ window.tk=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{})}catch(e){}};
     <details class="nav-menu"><summary>Services <span aria-hidden="true">▾</span></summary><div class="nav-pop">
 <a href="/services/"><b>All services</b><span>Everything I can set up and run for you</span></a>
 <a href="/services/#now"><b>Start right now (free)</b><span>Audit, growth plan for your trade, demo sites</span></a>
-<a href="/#claim"><b>Claim 1 free service</b><span>Held for you for 48 hours</span></a><a href="/#demo"><b>Free 15-minute Growth Audit</b><span>Apply in about 2 minutes</span></a>
+<a href="/claim/"><b>Claim 1 free service</b><span>Held for you for 48 hours</span></a><a href="/#demo"><b>Free 15-minute Growth Audit</b><span>Apply in about 2 minutes</span></a>
 <a href="https://catalog.unplannedco.com/" target="_blank" rel="noopener"><b>Demo sites</b><span>Try one built for your trade</span></a>
 <a href="/areas/"><b>Areas we serve</b><span>Houston and nearby cities</span></a>
 <a href="/#faq"><b>Questions owners ask</b><span>Cost, contracts, guarantees</span></a>
@@ -481,10 +506,10 @@ window.tk=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{})}catch(e){}};
         <h1 class="lp-h1">Find the jobs hiding in your business. <span>Then I fix it and run it with you.</span></h1>
         <p class="lp-sub">For Houston home service companies doing $150K+: I win back the jobs lost to missed calls, quiet quotes and forgotten customers, or your setup fee back.</p>
         <div class="lp-cta" id="demo">
-          <button type="button" class="lp-btn" data-apply id="heroClaim">Claim my free service</button>
-          <a class="lp-ghost" href="/services/">See all services</a>
+          <button type="button" class="lp-btn" data-apply id="heroApply">Apply now</button>
+          <a class="lp-claim" href="/claim/" id="heroClaim">Claim a free service</a>
+          <a class="lp-all" href="/services/">View all services</a>
         </div>
-        <p class="lp-fn" id="heroNote">Free 15-minute Growth Audit, plus 1 free service held for you for 48 hours.</p>
         <div class="vsl" id="vsl" data-src="" hidden><div class="ph" id="vslPh"></div></div>
       </div>
       <div class="lp-shot" aria-label="Demo booking screen on a phone">
@@ -694,7 +719,7 @@ window.tk=function(ev,p){try{if(window.gtag)gtag('event',ev,p||{})}catch(e){}};
 </main>
 
 <dialog class="apply" id="applyDlg" aria-labelledby="applyH">
-  <div class="apply-h"><b id="applyH">Claim your free service</b><span class="apply-t" id="applyT" hidden></span><button type="button" class="apply-x" id="applyX" aria-label="Close">&times;</button></div>
+  <div class="apply-h"><b id="applyH" tabindex="-1">Claim your free service</b><span class="apply-t" id="applyT" hidden></span><button type="button" class="apply-x" id="applyX" aria-label="Close">&times;</button></div>
   <form class="card" id="lf" novalidate>
     <div class="bar" aria-hidden="true"><i id="lfBar"></i></div>
     <div id="lfSteps"></div>
@@ -798,13 +823,12 @@ const opts=(k,q,first)=>`<p class="stepq"${first?'':' style="margin-top:10px;fon
 const multi=(k,q)=>`<p class="stepq" style="margin-top:10px;font-size:19px">${q} <small style="font-weight:600;opacity:.7">Pick all that apply</small></p><div class="opts">${Q[k].map(t=>`<button type="button" class="opt" data-m="1" data-k="${k}" data-v="${esc(t)}" aria-pressed="${D[k].includes(t)}">${esc(t)}</button>`).join('')}</div>`;
 let step=0;
 const S=[
- ()=>`<p class="steph">Only for companies I sign</p><p class="stepq">Pick 1 free service. I'll hold it for 48 hours.</p><div class="opts claim-opts">${CLAIMS.map(c=>`<button type="button" class="opt copt" data-k="claim" data-v="${esc(c[0])}" aria-pressed="${D.claim===c[0]}"><b>${esc(c[0])}</b><em>${c[1]} value</em><span>${esc(c[2])}</span></button>`).join('')}</div>
-   <p class="stepq" style="margin-top:14px;font-size:19px">Where should I send your hold?</p>
+ ()=>`<p class="steph">Only for companies I sign</p><p class="stepq">Pick 1 free service. It goes in your package.</p><div class="m-grid" role="radiogroup" aria-label="Free services">${CLAIMS.map(c=>`<button type="button" class="cl-card" role="radio" data-svc="${esc(c[0])}" aria-checked="${D.claim===c[0]}"><span class="cl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${c[3]}</svg></span><b>${esc(c[0])}</b><em>${c[1]} value</em><span class="cl-d">${esc(c[2])}</span><span class="cl-btn">Include in my package</span></button>`).join('')}</div><p class="note">Free if we work together. One per company.</p>`,
+ ()=>{const c=CLAIMS.find(x=>x[0]===D.claim);return (c?`<div class="picked"><div><b>${esc(c[0])}</b><span>${c[1]} value · held 48 hours</span></div>${offerOver()?'':'<button type="button" id="chg">Change</button>'}</div>`:'')+`<p class="stepq" style="margin-top:20px">${c?'Where should I send your hold?':'Where should I send your audit details?'}</p>
    <div class="field"><label for="fName">Your name</label><input id="fName" autocomplete="name" value="${esc(D.name)}"></div>
    <div class="two"><div class="field"><label for="fMobile">Mobile number</label><input id="fMobile" type="tel" inputmode="tel" autocomplete="tel" placeholder="(713) 555-0100" value="${esc(D.mobile)}"></div>
    <div class="field"><label for="fEmail">Email</label><input id="fEmail" type="email" autocomplete="email" value="${esc(D.email)}"></div></div>
-   <label class="consent"><input type="checkbox" id="fSms" ${D.sms?'checked':''}><span>Text me about my free service and audit (optional). Unplanned &amp; Co. sends texts about your request only, usually 1–4 messages. Msg & data rates may apply. Reply STOP to opt out, HELP for help. Not required. <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a>.</span></label>
-   <p class="note">Free only if we work together. One per company.</p>`,
+   <label class="consent"><input type="checkbox" id="fSms" ${D.sms?'checked':''}><span>Text me about my ${c?'free service and ':''}audit (optional). Unplanned &amp; Co. sends texts about your request only, usually 1–4 messages. Msg & data rates may apply. Reply STOP to opt out, HELP for help. Not required. <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a>.</span></label>`},
   ()=>`<p class="stepq">What kind of business do you run?</p><div class="opts">${TRADES.map(t=>`<button type="button" class="opt" data-k="trade" data-v="${esc(t)}" aria-pressed="${D.trade===t}">${esc(t)}</button>`).join('')}</div>`,
  ()=>`<p class="steph">Your business today</p>`+opts('want','About how much does your company do in a year?',1)+opts('avgJob','What’s your average job worth?'),
  ()=>`<p class="steph">Where it gets stuck</p>`+multi('sources','Where do most of your customers come from now?').replace('margin-top:10px;','')+opts('capacity','If we sent you 20 more booked jobs next month, could your team handle them?')+opts('bottleneck','What holds you back most right now?'),
@@ -813,8 +837,8 @@ const S=[
    <label class="consent" style="margin-top:6px"><input type="checkbox" id="fNoSite" ${D.noSite?'checked':''}><span>I don’t have a website yet</span></label>`,
  ()=>`<p class="steph">Last step</p>`+opts('best','Best way to reach you?',1)+opts('time','Best time?')+`<p class="note" style="margin-top:12px">Then pick your audit call time on the next screen.</p>`
 ];
-const SITE=4,CONTACT=0;
-const CLAIMS=[['Referral program','$900','Realtors, inspectors and past customers sending you jobs, with payouts tracked.'],['Past-customer comeback','$750','A campaign that gets customers you already served to book again.'],['Review request system','$400','A review request after every job, without asking by hand.'],['Google Business Profile tune-up','$400','Set up so you show up better in Maps.']];
+const SITE=5,CONTACT=1;
+const CLAIMS=[['Referral program','$900','Realtors, inspectors and past customers sending you jobs, with every payout tracked.'],['Past-customer comeback','$750','A campaign to customers you already served, so they book their next job with you.'],['Review request system','$400','A review request after every job, so 5-star reviews come in without asking by hand.'],['Google Business Profile tune-up','$400','Services, hours, photos and categories set up so you show up better in Maps.']];CLAIMS.forEach((c,i)=>c.push(["<circle cx=\"9\" cy=\"8\" r=\"3\"/><circle cx=\"17\" cy=\"10\" r=\"2.5\"/><path d=\"M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14.5 20c.2-2.3 1.4-4 3.5-4 1.9 0 3 1.3 3 4\"/>", "<path d=\"M3 12a9 9 0 1 0 3-6.7\"/><path d=\"M3 4v5h5\"/><path d=\"M12 8v4l3 2\"/>", "<path d=\"M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z\"/>", "<path d=\"M12 21s-7-6.3-7-11.5A7 7 0 0 1 19 9.5C19 14.7 12 21 12 21z\"/><circle cx=\"12\" cy=\"9.5\" r=\"2.5\"/>"][i]));
 let NF=false;
 const PLAN_SLUG={'Roofing':'roofing','HVAC':'hvac','Remodeling':'remodeling','Pools':'pools','Fencing / concrete':'fencing-concrete','Foundation':'foundation','Plumbing':'plumbing','Electrical / generators':'electrical','Landscaping':'landscaping','Med spa':'med-spa'};
 function planUrl(){return 'https://unplannedco.com/plans/'+(PLAN_SLUG[D.trade]||'other')+'.html'}
@@ -822,11 +846,11 @@ function notFit(){NF=true;tk('not_fit');const t=D.trade&&D.trade!=='Something el
 $('#pGo').addEventListener('click',async()=>{D.name=$('#pName').value.trim();D.email=$('#pEmail').value.trim();const pe=$('#pErr');if(!D.name||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(D.email)){pe.textContent='Add your name and a valid email.';pe.hidden=false;return}pe.hidden=true;const b=$('#pGo');b.disabled=true;b.textContent='Sending…';tk('plan_request',{trade:D.trade});
  try{await fetch(LEAD_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({action:'plan',id:AID,trade:D.trade,revenue:D.want,avgJob:D.avgJob,name:D.name,email:D.email,plan:planUrl(),source:window.LEAD_SOURCE||'Landing page'})})}catch(x){}
  $('#lfSteps').innerHTML=`<div class="done" style="text-align:left;justify-items:start"><p class="steph">Sent</p><h3 style="margin:0;font:700 22px/1.25 var(--display)">Check your inbox, ${esc(D.name.split(' ')[0])}.</h3><p class="lede" style="margin:0">Your growth plan is on its way to ${esc(D.email)}. You can also open it now.</p><a class="btn btn-main" href="${planUrl()}" target="_blank" rel="noopener">Open my growth plan</a></div>`;$('#lfBack').hidden=true})}
-function paint(){tk('form_step',{step:step+1});$('#lfNext').hidden=false;$('#lfNext').style.display='';$('#lfSteps').innerHTML=S[step]();$('#lfBar').style.width=((step+1)/S.length*100)+'%';$('#lfBack').hidden=step===0;$('#lfNext').textContent=step===S.length-1?'Apply for my audit':'Next';$('#lfErr').hidden=true}
+function paint(){tk('form_step',{step:step+1});$('#lfNext').hidden=false;$('#lfNext').style.display='';$('#lfSteps').innerHTML=S[step]();$('#lfBar').style.width=((step+1)/S.length*100)+'%';$('#lfBack').hidden=step<=minStep();$('#lfNext').textContent=step===S.length-1?'Apply for my audit':'Next';$('#lfErr').hidden=true}
 function err(m){const e=$('#lfErr');e.textContent=m;e.hidden=false}
 function read(){if(step===SITE&&$('#fSite')){D.site=$('#fSite').value.trim();D.noSite=$('#fNoSite').checked;if(D.noSite)D.site='N/A'}if(step===CONTACT&&$('#fName')){D.name=$('#fName').value.trim();D.mobile=$('#fMobile').value.trim();D.email=$('#fEmail').value.trim();D.sms=$('#fSms').checked}}
-function ok(){if(step===0){if(!D.claim)return 'Pick a free service.';if(!D.name)return 'Add your name.';if(D.mobile.replace(/\D/g,'').length<10)return 'Add a 10-digit mobile number.';if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(D.email))return 'Add an email like you@business.com.'}
-  if(step===1&&!D.trade)return 'Pick your type of business.';const need={2:['want','avgJob'],3:['capacity','bottleneck'],4:['size','timeline']}[step];if(need&&need.some(k=>!D[k]))return 'Pick one answer for each question.';if(step===3&&!D.sources.length)return 'Pick where your customers come from.';if(step===SITE&&!D.site&&!D.noSite)return 'Add your website, or tick “I don’t have a website yet.”';return ''}
+function ok(){if(step===0&&!D.claim)return 'Pick a free service.';if(step===1){if(!D.name)return 'Add your name.';if(D.mobile.replace(/\D/g,'').length<10)return 'Add a 10-digit mobile number.';if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(D.email))return 'Add an email like you@business.com.'}
+  if(step===2&&!D.trade)return 'Pick your type of business.';const need={3:['want','avgJob'],4:['capacity','bottleneck'],5:['size','timeline']}[step];if(need&&need.some(k=>!D[k]))return 'Pick one answer for each question.';if(step===4&&!D.sources.length)return 'Pick where your customers come from.';if(step===SITE&&!D.site&&!D.noSite)return 'Add your website, or tick “I don’t have a website yet.”';return ''}
 // saved-as-you-go: once we have contact info, unfinished applications reach Ryan's sheet (studio_partial)
 const AID=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2);
 let partial=false,finished=false;
@@ -837,18 +861,19 @@ function sendPartial(beacon){if(!LEAD_ENDPOINT||finished||!D.email)return;partia
 addEventListener('pagehide',()=>{if(finished)return;read();if(D.email)sendPartial(true)});
 // modal
 const dlg=$('#applyDlg');
-let tkOpen=false;function openApply(){if(!dlg.open){if(!tkOpen){tkOpen=true;tk('form_open');if(window.fbq)try{fbq('trackCustom','StartApplication')}catch(x){}}dlg.showModal();document.documentElement.classList.add('modal-open');const f=dlg.querySelector('.opt,input');if(f)f.focus()}}
+let tkOpen=false;function openApply(){if(!dlg.open){if(!tkOpen){tkOpen=true;tk('form_open');if(window.fbq)try{fbq('trackCustom','StartApplication')}catch(x){}}dlg.showModal();document.documentElement.classList.add('modal-open');startOffer();startTimer();$('#applyH').focus({preventScroll:true})}}
 dlg.addEventListener('close',()=>{document.documentElement.classList.remove('modal-open');if(finished)return;read();if(D.email)sendPartial()});
 $('#applyX').addEventListener('click',()=>dlg.close());
 dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
 document.addEventListener('click',e=>{const a=e.target.closest('a[href="#demo"],[data-apply]');if(!a)return;e.preventDefault();openApply()});
 $('#lfSteps').addEventListener('change',e=>{if(e.target.id==='fNoSite'){D.noSite=e.target.checked;const f=$('#fSite');f.disabled=D.noSite;if(D.noSite)f.value=''}});
 $('#lfSteps').addEventListener('click',e=>{const b=e.target.closest('.opt');if(!b)return;if(step===SITE){D.site=$('#fSite').value.trim()}if(b.dataset.m){const a=D[b.dataset.k],i=a.indexOf(b.dataset.v);i<0?a.push(b.dataset.v):a.splice(i,1);b.setAttribute('aria-pressed',String(i<0));return}D[b.dataset.k]=b.dataset.v;paint();
-  if(step===1&&b.dataset.k==='trade')setTimeout(()=>{step=2;paint()},180)});
+  if(step===2&&b.dataset.k==='trade')setTimeout(()=>{step=3;paint()},180)});
+$('#lfSteps').addEventListener('click',e=>{if(e.target.id==='chg'){read();step=0;paint();return}const b=e.target.closest('.cl-card');if(!b||step!==0)return;D.claim=b.dataset.svc;document.querySelectorAll('#lfSteps .cl-card').forEach(x=>x.setAttribute('aria-checked',String(x===b)));setTimeout(()=>{step=1;paint();dlg.scrollTop=0},260)});
 $('#lfBack').addEventListener('click',()=>{if(NF){NF=false;paint();return}read();step=Math.max(0,step-1);paint()});
 $('#lf').addEventListener('submit',async e=>{e.preventDefault();read();const m=ok();if(m)return err(m);
-  if(step===2&&D.want==='Under $150k a year')return notFit();
-  if(step===0)claimNow();
+  if(step===3&&D.want==='Under $150k a year')return notFit();
+  if(step===1){if(D.claim)claimNow();else saveContact()}
   if(step<S.length-1){step++;paint();$('#applyDlg').scrollTop=0;return}
   const btn=$('#lfNext');btn.disabled=true;btn.textContent='Sending…';
   const lead=payload('studio_lead');
@@ -858,22 +883,34 @@ $('#lf').addEventListener('submit',async e=>{e.preventDefault();read();const m=o
   if(sent){tk('generate_lead',{trade:D.trade});if(window.fbq)try{fbq('track','Lead',{content_name:D.trade})}catch(x){}}
   if(!sent){btn.disabled=false;btn.textContent='Apply for my audit';const live=/github\.io|unplannedco\.com/.test(location.hostname);return err(!LEAD_ENDPOINT?'Preview only: the form sends once the live page is connected.':live?'That didn’t go through. Check your connection and try again.':'This preview can’t send applications. Apply on the live page: unplannedco.com')}
   $('#lf').innerHTML=`<div class="done"><span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="#7FD1A8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span><h3>You're in, ${esc(D.name.split(' ')[0])}.</h3><p class="conf">Confirmation sent to ${esc(D.email)}.</p><p class="lede">${D.want==='Under $150k a year'?'Thanks! Check your email for a few free tips that help most at your stage.':D.capacity.startsWith('No')?'Thanks! Since your team is already full, we\'ll start with systems that free up your time, not more leads. Pick a time below for your 15-minute call, and we\'ll send you a free plan based on your answers.':'Next step: pick a time below for your free 15-minute audit. We\'ll also send you a free plan based on your answers.'}</p>${D.want==='Under $150k a year'?'':`<div id="bkFlow"></div>`}${PRECALL_VSL&&D.want!=='Under $150k a year'?`<div class="precall"><b>Before your call: watch this short video</b><p>How it works, how it’s priced, contract length, how much of your time it takes, and what happens if we miss the target.</p>${ytId(PRECALL_VSL)?`<div class="vsl" style="margin:4px 0 0;width:100%"><iframe src="${esc(ytEmbed(PRECALL_VSL))}" title="Before your call" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div>`:`<a class="btn btn-line" href="${esc(PRECALL_VSL)}" target="_blank" rel="noopener">Watch before our call</a>`}</div>`:''}</div>`;if(document.getElementById('bkFlow'))bkStart(D)});
-// Free service claim: step 1 of the application, personal 48-hour hold (never resets)
-const CKEY='uc_claim',HOLD=48*3600*1000;
-const loadClaim=()=>{try{return JSON.parse(localStorage.getItem(CKEY)||'null')}catch(x){return null}};
-function claimNow(){let c=loadClaim();if(!c||c.svc!==D.claim){c={svc:D.claim,val:(CLAIMS.find(x=>x[0]===D.claim)||[])[1]||'',t:(c&&c.t)||Date.now()};try{localStorage.setItem(CKEY,JSON.stringify(c))}catch(x){}}
-  window.PROGRAM='Free service claim: '+c.svc+' (claimed '+new Date(c.t).toLocaleString('en-US',{timeZone:'America/Chicago'})+')';
+// Free service claim. One personal 48-hour window per browser: starts the first time they see the offer, never resets.
+const CKEY='uc_claim',OKEY='uc_offer_t',HOLD=48*3600*1000;
+const lsGet=k=>{try{return localStorage.getItem(k)}catch(x){return null}},lsSet=(k,v)=>{try{localStorage.setItem(k,v)}catch(x){}};
+const loadClaim=()=>{try{return JSON.parse(lsGet(CKEY)||'null')}catch(x){return null}};
+function offerStart(){const v=+lsGet(OKEY);if(v)return v;const c=loadClaim();return c&&c.t?c.t:0}
+function startOffer(){if(!offerStart())lsSet(OKEY,String(Date.now()));else if(!+lsGet(OKEY))lsSet(OKEY,String(offerStart()))}
+const offerOver=()=>{const t=offerStart();return !!t&&t+HOLD<=Date.now()};
+function minStep(){return (loadClaim()||offerOver())?1:0}
+function saveContact(){const c=loadClaim();if(c){Object.assign(c,{name:D.name,mobile:D.mobile,email:D.email,sms:D.sms});lsSet(CKEY,JSON.stringify(c))}if(LEAD_ENDPOINT&&!finished)sendPartial()}
+function claimNow(){startOffer();const t=offerStart();const c={svc:D.claim,val:(CLAIMS.find(x=>x[0]===D.claim)||[])[1]||'',t,name:D.name,mobile:D.mobile,email:D.email,sms:D.sms};lsSet(CKEY,JSON.stringify(c));
+  window.PROGRAM='Free service claim: '+c.svc+' (offer started '+new Date(t).toLocaleString('en-US',{timeZone:'America/Chicago'})+')';
   if(LEAD_ENDPOINT&&!finished){const body=JSON.stringify(Object.assign(payload('studio_partial'),{stage:'Claimed free service: '+c.svc,program:window.PROGRAM}));fetch(LEAD_ENDPOINT,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain;charset=utf-8'},body}).catch(()=>{})}
-  if(window.fbq)try{fbq('trackCustom','ClaimFreeService',{content_name:c.svc})}catch(x){}tk('claim_free_service',{service:c.svc});$('#applyH').textContent='Growth Audit application';startTimer()}
+  if(window.fbq)try{fbq('trackCustom','ClaimFreeService',{content_name:c.svc})}catch(x){}tk('claim_free_service',{service:c.svc});$('#applyH').textContent='Growth Audit application';heroState();startTimer()}
+function heroState(){const c=loadClaim(),a=$('#heroApply'),h=$('#heroClaim');if(finished)return;
+  if(c&&!offerOver()){if(a)a.textContent='Finish my application';if(h)h.textContent='My free service is held'}
+  else if(offerOver()&&h){h.textContent='Free service offer ended';h.href='/claim/'}}
 const pad2=n=>String(n).padStart(2,'0');let cTmr=null;
-function startTimer(){const c=loadClaim();if(!c)return;clearInterval(cTmr);const tick=()=>{const left=c.t+HOLD-Date.now(),t=$('#applyT'),h=$('#heroClaim');
-  if(left<=0){clearInterval(cTmr);t.hidden=true;if(h&&!finished)h.textContent='Apply for my free Growth Audit';return}
+function startTimer(){const t0=offerStart();if(!t0)return;clearInterval(cTmr);const tick=()=>{const c=loadClaim(),left=t0+HOLD-Date.now(),t=$('#applyT');
+  if(left<=0){clearInterval(cTmr);t.hidden=true;heroState();return}
   const x=Math.floor(left/1000),str=pad2(Math.floor(x/3600))+':'+pad2(Math.floor(x%3600/60))+':'+pad2(x%60);
-  t.hidden=false;t.textContent=c.svc+' held · '+str;if(h&&!finished)h.textContent='Finish my application · '+str+' left'};tick();cTmr=setInterval(tick,1000)}
-(function(){const c=loadClaim();if(c&&c.t+HOLD>Date.now()){D.claim=c.svc;step=1;$('#applyH').textContent='Growth Audit application';window.PROGRAM='Free service claim: '+c.svc+' (claimed '+new Date(c.t).toLocaleString('en-US',{timeZone:'America/Chicago'})+')';startTimer()}})();
-document.addEventListener('click',e=>{const a=e.target.closest('a[href="#claim"],a[href="/#claim"]');if(!a)return;e.preventDefault();openApply()});
-if(location.hash==='#claim')setTimeout(openApply,300);
-document.addEventListener('click',e=>{const b=e.target.closest('.lp-trade');if(!b)return;D.trade=b.dataset.v;step=1;paint();openApply()});
+  t.hidden=false;t.textContent=c?c.svc+' held · '+str:str+' left to claim'};tick();cTmr=setInterval(tick,1000)}
+(function(){const c=loadClaim(),qs=new URLSearchParams(location.search),pick=qs.get('claim'),over=offerOver();
+  if(c){D.claim=c.svc;['name','mobile','email'].forEach(k=>{if(c[k])D[k]=c[k]});D.sms=!!c.sms;window.PROGRAM='Free service claim: '+c.svc+' (offer started '+new Date(c.t).toLocaleString('en-US',{timeZone:'America/Chicago'})+')';$('#applyH').textContent='Growth Audit application';step=D.email?2:1}
+  else if(over){step=1;$('#applyH').textContent='Growth Audit application'}
+  if(pick&&CLAIMS.some(x=>x[0]===pick)&&!over){D.claim=pick;step=1;$('#applyH').textContent='Claim your free service'}
+  heroState();if(offerStart())startTimer();
+  if(pick||qs.has('apply')){history.replaceState(null,'',location.pathname+location.hash);paint();setTimeout(openApply,150)}})();
+if(location.hash==='#claim')location.replace('/claim/');
 paint();
 })();
 </script>
